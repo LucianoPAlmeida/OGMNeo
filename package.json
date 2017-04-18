@@ -4,7 +4,7 @@
   "description": "ORM abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./__test__/**"
+    "test": "tape ./__test__/**"
   },
   "author": "Luciano Almeida <passos.luciano@outlook.com>",
   "license": "MIT",
@@ -14,9 +14,7 @@
     "rx": "^4.1.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "eslint": "^3.19.0",
-    "mocha": "^3.2.0"
+    "blue-tape": "^1.0.0",
+    "eslint": "^3.19.0"
   }
 }
