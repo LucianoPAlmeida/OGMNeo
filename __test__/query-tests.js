@@ -22,11 +22,33 @@ test('Test condition to query method', (assert) => {
     assert.end();
 });
 
+test('Test where method', (assert) => {
+    let queryBuilder = new QueryBuilder('Object');
+    let where = queryBuilder.and('name', { $eq: 'derp' })
+        .or('age', { $lt: 25 })
+        .and('last', { $eq: 'value' })
+        .where();
+    assert.equal(where, 'WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\'');
+    assert.end();
+});
+
+test('Test count method', (assert) => {
+    let queryBuilder = new QueryBuilder('Object');
+    let where = queryBuilder.and('name', { $eq: 'derp' })
+        .or('age', { $lt: 25 })
+        .and('last', { $eq: 'value' })
+        .count();
+    assert.equal(where, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN COUNT(n) as count');
+    assert.end();
+});
+
+
+
 test('Test query builder', (assert) => {
     let queryBuilder = new QueryBuilder('Object');
     let cypher = queryBuilder.and('name', { $eq: 'derp' })
         .or('age', { $lt: 25 })
-        .and( 'last', { $eq: 'value' })
+        .and('last', { $eq: 'value' })
         .build();
     assert.equal(cypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN n');
     queryBuilder.limit(25);
