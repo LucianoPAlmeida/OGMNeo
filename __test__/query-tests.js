@@ -49,10 +49,10 @@ test('Test query builder', (assert) => {
     let cypher = queryBuilder.and('name', { $eq: 'derp' })
         .or('age', { $lt: 25 })
         .and('last', { $eq: 'value' })
-        .build();
+        .match();
     assert.equal(cypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN n');
     queryBuilder.limit(25);
-    cypher = queryBuilder.build();
+    cypher = queryBuilder.match();
     assert.equal(cypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN n LIMIT 25');
 
     assert.end();
