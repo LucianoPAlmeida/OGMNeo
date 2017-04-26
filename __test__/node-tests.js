@@ -66,3 +66,6 @@ test('Test count', (assert) => {
     });
 });
 
+test.onFinish(() => {
+    ORMNeo.disconnet();
+});
