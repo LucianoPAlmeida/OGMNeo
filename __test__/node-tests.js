@@ -10,7 +10,7 @@ ORMNeo.connect('neo4j', 'databasepass', 'localhost');
 
 var nodeId = 0;
 
-test('Test create node', (assert) => {
+test('Test create node', (assert) => {    
     ORMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
         assert.notEqual(node, null);
         assert.notEqual(node.id, null);
