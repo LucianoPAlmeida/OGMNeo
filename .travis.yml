@@ -1,6 +1,42 @@
-language: node_js
+language: java
+
+jdk:
+  - oraclejdk8
+
 node_js:
-  - 7
-sudo: required
-services:
-  - neo4j
+  - "7"
+
+sudo: true
+
+
+env:
+  - NEO4J_VERSION="3.1.0"
+
+
+before_install:
+  - nvm install 5.11.0
+  - nvm use 5.11.0
+  # install Neo4j manually:
+  - wget dist.neo4j.org/neo4j-community-$NEO4J_VERSION-unix.tar.gz
+  - tar -xzf neo4j-community-$NEO4J_VERSION-unix.tar.gz
+  - neo4j-community-$NEO4J_VERSION/bin/neo4j start
+
+install:
+  - npm install
+
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  # need to change the password initially: https://github.com/aseemk/node-neo4j-template/blob/master/.travis.yml
+  - curl -vX POST http://neo4j:neo4j@localhost:7474/user/neo4j/password -d"password=$NEO4J_PASS"
+
+script:
+  # run the test
+  - npm run lint
+  - npm test
+
+
+# this *does* CI pull requests to master:
+branches:
+  only:
+    - master
