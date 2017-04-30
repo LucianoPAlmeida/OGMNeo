@@ -1,4 +1,4 @@
-language: java
+language: node_js
 
 jdk:
   - oraclejdk8
