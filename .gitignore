@@ -16,11 +16,7 @@ pids
 lib-cov
 
 # Docs
-out
-fonts
-scripts
-styles
-*.html
+docs
 
 # Coverage directory used by tools like istanbul
 coverage

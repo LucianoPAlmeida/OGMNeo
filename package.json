@@ -4,7 +4,7 @@
   "description": "ORM abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
-    "build": "jsdoc ./lib/** -d ./",
+    "build": "jsdoc ./lib/** -d ./docs",
     "test": "tape ./__test__/**"
   },
   "author": "Luciano Almeida <passos.luciano@outlook.com>",
