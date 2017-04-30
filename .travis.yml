@@ -1,6 +1,4 @@
-language: node_js
 language: java
-
 jdk:
   - oraclejdk8
 
@@ -15,8 +13,8 @@ env:
 
 
 before_install:
-  - nvm install 5.11.0
-  - nvm use 5.11.0
+  # - nvm install 5.11.0
+  # - nvm use 5.11.0
   # install Neo4j manually:
   - wget dist.neo4j.org/neo4j-community-$NEO4J_VERSION-unix.tar.gz
   - tar -xzf neo4j-community-$NEO4J_VERSION-unix.tar.gz
