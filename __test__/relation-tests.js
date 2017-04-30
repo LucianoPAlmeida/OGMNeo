@@ -105,7 +105,21 @@ test('Test COUNT relations', (assert) => {
 });
 
 test('Test EXISTS relations', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let exists1 = ORMNeoRelation.exists(node1.id, node2.id, 'relatedto');
+    let exists2 = ORMNeoRelation.exists(node1.id, node2.id, 'other');
+    let exists3 = ORMNeoRelation.exists(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'}));
+
+    Promise.all([exists1, exists2, exists3]).then((exists) => {
+        assert.equal(exists[0], true);
+        assert.equal(exists[1], false);
+        assert.equal(exists[2], true);
         assert.end();
+    }).catch((error)=> {
+        assert.fail('Fail with error');
+        assert.end();
+    });
 
 });
 
