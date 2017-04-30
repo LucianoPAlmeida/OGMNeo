@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - 7
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker pull neo4j
+  - docker run \
+    --publish=7474:7474 --publish=7687:7687 
+    neo4j:3.1
+  - docker ps -a
+  - curl -H "Content-Type: application/json" -X POST -d '{"password": $NEO$J_PASS}' -u neo4j:neo4j http://localhost:7474/user/neo4j/password
