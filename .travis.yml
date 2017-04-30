@@ -6,7 +6,7 @@ services:
   - docker
 before_install:
   - docker pull neo4j
-  - docker run --publish=7474:7474 --publish=7687:7687 --volume=$HOME/neo4j/data:/data --volume=$HOME/neo4j/logs:/logs neo4j:3.1; kill %%
+  - docker run --publish=7474:7474 --publish=7687:7687 --volume=$HOME/neo4j/data:/data --volume=$HOME/neo4j/logs:/logs /bin/sh
   - docker ps -a
   - curl -H \"Content-Type: application/json\" -X POST -d \'{\"password\":\"$NEO4J_PASS\"}\' -u neo4j:neo4j http://localhost:7474/user/neo4j/password
 
