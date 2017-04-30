@@ -82,7 +82,27 @@ test('Test UPDATE relation', (assert) => {
 });
 
 test('Test FIND relations', (assert) => {
-    assert.end();
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let find1 = ORMNeoRelation.find(node1.id, node2.id, 'relatedto');
+    let find2 = ORMNeoRelation.find(node1.id, node2.id, 'other');
+    let find3 = ORMNeoRelation.find(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'}));
+
+    Promise.all([find1, find2, find3]).then((finds) => {
+        assert.equal(finds[0].length, 2);
+        finds[0].forEach((rel) => {
+            assert.equal(rel.type, 'relatedto');
+        });
+        assert.equal(_.isEmpty(finds[1]), true);
+        assert.equal(finds[2].length, 1);
+        let rel = _.first(finds[2]);
+        assert.equal(rel.type, 'relatedto');
+        assert.equal(rel.property, 'c');
+        assert.end();
+    }).catch((error)=> {
+        assert.fail('Fail with error');
+        assert.end();
+    });
 });
 
 test('Test COUNT relations', (assert) => {
@@ -124,13 +144,25 @@ test('Test EXISTS relations', (assert) => {
 });
 
 test('TEST DELETE relation', (assert) => {
-    assert.end();
+    let rel = _.first(relations);
+    assert.notEqual(rel, undefined);
+    ORMNeoRelation.deleteRelation(rel.id).then((deletedRel) => {
+        assert.equal(rel.id, deletedRel.id);
+        assert.end();
+    }).catch((error) => {
+        assert.fail();
+        assert.end();
+    });
 });
 
 test('Test DELETE ALL relations', (assert) => {
-    assert.end();
-});
-
-test('Test COUNT relation', (assert) => {
-    assert.end();
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    ORMNeoRelation.deleteAll(node1.id, node2.id, 'relatedto').then((deletedRels) => {
+        assert.equal(deletedRels.length, 1);
+        assert.end();
+    }).catch((error) => {
+        assert.fail();
+        assert.end();
+    });
 });
