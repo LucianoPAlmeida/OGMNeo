@@ -4,6 +4,7 @@
   "description": "ORM abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
+    "build": "jsdoc ./lib/** -d ./",
     "test": "tape ./__test__/**"
   },
   "author": "Luciano Almeida <passos.luciano@outlook.com>",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",
-    "eslint": "^3.19.0"
+    "eslint": "^3.19.0",
+    "jsdoc": "^3.4.3"
   }
 }
