@@ -23,9 +23,7 @@ install:
   - npm install
 
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - curl -vX POST http://neo4j:neo4j@localhost:7474/user/neo4j/password -d"password=databasepass"
+  - curl -vX POST http://neo4j:neo4j@localhost:7474/user/neo4j/password -d"password='"$NEO4J_PASS"'" 
 
 script:
   - npm test
