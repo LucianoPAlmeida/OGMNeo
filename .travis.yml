@@ -20,6 +20,7 @@ before_install:
   - neo4j-community-$NEO4J_VERSION/bin/neo4j start
 
 install:
+  - npm install -g codecov
   - npm install
 
 before_script:
@@ -27,6 +28,8 @@ before_script:
 
 script:
   - npm test
+  - istanbul cover ./__test__/** ./node_modules/.bin/codecov
+  - codecov
 
 # this *does* CI pull requests to master and dev:
 branches:
