@@ -4,7 +4,7 @@ Abstract some trivial operations on neo4j driver for nodejs and make the use sim
 
 ## Instalation
 ```sh
- npm install --save https://github.com/LucianoPAlmeida/ORMNeo/master
+ npm install ormneo
 ```
 ## Usage 
 
@@ -14,16 +14,16 @@ Abstract some trivial operations on neo4j driver for nodejs and make the use sim
 ORMNeo.connect('user', 'pass', 'localhost');
 ```
    ORMNeo connects using the neo4j bolt protocol.
-   
+
 ### Create node example
-  
+
 ```js
   ORMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
        //Created returned object => {id: 1, name: 'name', tes: 3}
-    }).catch((error) => {
-        //Handle error
-    });
-  ```
+  }).catch((error) => {
+       //Handle error
+  });
+```
 
 ### Find Nodes 
   ```js
@@ -38,9 +38,9 @@ ORMNeo.connect('user', 'pass', 'localhost');
 ```js
   ORMNeoRelation.relate(node1.id, node2.id, 'relatedto', {property: 'a'}).then((rels) => {
         // Created relation node {id: 2, type: 'relatedto', property: 'a'}
-    }).catch((error) => {
+  }).catch((error) => {
         //Handle error
-    });
+  });
 ```
 
 ## Find Relations 
@@ -48,9 +48,9 @@ ORMNeo.connect('user', 'pass', 'localhost');
 ```js
   ORMNeoRelation.find(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'})).then((nodes) => {
         //Found relation nodes.
-    }).catch((error) => {
+  }).catch((error) => {
         //Handle error.
-    });
+  });
 ```
 
 ## Documentation

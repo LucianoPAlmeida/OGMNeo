@@ -7,6 +7,14 @@
     "build": "jsdoc ./lib/** -d ./docs",
     "test": "tape ./__test__/**"
   },
+  "homepage": "https://github.com/LucianoPAlmeida/ORMNeo",
+  "bugs": {
+    "url": "https://github.com/LucianoPAlmeida/ORMNeo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LucianoPAlmeida/ORMNeo.git"
+  },
   "author": "Luciano Almeida <passos.luciano@outlook.com>",
   "license": "MIT",
   "dependencies": {
