@@ -1,4 +1,4 @@
-language: java
+language: java # Work around to make neo4j works.
 
 jdk:
   - oraclejdk8
@@ -28,11 +28,10 @@ before_script:
   - curl -vX POST http://neo4j:neo4j@localhost:7474/user/neo4j/password -d"password=databasepass"
 
 script:
-  # run the test
   - npm test
 
-
-# this *does* CI pull requests to master:
+# this *does* CI pull requests to master and dev:
 branches:
   only:
     - master
+    - dev
