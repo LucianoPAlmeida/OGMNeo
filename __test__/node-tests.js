@@ -6,7 +6,7 @@ const ORMNeoNode = require('../lib/ormneo-node');
 const ORMQueryBuilder = require('../lib/ormneo-query');
 const _ = require('lodash');
 
-ORMNeo.connect('neo4j', 'databasepass', 'localhost');
+ORMNeo.connect(process.env.NEO4J_USER, process.env.NEO4J_PASS, process.env.NEO4J_HOST);
 
 var nodeId = 0;
 
