@@ -18,8 +18,6 @@ test('Test create node', (assert) => {
         assert.deepEqual(node.tes, 3);
         nodeId = node.id;
         assert.end();
-    }).catch((error) => {
-        assert.end();
     });
 });
 
@@ -30,9 +28,6 @@ test('Test update node', (assert) => {
         assert.equal(node.name, undefined);
         assert.deepEqual(node.tes, 3);
         assert.end();
-    }).catch((error) => {
-        assert.fail();
-        assert.end();
     });
 });
 
@@ -42,9 +37,6 @@ test('Test get by id', (assert) => {
         assert.notEqual(node.id, null);
         assert.equal(node.name, undefined);
         assert.deepEqual(node.tes, 3);
-        assert.end();
-    }).catch((error) => {
-        assert.fail();
         assert.end();
     });
 });
@@ -57,9 +49,6 @@ test('Test execute query with results', (assert) => {
             assert.ok(node.tes == 3);
         });
         assert.end();
-    }).catch((error) => {
-        assert.fail();
-        assert.end();
     });
 });
 
@@ -68,17 +57,11 @@ test('Test execute query with NO results', (assert) => {
     ORMNeoNode.execute(query).then((nodes) => {
         assert.ok(_.isEmpty(nodes));
         assert.end();
-    }).catch((error) => {
-        assert.fail();
-        assert.end();
     });
 });
 
 test('Test delete NODE', (assert) => {
     ORMNeoNode.delete({ id: nodeId }).then(() => {
-        assert.end();
-    }).catch((error) => {
-        assert.fail();
         assert.end();
     });
 });
@@ -86,9 +69,6 @@ test('Test delete NODE', (assert) => {
 test('Test count', (assert) => {
     ORMNeoNode.count(new ORMQueryBuilder('Object')).then((count) => {
         assert.equal(count, 0);
-        assert.end();
-    }).catch((error) => {
-        assert.fail();
         assert.end();
     });
 });
