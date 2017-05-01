@@ -23,8 +23,7 @@ test('Test condition to query method', (assert) => {
 });
 
 test('Test where method', (assert) => {
-    let queryBuilder = new QueryBuilder('Object');
-    let where = queryBuilder.and('name', { $eq: 'derp' })
+    let where = new QueryBuilder('Object').and('name', { $eq: 'derp' })
         .or('age', { $lt: 25 })
         .and('last', { $eq: 'value' })
         .where();
