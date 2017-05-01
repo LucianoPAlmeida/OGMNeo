@@ -31,6 +31,7 @@ test('Test update node', (assert) => {
         assert.deepEqual(node.tes, 3);
         assert.end();
     }).catch((error) => {
+        assert.fail();
         assert.end();
     });
 });
@@ -43,7 +44,7 @@ test('Test get by id', (assert) => {
         assert.deepEqual(node.tes, 3);
         assert.end();
     }).catch((error) => {
-        assert.error(error);
+        assert.fail();
         assert.end();
     });
 });
@@ -57,7 +58,7 @@ test('Test execute query with results', (assert) => {
         });
         assert.end();
     }).catch((error) => {
-        assert.error(error);
+        assert.fail();
         assert.end();
     });
 });
@@ -68,7 +69,7 @@ test('Test execute query with NO results', (assert) => {
         assert.ok(_.isEmpty(nodes));
         assert.end();
     }).catch((error) => {
-        assert.error(error);
+        assert.fail();
         assert.end();
     });
 });
@@ -77,7 +78,7 @@ test('Test delete NODE', (assert) => {
     ORMNeoNode.delete({ id: nodeId }).then(() => {
         assert.end();
     }).catch((error) => {
-        assert.error(error);
+        assert.fail();
         assert.end();
     });
 });
@@ -87,7 +88,7 @@ test('Test count', (assert) => {
         assert.equal(count, 0);
         assert.end();
     }).catch((error) => {
-        assert.error(error);
+        assert.fail();
         assert.end();
     });
 });
