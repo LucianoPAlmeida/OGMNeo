@@ -11,13 +11,17 @@ Abstract some trivial operations on neo4j driver for nodejs and make the use sim
 ### Connecting to neo4j database
 
 ```js
-ORMNeo.connect('user', 'pass', 'localhost');
+const ormneo = require('ormneo');
+ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
+
 ```
    ORMNeo connects using the neo4j bolt protocol.
 
 ### Create node example
 
 ```js
+  const ORMNeoNode = require('ormneo').ORMNeoNode;
+  
   ORMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
        //Created returned object => {id: 1, name: 'name', tes: 3}
   }).catch((error) => {
@@ -27,7 +31,11 @@ ORMNeo.connect('user', 'pass', 'localhost');
 
 ### Find Nodes 
   ```js
-    let query = ORMQueryBuilder.query('test').and('tes', {$eq: 3});
+    const ormneo = require('ormneo');
+    const ORMNeoNode = ormneo.ORMNeoNode;
+    const QueryBuilder = ormneo.QueryBuilder;
+    
+    let query = QueryBuilder.query('test').and('tes', {$eq: 3});
     ORMNeoNode.execute(query).then((nodes) => {
         //Found nodes.
     }).catch((error) => {
@@ -36,6 +44,7 @@ ORMNeo.connect('user', 'pass', 'localhost');
   ```
 ### Create relations
 ```js
+  const ORMNeoRelation = require('ormneo').ORMNeoRelation;
   ORMNeoRelation.relate(node1.id, node2.id, 'relatedto', {property: 'a'}).then((rels) => {
         // Created relation node {id: 2, type: 'relatedto', property: 'a'}
   }).catch((error) => {
@@ -46,6 +55,7 @@ ORMNeo.connect('user', 'pass', 'localhost');
 ## Find Relations 
 
 ```js
+  const ORMNeoRelation = require('ormneo').ORMNeoRelation;
   ORMNeoRelation.find(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'})).then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
@@ -57,7 +67,9 @@ ORMNeo.connect('user', 'pass', 'localhost');
 You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object.
 
 ```js
-  let session = ORMNeo.session();
+   const ormneo = require('ormneo');
+
+  let session = ormneo.Connection.session();
   session
   .run('CREATE (p:Person {name : {name} }) RETURN p', {name: 'Derp'})
   .then(function (result) {
