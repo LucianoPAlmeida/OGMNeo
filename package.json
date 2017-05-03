@@ -19,8 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.4",
-    "neo4j-driver": "^1.2.0",
-    "rx": "^4.1.0"
+    "neo4j-driver": "^1.2.0"
   },
   "devDependencies": {
     "blue-tape": "^1.0.0",
