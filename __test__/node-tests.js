@@ -68,11 +68,7 @@ test('Test delete NODE', (assert) => {
 
 test('Test count', (assert) => {
     ORMNeoNode.count(new ORMQueryBuilder('Object')).then((count) => {
+        assert.plan(1);
         assert.equal(count, 0);
-        assert.end();
     });
-});
-
-test.onFinish(() => {
-    ORMNeo.disconnet();
 });

@@ -28,7 +28,7 @@ before_script:
 
 script:
   - npm test
-  - istanbul cover __test__/*.js ./node_modules/.bin/codecov
+  - istanbul cover node_modules/.bin/tape ./__test__/*.js
   - codecov
 
 # this *does* CI pull requests to master and dev:

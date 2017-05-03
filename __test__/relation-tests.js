@@ -166,3 +166,7 @@ test('Test DELETE ALL relations', (assert) => {
         assert.end();
     });
 });
+
+test.onFinish(() => {
+    ORMNeo.disconnet();
+});
