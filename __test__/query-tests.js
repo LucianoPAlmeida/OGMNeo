@@ -21,7 +21,7 @@ test('Test condition to query method', (assert) => {
     assert.equal(query, 'n.age >= 50');
     query = builder._conditionToQuery({ 'age': { $e: 50 } });
     assert.equal(query, '');
-    query = builder._conditionToQuery({ 'age': {} });
+    query = builder._conditionToQuery({});
     assert.equal(query, '');
     assert.end();
 });
