@@ -48,8 +48,7 @@ test('Test FAIL CREATE TYPE relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
     ORMNeoRelation.relate(node1.id, node2.id, null , {property: 'a'}).then(()=> {
-        assert.fail();
-        assert.end();
+
     }).catch((error)=> {
         assert.equal(error.message, 'A relatioship type must be specified');
         assert.end();
@@ -59,8 +58,7 @@ test('Test FAIL CREATE TYPE relation', (assert) => {
 test('Test FAIL CREATE IDS relation', (assert) => {
     let node2 = nodes[1];
     ORMNeoRelation.relate('dasdsa', node2.id, 'type' , {property: 'a'}).then(()=> {
-        assert.fail();
-        assert.end();
+        
     }).catch((error)=> {
         assert.equal(error.message, 'Ids from node must to be integers');
         assert.end();
