@@ -33,9 +33,9 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
   ```js
     const ormneo = require('ormneo');
     const ORMNeoNode = ormneo.ORMNeoNode;
-    const QueryBuilder = ormneo.QueryBuilder;
+    const ORMNeoQuery = ormneo.ORMNeoQuery;
     
-    let query = QueryBuilder.query('test').and('tes', {$eq: 3});
+    let query = ORMNeoQuery.query('test').and('tes', {$eq: 3});
     ORMNeoNode.execute(query).then((nodes) => {
         //Found nodes.
     }).catch((error) => {
@@ -55,8 +55,11 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ## Find Relations 
 
 ```js
-  const ORMNeoRelation = require('ormneo').ORMNeoRelation;
-  ORMNeoRelation.find(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'})).then((nodes) => {
+  conts ormneo = require('ormneo');
+  const ORMNeoRelation = ormneo.ORMNeoRelation;
+  const ORMNeoQuery = ormneo.ORMNeoQuery;
+
+  ORMNeoRelation.find(node1.id, node2.id, 'relatedto',ORMNeoQuery.query().and('property', {$eq: 'c'})).then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
         //Handle error.
@@ -67,7 +70,7 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object.
 
 ```js
-   const ormneo = require('ormneo');
+  const ormneo = require('ormneo');
 
   let session = ormneo.Connection.session();
   session
