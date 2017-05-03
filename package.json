@@ -1,6 +1,6 @@
 {
   "name": "ormneo",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "ORM abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
