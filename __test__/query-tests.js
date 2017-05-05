@@ -23,6 +23,10 @@ test('Test condition to query method', (assert) => {
     assert.equal(query, '');
     query = builder._conditionToQuery({});
     assert.equal(query, '');
+    query = builder._conditionToQuery({'name' : {$regex: '.*[tes]'} });
+    assert.equal(query, 'n.name =~ \'.*[tes]\'');
+    query = builder._conditionToQuery({'name' : {$regex: 3} });
+    assert.equal(query, '');
     assert.end();
 });
 
