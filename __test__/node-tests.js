@@ -61,8 +61,11 @@ test('Test execute query with NO results', (assert) => {
 });
 
 test('Test delete NODE', (assert) => {
-    ORMNeoNode.delete({ id: nodeId }).then(() => {
+    ORMNeoNode.delete({ id: nodeId }).then((deleted) => {
+        assert.equal(deleted, true);
         assert.end();
+    }).catch((error) => {
+        console.error(error);
     });
 });
 
