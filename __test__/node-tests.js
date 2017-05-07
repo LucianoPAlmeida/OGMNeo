@@ -11,7 +11,7 @@ ORMNeo.connect(process.env.NEO4J_USER, process.env.NEO4J_PASS, process.env.NEO4J
 var nodeId = 0;
 
 test('Test create node', (assert) => {    
-    ORMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
+    ORMNeoNode.create({ name: 'name', tes: 3 , date: new Date()}, 'test').then((node) => {
         assert.notEqual(node, null);
         assert.notEqual(node.id, null);
         assert.deepEqual(node.name, 'name');
