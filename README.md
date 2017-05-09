@@ -45,7 +45,7 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ### Create relations
 ```js
   const ORMNeoRelation = require('ormneo').ORMNeoRelation;
-  ORMNeoRelation.relate(node1.id, node2.id, 'relatedto', {property: 'a'}).then((rels) => {
+  ORMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'}).then((rels) => {
         // Created relation node {id: 2, type: 'relatedto', property: 'a'}
   }).catch((error) => {
         //Handle error
@@ -71,18 +71,12 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
 
 ```js
   const ormneo = require('ormneo');
+  const ORMNeoCypher = ormneo.ORMNeoCypher;
 
-  let session = ormneo.Connection.session();
-  session
-  .run('CREATE (p:Person {name : {name} }) RETURN p', {name: 'Derp'})
-  .then(function (result) {
-    result.records.forEach(function (record) {
-      console.log(record);
-    });
-    session.close();
-  })
-  .catch(function (error) {
-    console.log(error);
+  ORMNeoCypher.execute(cypher).then((result) => {
+     console.log(result);
+  }).catch((error) => {
+     reject(error);
   });
 ``` 
 
