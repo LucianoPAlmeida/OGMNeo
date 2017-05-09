@@ -24,8 +24,8 @@ test('Setup', (assert) => {
 test('Test CREATE relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let rel1 = ORMNeoRelation.relate(node1.id, node2.id, 'relatedto', {property: 'a'});
-    let rel2 = ORMNeoRelation.relate(node1.id, node2.id, 'relatedto', {});
+    let rel1 = ORMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'});
+    let rel2 = ORMNeoRelation.relate(node1.id, 'relatedto', node2.id,  {});
     Promise.all([rel1, rel2]).then((rels) => {
         assert.equal(rels.length, 2);
         let relation1 = rels[0];
@@ -47,7 +47,7 @@ test('Test CREATE relation', (assert) => {
 test('Test FAIL CREATE TYPE relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    ORMNeoRelation.relate(node1.id, node2.id, null , {property: 'a'}).then(()=> {
+    ORMNeoRelation.relate(node1.id, null, node2.id, {property: 'a'}).then(()=> {
 
     }).catch((error)=> {
         assert.equal(error.message, 'A relatioship type must be specified');
