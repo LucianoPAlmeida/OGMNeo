@@ -14,7 +14,7 @@ test('Test condition to query method', (assert) => {
     query = builder._conditionToQuery({ 'age': { $lte: 50 } });
     assert.equal(query, 'n.age <= 50');
     query = builder._conditionToQuery({ 'age': { $ne: 50 } });
-    assert.equal(query, 'n.age != 50');
+    assert.equal(query, 'n.age <> 50');
     query = builder._conditionToQuery({ 'age': { $gt: 50 } });
     assert.equal(query, 'n.age > 50');
     query = builder._conditionToQuery({ 'age': { $gte: 50 } });
@@ -26,6 +26,18 @@ test('Test condition to query method', (assert) => {
     query = builder._conditionToQuery({'name' : {$regex: '.*[tes]'} });
     assert.equal(query, 'n.name =~ \'.*[tes]\'');
     query = builder._conditionToQuery({'name' : {$regex: 3} });
+    assert.equal(query, '');
+    query = builder._conditionToQuery({'name' : {$startsWith: 'r'} });
+    assert.equal(query, 'n.name STARTS WITH \'r\'');
+    query = builder._conditionToQuery({'name' : {$startsWith: 3} });
+    assert.equal(query, '');
+    query = builder._conditionToQuery({'name' : {$endsWith: 'r'} });
+    assert.equal(query, 'n.name ENDS WITH \'r\'');
+    query = builder._conditionToQuery({'name' : {$endsWith: 3} });
+    assert.equal(query, '');
+    query = builder._conditionToQuery({'name' : {$contains: 'r'} });
+    assert.equal(query, 'n.name CONTAINS \'r\'');
+    query = builder._conditionToQuery({'name' : {$contains: 3} });
     assert.equal(query, '');
     assert.end();
 });
