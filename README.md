@@ -67,7 +67,7 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ```
 
 ## Executing Cypher
-You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object.
+You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object. Or you can use ORMNeoCypher.
 
 ```js
   const ormneo = require('ormneo');
@@ -77,6 +77,17 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
      console.log(result);
   }).catch((error) => {
      reject(error);
+  });
+``` 
+## Creating and droping indexes
+You can create and drop indexes in properties.
+
+```js
+  const ormneo = require('ormneo');
+  const ORMNeoIndex = ormneo.ORMNeoIndex;
+
+  ORMNeoIndex.create('label', ['property']).then((result) => {
+     //Handle creation
   });
 ``` 
 
