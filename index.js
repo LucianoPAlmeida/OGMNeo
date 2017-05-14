@@ -3,5 +3,6 @@ module.exports = {
     ORMNeoNode: require('./lib/ormneo-node'),
     ORMNeoQuery: require('./lib/ormneo-query'),
     ORMNeoRelation: require('./lib/ormneo-relation'),
-    ORMNeoCypher: require('./lib/ormneo-cypher')
+    ORMNeoCypher: require('./lib/ormneo-cypher'),
+    ORMNeoIndex: require('./lib/ormneo-index')
 };
