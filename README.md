@@ -85,9 +85,13 @@ You can create and drop indexes in properties.
 ```js
   const ormneo = require('ormneo');
   const ORMNeoIndex = ormneo.ORMNeoIndex;
-
+  //Creating
   ORMNeoIndex.create('label', ['property']).then((result) => {
      //Handle creation
+  });
+  //Droping
+  ORMNeoIndex.drop('label', ['property']).then((result) => {
+     //Handle drop
   });
 ``` 
 
