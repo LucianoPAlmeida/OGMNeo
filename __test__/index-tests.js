@@ -2,8 +2,6 @@
 
 const test = require('blue-tape');
 const ORMNeoIndex = require('../lib/ormneo-index');
-const ORMNeo = require('../lib/ormneo');
-
 
 test('Test create Index', (assert) => {    
    ORMNeoIndex.create('object', ['name']).then((result) => {

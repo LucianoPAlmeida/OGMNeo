@@ -14,7 +14,7 @@ test('Test EXECUTE Transactional cypher', (assert) => {
 });
 
 test('Test EXECUTE NOT Transactional cypher', (assert) => {    
-   ORMNeoCypher.execute('MATCH (n) RETURN n', false).then((result) => {
+   ORMNeoCypher.execute('MATCH (n) RETURN COUNT(n)', false).then((result) => {
         assert.notEqual(result,null);
         assert.end();
    });
