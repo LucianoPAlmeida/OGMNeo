@@ -24,7 +24,5 @@ test('Test drop Index', (assert) => {
     ORMNeoIndex.drop('object', ['name']).then((result) => {
         assert.notEqual(result, null);
         assert.end();
-    }).catch((error)=> {
-        assert.end();
-    });
+    })
 });
