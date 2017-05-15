@@ -4,7 +4,6 @@ const test = require('blue-tape');
 const ORMNeoIndex = require('../lib/ormneo-index');
 const ORMNeo = require('../lib/ormneo');
 
-ORMNeo.connect(process.env.NEO4J_USER, process.env.NEO4J_PASS, process.env.NEO4J_HOST);
 
 test('Test create Index', (assert) => {    
    ORMNeoIndex.create('object', ['name']).then((result) => {
