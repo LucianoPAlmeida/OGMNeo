@@ -1,6 +1,6 @@
 {
   "name": "ormneo",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "ORM abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,17 @@
     "type": "git",
     "url": "https://github.com/LucianoPAlmeida/ORMNeo.git"
   },
+  "keywords": [
+    "neo4j",
+    "ORM",
+    "cypher",
+    "javascript",
+    "es6",
+    "nodejs",
+    "bolt",
+    "database",
+    "database-abstraction"
+  ],
   "author": "Luciano Almeida <passos.luciano@outlook.com>",
   "license": "MIT",
   "dependencies": {
