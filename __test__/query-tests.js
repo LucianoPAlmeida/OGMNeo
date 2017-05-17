@@ -23,6 +23,8 @@ test('Test condition to query method', (assert) => {
     assert.equal(query, '');
     query = builder._conditionToQuery({});
     assert.equal(query, '');
+    query = builder._conditionToQuery({ 'age': { $eq: null } });
+    assert.equal(query, 'n.age = null');
     query = builder._conditionToQuery({'name' : {$regex: '.*[tes]'} });
     assert.equal(query, 'n.name =~ \'.*[tes]\'');
     query = builder._conditionToQuery({'name' : {$regex: 3} });
