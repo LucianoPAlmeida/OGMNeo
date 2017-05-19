@@ -30,12 +30,28 @@ test('Test update node', (assert) => {
     });
 });
 
+test('Test FAIL update node', (assert) => {
+    ORMNeoNode.update({ id: 'ddlkas', name: null, tes: 3 }).catch((error) => {
+        assert.notEqual(error, null);
+        assert.equals(error.message, 'Node must have an integer id to be updated');
+        assert.end();
+    });
+});
+
 test('Test get by id', (assert) => {
     ORMNeoNode.nodeWithId(nodeId).then((node) => {
         assert.notEqual(node, null);
         assert.notEqual(node.id, null);
         assert.equal(node.name, undefined);
         assert.deepEqual(node.tes, 3);
+        assert.end();
+    });
+});
+
+test('Test FAIL update node', (assert) => {
+    ORMNeoNode.nodeWithId('').catch((error) => {
+        assert.notEqual(error, null);
+        assert.equal(error.message, 'You must provide an non-null integer id property to find the node');
         assert.end();
     });
 });
@@ -57,6 +73,14 @@ test('Test execute query with NO results', (assert) => {
         assert.ok(_.isEmpty(nodes));
         assert.end();
     });
+});
+
+test('Test FAIL delete NODE', (assert) => {
+    ORMNeoNode.delete({ id: 'da' }).catch((error) => {
+        assert.notEqual(error, true);
+        assert.equal(error.message, 'Node must to have an property id to be deleted');
+        assert.end();
+    })
 });
 
 test('Test delete NODE', (assert) => {
