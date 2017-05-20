@@ -4,6 +4,7 @@ const test = require('blue-tape');
 const ORMNeo = require('../lib/ormneo');
 const ORMNeoNode = require('../lib/ormneo-node');
 const ORMQueryBuilder = require('../lib/ormneo-query');
+const ORMNeoWhere = require('../lib/ormneo-where');
 const _ = require('lodash');
 
 
@@ -57,7 +58,7 @@ test('Test FAIL update node', (assert) => {
 });
 
 test('Test execute query with results', (assert) => {
-    let query = ORMQueryBuilder.query('test').and('tes', {$eq: 3});
+    let query = ORMQueryBuilder.query('test', new ORMNeoWhere('tes', {$eq: 3}));
     ORMNeoNode.execute(query).then((nodes) => {
         assert.ok(_.size(nodes) >= 1);
         nodes.forEach((node)=> {
@@ -68,7 +69,7 @@ test('Test execute query with results', (assert) => {
 });
 
 test('Test execute query with NO results', (assert) => {
- let query = ORMQueryBuilder.query('test').and('tes', {$eq: 1});
+ let query = ORMQueryBuilder.query('test', new ORMNeoWhere('tes', {$eq: 1}));
     ORMNeoNode.execute(query).then((nodes) => {
         assert.ok(_.isEmpty(nodes));
         assert.end();

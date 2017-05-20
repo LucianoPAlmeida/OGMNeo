@@ -5,6 +5,8 @@ const ORMNeo = require('../lib/ormneo');
 const ORMNeoNode = require('../lib/ormneo-node');
 const ORMNeoRelation = require('../lib/ormneo-relation');
 const ORMQueryBuilder = require('../lib/ormneo-query');
+const ORMNeoWhere = require('../lib/ormneo-where');
+
 const _ = require('lodash');
 
 ORMNeo.connect('neo4j', 'databasepass', 'localhost');
@@ -84,7 +86,7 @@ test('Test FIND relations', (assert) => {
     let node2 = nodes[1];
     let find1 = ORMNeoRelation.find(node1.id, node2.id, 'relatedto');
     let find2 = ORMNeoRelation.find(node1.id, node2.id, 'other');
-    let find3 = ORMNeoRelation.find(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'}));
+    let find3 = ORMNeoRelation.find(node1.id, node2.id, 'relatedto',new ORMNeoWhere('property', {$eq: 'c'}));
 
     Promise.all([find1, find2, find3]).then((finds) => {
         assert.equal(finds[0].length, 2);
@@ -108,7 +110,7 @@ test('Test COUNT relations', (assert) => {
     let node2 = nodes[1];
     let count1 = ORMNeoRelation.count(node1.id, node2.id, 'relatedto');
     let count2 = ORMNeoRelation.count(node1.id, node2.id, 'other');
-    let count3 = ORMNeoRelation.count(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'}));
+    let count3 = ORMNeoRelation.count(node1.id, node2.id, 'relatedto', new ORMNeoWhere('property', {$eq: 'c'}));
 
     Promise.all([count1, count2, count3]).then((counts) => {
         assert.equal(counts[0], 2);
@@ -127,7 +129,7 @@ test('Test EXISTS relations', (assert) => {
     let node2 = nodes[1];
     let exists1 = ORMNeoRelation.exists(node1.id, node2.id, 'relatedto');
     let exists2 = ORMNeoRelation.exists(node1.id, node2.id, 'other');
-    let exists3 = ORMNeoRelation.exists(node1.id, node2.id, 'relatedto',ORMQueryBuilder.query().and('property', {$eq: 'c'}));
+    let exists3 = ORMNeoRelation.exists(node1.id, node2.id, 'relatedto', new ORMNeoWhere('property', {$eq: 'c'}));
 
     Promise.all([exists1, exists2, exists3]).then((exists) => {
         assert.equal(exists[0], true);
