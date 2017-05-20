@@ -34,8 +34,11 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
     const ormneo = require('ormneo');
     const ORMNeoNode = ormneo.ORMNeoNode;
     const ORMNeoQuery = ormneo.ORMNeoQuery;
+    const ORMNeoWhere = ormneo.ORMNeoWhere;
     
-    let query = ORMNeoQuery.query('test').and('tes', {$eq: 3});
+    let where = new ORMNeoWhere('tes', {$eq: 3});
+    let query = ORMNeoQuery.query('test', where);
+    
     ORMNeoNode.execute(query).then((nodes) => {
         //Found nodes.
     }).catch((error) => {
@@ -57,9 +60,9 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ```js
   conts ormneo = require('ormneo');
   const ORMNeoRelation = ormneo.ORMNeoRelation;
-  const ORMNeoQuery = ormneo.ORMNeoQuery;
+  const ORMNeoWhere = ormneo.ORMNeoWhere;
 
-  ORMNeoRelation.find(node1.id, node2.id, 'relatedto',ORMNeoQuery.query().and('property', {$eq: 'c'})).then((nodes) => {
+  ORMNeoRelation.find(node1.id, node2.id, 'relatedto', new ORMNeoWhere('property', {$eq: 'c'})).then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
         //Handle error.
