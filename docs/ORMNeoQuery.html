@@ -40,7 +40,7 @@
 
     
 
-    <h4 class="name" id="ORMNeoQuery"><span class="type-signature"></span>new ORMNeoQuery<span class="signature">(label<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ORMNeoQuery"><span class="type-signature"></span>new ORMNeoQuery<span class="signature">(label<span class="signature-attributes">opt</span>, where<span class="signature-attributes">opt</span>, limit<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -74,6 +74,8 @@
         <th>Attributes</th>
         
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -110,8 +112,90 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last">The query to filter nodes that have to be returned.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>where</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ORMNeoWhere.html">ORMNeoWhere</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">Optional WHERE clause filter for query.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>limit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">Limit of values to be returned.</td>
         </tr>
 
     
@@ -152,7 +236,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line16">line 16</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
@@ -246,7 +330,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line42">line 42</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -264,7 +348,7 @@
 
         
             
-<h4 class="name" id="queryObject"><span class="type-signature"></span>queryObject<span class="type-signature"> :object</span></h4>
+<h4 class="name" id="where"><span class="type-signature"></span>where<span class="type-signature"> :<a href="ORMNeoWhere.html">ORMNeoWhere</a></span></h4>
 
 
 
@@ -275,7 +359,7 @@
     <ul>
         <li>
             
-<span class="param-type">object</span>
+<span class="param-type"><a href="ORMNeoWhere.html">ORMNeoWhere</a></span>
 
 
         </li>
@@ -314,7 +398,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line49">line 49</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -341,7 +425,7 @@
 
     
 
-    <h4 class="name" id=".query"><span class="type-signature">(static) </span>query<span class="signature">(label<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
+    <h4 class="name" id=".query"><span class="type-signature">(static) </span>query<span class="signature">(label<span class="signature-attributes">opt</span>, where<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
 
     
 
@@ -375,6 +459,8 @@
         <th>Attributes</th>
         
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -411,8 +497,51 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last">The query to filter nodes that have to be returned.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>where</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ORMNeoWhere.html">ORMNeoWhere</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">Optional WHERE clause filter for query.</td>
         </tr>
 
     
@@ -453,7 +582,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line30">line 30</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -506,184 +635,7 @@
 
     
 
-    <h4 class="name" id="and"><span class="type-signature"></span>and<span class="signature">(property, filter)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add AND filter constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>property</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Name of the property that the filter will be applied.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>filter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Filter that will be applied. Example: {$eq: 'v'}. 
-        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line74">line 74</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="ORMNeoQuery.html">ORMNeoQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="countCypher"><span class="type-signature"></span>countCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
@@ -734,7 +686,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line119">line 119</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line82">line 82</a>
     </li></ul></dd>
     
 
@@ -762,110 +714,6 @@
         
 <div class="param-desc">
     Cypher count match builded.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="filters"><span class="type-signature"></span>filters<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Return cypher query filter string clause from this query.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line110">line 110</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Cypher filter clause builded.
 </div>
 
 
@@ -991,7 +839,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line59">line 59</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -1044,14 +892,14 @@
 
     
 
-    <h4 class="name" id="match"><span class="type-signature"></span>match<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="matchCypher"><span class="type-signature"></span>matchCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
 
 
 <div class="description">
-    Return cypher nodes match string from this query.
+    Return ONLY MATCH Statement cypher nodes match string from this query.
 </div>
 
 
@@ -1095,7 +943,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line130">line 130</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -1148,191 +996,14 @@
 
     
 
-    <h4 class="name" id="or"><span class="type-signature"></span>or<span class="signature">(property, filter)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
+    <h4 class="name" id="queryCypher"><span class="type-signature"></span>queryCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
 
 
 <div class="description">
-    Add OR filter constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>property</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Name of the property that the filter will be applied.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>filter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Filter that will be applied. Example: {$eq: 'v'}. 
-        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line89">line 89</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="ORMNeoQuery.html">ORMNeoQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="where"><span class="type-signature"></span>where<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Return cypher WHERE query builded string clause from this query.
+    Return cypher nodes match string from this query and return it.
 </div>
 
 
@@ -1376,7 +1047,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line101">line 101</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line93">line 93</a>
     </li></ul></dd>
     
 
@@ -1403,7 +1074,7 @@
 
         
 <div class="param-desc">
-    Cypher WHERE clause builded.
+    Cypher nodes query builded.
 </div>
 
 
@@ -1597,7 +1268,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line42">line 42</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -1615,7 +1286,7 @@
 
         
             
-<h4 class="name" id="queryObject"><span class="type-signature"></span>queryObject<span class="type-signature"> :object</span></h4>
+<h4 class="name" id="where"><span class="type-signature"></span>where<span class="type-signature"> :<a href="ORMNeoWhere.html">ORMNeoWhere</a></span></h4>
 
 
 
@@ -1626,7 +1297,7 @@
     <ul>
         <li>
             
-<span class="param-type">object</span>
+<span class="param-type"><a href="ORMNeoWhere.html">ORMNeoWhere</a></span>
 
 
         </li>
@@ -1665,7 +1336,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line49">line 49</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line52">line 52</a>
     </li></ul></dd>
     
 
@@ -1692,7 +1363,7 @@
 
     
 
-    <h4 class="name" id=".query"><span class="type-signature">(static) </span>query<span class="signature">(label<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
+    <h4 class="name" id=".query"><span class="type-signature">(static) </span>query<span class="signature">(label<span class="signature-attributes">opt</span>, where<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
 
     
 
@@ -1726,6 +1397,8 @@
         <th>Attributes</th>
         
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1762,8 +1435,51 @@
             
 
             
+                <td class="default">
+                
+                </td>
+            
 
             <td class="description last">The query to filter nodes that have to be returned.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>where</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="ORMNeoWhere.html">ORMNeoWhere</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">Optional WHERE clause filter for query.</td>
         </tr>
 
     
@@ -1804,7 +1520,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line30">line 30</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -1857,184 +1573,7 @@
 
     
 
-    <h4 class="name" id="and"><span class="type-signature"></span>and<span class="signature">(property, filter)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add AND filter constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>property</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Name of the property that the filter will be applied.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>filter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Filter that will be applied. Example: {$eq: 'v'}. 
-        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line74">line 74</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="ORMNeoQuery.html">ORMNeoQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="countCypher"><span class="type-signature"></span>countCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
@@ -2085,7 +1624,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line119">line 119</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line82">line 82</a>
     </li></ul></dd>
     
 
@@ -2113,110 +1652,6 @@
         
 <div class="param-desc">
     Cypher count match builded.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="filters"><span class="type-signature"></span>filters<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Return cypher query filter string clause from this query.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line110">line 110</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Cypher filter clause builded.
 </div>
 
 
@@ -2342,7 +1777,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line59">line 59</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -2395,14 +1830,14 @@
 
     
 
-    <h4 class="name" id="match"><span class="type-signature"></span>match<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="matchCypher"><span class="type-signature"></span>matchCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
 
 
 <div class="description">
-    Return cypher nodes match string from this query.
+    Return ONLY MATCH Statement cypher nodes match string from this query.
 </div>
 
 
@@ -2446,7 +1881,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line130">line 130</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line103">line 103</a>
     </li></ul></dd>
     
 
@@ -2499,191 +1934,14 @@
 
     
 
-    <h4 class="name" id="or"><span class="type-signature"></span>or<span class="signature">(property, filter)</span><span class="type-signature"> &rarr; {<a href="ORMNeoQuery.html">ORMNeoQuery</a>}</span></h4>
+    <h4 class="name" id="queryCypher"><span class="type-signature"></span>queryCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
 
     
 
 
 
 <div class="description">
-    Add OR filter constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>property</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Name of the property that the filter will be applied.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>filter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Filter that will be applied. Example: {$eq: 'v'}. 
-        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line89">line 89</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="ORMNeoQuery.html">ORMNeoQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="where"><span class="type-signature"></span>where<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Return cypher WHERE query builded string clause from this query.
+    Return cypher nodes match string from this query and return it.
 </div>
 
 
@@ -2727,7 +1985,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line101">line 101</a>
+        <a href="ormneo-query.js.html">ormneo-query.js</a>, <a href="ormneo-query.js.html#line93">line 93</a>
     </li></ul></dd>
     
 
@@ -2754,7 +2012,7 @@
 
         
 <div class="param-desc">
-    Cypher WHERE clause builded.
+    Cypher nodes query builded.
 </div>
 
 
@@ -2791,13 +2049,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ORMNeo.html">ORMNeo</a></li><li><a href="ORMNeoCypher.html">ORMNeoCypher</a></li><li><a href="ORMNeoIndex.html">ORMNeoIndex</a></li><li><a href="ORMNeoNode.html">ORMNeoNode</a></li><li><a href="ORMNeoQuery.html">ORMNeoQuery</a></li><li><a href="ORMRelation.html">ORMRelation</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ORMNeo.html">ORMNeo</a></li><li><a href="ORMNeoCypher.html">ORMNeoCypher</a></li><li><a href="ORMNeoIndex.html">ORMNeoIndex</a></li><li><a href="ORMNeoNode.html">ORMNeoNode</a></li><li><a href="ORMNeoQuery.html">ORMNeoQuery</a></li><li><a href="ORMNeoWhere.html">ORMNeoWhere</a></li><li><a href="ORMRelation.html">ORMRelation</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon May 15 2017 20:35:20 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat May 20 2017 23:02:52 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>

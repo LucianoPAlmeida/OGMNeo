@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "jsdoc ./lib/** -d ./docs",
-    "test": "tape ./__test__/**"
+    "test": "tape ./__test__/**",
+    "lint": "eslint lib"
   },
   "homepage": "https://github.com/LucianoPAlmeida/ORMNeo",
   "bugs": {

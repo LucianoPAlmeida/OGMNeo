@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ormneo-where.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ormneo-where.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const _ = require('lodash');
+
+/**
+    * @class ORMNeoWhere
+ */
+class ORMNeoWhere {
+    
+    /**
+        * Constructs a where object with an label.
+        *
+        * @constructor
+        * @param {string=} property - Name of the property that the filter will be applied.
+        * @param {object} filter - Filter that will be applied. Example: {$eq: 'v'}. 
+        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains.
+    */
+    constructor(property, filter) {
+        this._clause = '';
+        let obj = {};
+        obj[property] = filter;
+        this._appendWhere('', obj);
+    }
+
+    /**
+        * Convenience method that creates a where object with an property and a filter.
+        *
+        * @static
+        * @param {string=} property - Name of the property that the filter will be applied.
+        * @param {object} filter - Filter that will be applied. Example: {$eq: 'v'}. 
+        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains.
+        * @returns {ORMNeoWhere} Created query with label.
+    */       
+    static where(property, filter) {
+        return new ORMNeoWhere(property, filter);
+    }
+
+    /**
+        * Add AND filter constraint to this query object.
+        *
+        * @param {string} property - Name of the property that the filter will be applied.
+        * @param {object} filter - Filter that will be applied. Example: {$eq: 'v'}. 
+        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains
+        * @returns {ORMNeoWhere} This instance of query.
+    */
+    and(property, filter) {
+        let obj = {};
+        obj[property] = filter;
+        this._appendWhere('AND', obj);
+        return this;
+    }
+
+    /**
+        * Add OR filter constraint to this query object.
+        *
+        * @param {string} property - Name of the property that the filter will be applied.
+        * @param {object} filter - Filter that will be applied. Example: {$eq: 'v'}. 
+        Possible filters are: $eq(equals), $lt(lessThan),$lte(lessThanOrEqual), $gt(greaterThan), $gte(greaterThanOrEqual), $ne(not equals) and for string properties $regex, $startswith, $endswith and $contains
+        * @returns {ORMNeoWhere} This instance of query.
+    */
+    or(property, filter) {
+        let obj = {};
+        obj[property] = filter;
+        this._appendWhere('OR', obj);
+        return this;
+    }
+    
+    /**
+     * @type {string}
+    */
+    get clause() {
+        return this._clause;
+    }
+    
+    //Convenience methods
+    _appendWhere(operator, filter) {
+        if (this._clause === '') {
+            this._clause += this._conditionToQuery(filter);
+        } else {
+            this._clause += ` ${operator} ` + this._conditionToQuery(filter);
+        }
+    }
+
+    _conditionToQuery(filter) {
+        if (!_.isEmpty(filter)) {
+            let conditionsMap = {
+                $eq: '=',
+                $lt: '&lt;',
+                $lte: '&lt;=',
+                $gt: '>',
+                $gte: '>=',
+                $ne: '&lt;>',
+                $regex: '=~',
+                $startsWith: 'STARTS WITH',
+                $endsWith: 'ENDS WITH',
+                $contains: 'CONTAINS',
+            };
+            let property = _.first(_.keysIn(filter));
+            let conditionKeys = _.keysIn(filter[property]);
+            let conditions = filter[property];
+            return conditionKeys.reduce((result, key) => {
+                let operator = conditionsMap[key];
+                if (operator &amp;&amp; this._isFilterValid(operator, conditions[key]) ) {
+                    return ((result !== '') ? result + ' AND ' : '') +
+                        `n.${property} ${operator} ${this._valueOnQuery(conditions[key])}`;
+                }
+                return result;
+            }, '');
+        }
+        return '';
+    }
+
+    _isFilterValid(operator, value) {
+        var stringOnlyOperators = ['=~', 'STARTS WITH', 'ENDS WITH', 'CONTAINS'];
+        if (_.includes(stringOnlyOperators, operator)) {
+            return _.isString(value);
+        }
+        return true;
+    }
+
+    _valueOnQuery(value) {
+        if (_.isNull(value)) {
+            return 'null';
+        } else if (_.isString(value)) {
+            return `'${value}'`;
+        } if (_.isDate(value)) {
+            return `${value.getTime()}`;
+        } else {
+            return `${value}`;
+        }
+    }
+}
+
+module.exports = ORMNeoWhere;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="ORMNeo.html">ORMNeo</a></li><li><a href="ORMNeoCypher.html">ORMNeoCypher</a></li><li><a href="ORMNeoIndex.html">ORMNeoIndex</a></li><li><a href="ORMNeoNode.html">ORMNeoNode</a></li><li><a href="ORMNeoQuery.html">ORMNeoQuery</a></li><li><a href="ORMNeoWhere.html">ORMNeoWhere</a></li><li><a href="ORMRelation.html">ORMRelation</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat May 20 2017 23:02:51 GMT-0300 (-03)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
