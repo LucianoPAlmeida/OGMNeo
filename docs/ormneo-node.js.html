@@ -28,8 +28,8 @@
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
 
-var ORMNeo = require('./ormneo');
-var QueryBuilder = require('./ormneo-query');
+const ORMNeo = require('./ormneo');
+const ORMNeoQuery = require('./ormneo-query');
 const _ = require('lodash');
 const ORMNeoObjectParse = require('./ormneo-object-parse');
 /**
@@ -96,9 +96,46 @@ class ORMNeoNode {
         });
     }
 
-    // updateMany(query, newProperties) {
-
-    // }
+    /**
+        * Update new properties on every node that matches the.
+        *
+        * @static
+        * @param {ORMNeoQuery} query - The query to filter the nodes.
+        * @param {object} newProperties - NEW properties.
+        * @returns {Promise.&lt;array|Error>} Updated nodes if fulfilled or some neo4j error if rejected.
+    */
+    static updateMany(query, newProperties) {
+        return new Promise((resolve, reject) => {
+            if (_.isObject(newProperties)) {
+                let value = _.omitBy(newProperties, _.isUndefined);
+                if (!_.isEmpty(value)) {
+                    ORMNeoObjectParse.parseProperties(value);
+                    if (query instanceof ORMNeoQuery) {
+                        let objectString = ORMNeoObjectParse.objectString(value);
+                        let cypher = `${query.matchCypher()} SET n+=${objectString} RETURN n`;
+                        console.info(cypher);
+                        let session = ORMNeo.session();
+                        let readTxResultPromise = session.readTransaction((transaction) => {
+                            return transaction.run(cypher, value);
+                        });
+                        readTxResultPromise.then((result) => {
+                            session.close();
+                            let nodes = result.records.map(record => this._recordToObject(record));
+                            resolve(nodes);
+                        }).catch((error) => {
+                            reject(error);
+                        });
+                    } else {
+                        reject(new Error('The query object must be an instance of ORMNeoQuery'));
+                    }
+                } else {
+                    resolve([]);
+                }
+            } else {
+                resolve([]);
+            }
+        });
+    }
 
 
     /**
@@ -119,7 +156,7 @@ class ORMNeoNode {
                 readTxResultPromise.then((result) => {
                     session.close();
                     resolve(!_.isEmpty(result.records));
-                }).catch( (error) => {
+                }).catch((error) => {
                     reject(error);
                 });
             } else {
@@ -128,9 +165,33 @@ class ORMNeoNode {
         });
     }
 
-    // deleteMany(query) {
-        
-    // }
+    /**
+        * Deletes every node that matches the.
+        *
+        * @static
+        * @param {ORMNeoQuery} query - The query to filter the nodes.
+        * @returns {Promise.&lt;number|Error>} Number of nodes deleted if fulfilled or some neo4j error if rejected.
+    */
+    static deleteMany(query) {
+        return new Promise((resolve, reject) => {
+            if (query instanceof ORMNeoQuery) {
+                let cypher = `${query.matchCypher()} DELETE n RETURN n`;
+                console.info(cypher);
+                let session = ORMNeo.session();
+                let readTxResultPromise = session.readTransaction((transaction) => {
+                    return transaction.run(cypher);
+                });
+                readTxResultPromise.then((result) => {
+                    session.close();
+                    resolve(result.records.length);
+                }).catch((error) => {
+                    reject(error);
+                });
+            } else {
+                reject(new Error('The query object must be an instance of ORMNeoQuery'));
+            }
+        });
+    }
     /**
         * Retrive node with id.
         *
@@ -151,7 +212,7 @@ class ORMNeoNode {
                     let record = _.first(result.records);
                     session.close();
                     resolve(this._recordToObject(record));
-                }).catch( (error) => {
+                }).catch((error) => {
                     reject(error);
                 });
             } else {
@@ -168,7 +229,7 @@ class ORMNeoNode {
         * @returns {Promise.&lt;integer|Error>} Count of nodes if fulfilled, some neo4j error if rejected.
     */
     static countWithLabel(label) {
-        return this.count(new QueryBuilder(label));
+        return this.count(new ORMNeoQuery(label));
     }
 
     /**
@@ -180,7 +241,7 @@ class ORMNeoNode {
     */
     static count(query) {
         return new Promise((resolve, reject) => {
-            if (query &amp;&amp; query instanceof QueryBuilder) {
+            if (query &amp;&amp; query instanceof ORMNeoQuery) {
                 let cypher = query.countCypher();
                 let session = ORMNeo.session();
                 session.run(cypher).subscribe({
@@ -210,7 +271,7 @@ class ORMNeoNode {
     */
     static execute(query) {
         return new Promise((resolve, reject) => {
-            if (query &amp;&amp; query instanceof QueryBuilder) {
+            if (query &amp;&amp; query instanceof ORMNeoQuery) {
                 let cypher = query.queryCypher();
                 let session = ORMNeo.session();
                 let readTxResultPromise = session.readTransaction((transaction) => {
@@ -259,7 +320,7 @@ module.exports = ORMNeoNode;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat May 20 2017 02:31:22 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat May 20 2017 21:29:23 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>
