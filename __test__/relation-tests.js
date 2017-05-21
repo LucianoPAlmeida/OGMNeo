@@ -49,9 +49,7 @@ test('Test CREATE relation', (assert) => {
 test('Test FAIL CREATE TYPE relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    ORMNeoRelation.relate(node1.id, null, node2.id, {property: 'a'}).then(()=> {
-
-    }).catch((error)=> {
+    ORMNeoRelation.relate(node1.id, null, node2.id, {property: 'a'}).catch((error)=> {
         assert.equal(error.message, 'A relatioship type must be specified');
         assert.end();
     });
@@ -77,6 +75,41 @@ test('Test UPDATE relation', (assert) => {
         assert.end();
     }).catch((error)=> {
         assert.fail('Fail with error');
+        assert.end();
+    });
+});
+
+test('Test FAIL UPDATE MANY', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    ORMNeoRelation.updateMany({newProperty: 'new!!!'}, node1.id, node2.id, 'relatedto','').catch((error) => {
+        assert.equal(error.message, 'The propertiesFilter object must be an instance of ORMNeoWhere');
+        assert.end();
+    });
+});
+
+test('Test empty newProperties UPDATE MANY', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let where = ORMNeoWhere.where('property', { $eq: 'c' });
+    ORMNeoRelation.updateMany({}, node1.id, node2.id, 'relatedto', null)
+    .then((updatedRelations) => {
+        assert.equal(updatedRelations.length, 0);
+        assert.end();
+    });
+});
+
+test('Test UPDATE MANY', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let where = ORMNeoWhere.where('property', { $eq: 'c' });
+    ORMNeoRelation.updateMany({newProperty: 'new!!!'}, node1.id, node2.id, 'relatedto', where)
+    .then((updatedRelations) => {
+        assert.equal(updatedRelations.length, 1);
+        updatedRelations.forEach((relation) => {
+            assert.equal(relation.property, 'c');
+            assert.equal(relation.newProperty, 'new!!!');
+        });
         assert.end();
     });
 });
@@ -155,10 +188,10 @@ test('TEST DELETE relation', (assert) => {
     });
 });
 
-test('Test DELETE ALL relations', (assert) => {
+test('Test DELETE MANY relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    ORMNeoRelation.deleteAll(node1.id, node2.id, 'relatedto').then((deletedRels) => {
+    ORMNeoRelation.deleteMany(node1.id, node2.id, 'relatedto').then((deletedRels) => {
         assert.equal(deletedRels.length, 1);
         assert.end();
     }).catch((error) => {
