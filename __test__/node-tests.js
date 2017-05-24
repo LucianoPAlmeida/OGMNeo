@@ -119,7 +119,7 @@ test('Test execute query with NO results', (assert) => {
 test('Test FAIL delete NODE', (assert) => {
     ORMNeoNode.delete({ id: 'da' }).catch((error) => {
         assert.notEqual(error, true);
-        assert.equal(error.message, 'Node must to have an property id to be deleted');
+        assert.equal(error.message, 'Node must to have an non-nil property id to be deleted');
         assert.end();
     })
 });
