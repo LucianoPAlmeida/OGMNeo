@@ -1,21 +1,21 @@
 'use strict';
 
 const test = require('blue-tape');
-const QueryBuilder = require('../lib/ormneo-query');
-const ORMNeoWhere = require('../lib/ormneo-where');
+const QueryBuilder = require('../lib/ogmneo-query');
+const OGMNeoWhere = require('../lib/ogmneo-where');
 
 
 test('Test FAILED WHERE assign', (assert) => {
     try {
         let queryBuilder = new QueryBuilder('Object', '');
     } catch(error) {
-        assert.equal(error.message, 'where parameter must be an instance of ORMNeoWhere class or null');
+        assert.equal(error.message, 'where parameter must be an instance of OGMNeoWhere class or null');
         assert.end();
     }
 });
 
 test('Test count method', (assert) => {
-    let where = new ORMNeoWhere('name', { $eq: 'derp' })
+    let where = new OGMNeoWhere('name', { $eq: 'derp' })
         .or('age', { $lt: 25 })
         .and('last', { $eq: 'value' })
     let queryBuilder = new QueryBuilder('Object', where);
@@ -27,7 +27,7 @@ test('Test count method', (assert) => {
 
 
 test('Test query builder', (assert) => {
-    let where = new ORMNeoWhere('name', { $eq: 'derp' })
+    let where = new OGMNeoWhere('name', { $eq: 'derp' })
         .or('age', { $lt: 25 })
         .and('last', { $eq: 'value' })
     let queryBuilder = new QueryBuilder('Object', where);

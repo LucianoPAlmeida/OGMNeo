@@ -1,16 +1,16 @@
 'use strict';
 
 const test = require('blue-tape');
-const ORMNeoWhere = require('../lib/ormneo-where');
+const OGMNeoWhere = require('../lib/ogmneo-where');
 
 test('Test CONSTRUCT an where object', (assert) => {
-    let where = new ORMNeoWhere('name', { $eq: 'value' });
+    let where = new OGMNeoWhere('name', { $eq: 'value' });
     assert.equal(where.clause, 'n.name = \'value\'');
     assert.end();
 });
 
 test('Test condition to query method', (assert) => {
-    let where = new ORMNeoWhere();
+    let where = new OGMNeoWhere();
     let query = where._conditionToQuery({ 'name': { $eq: 'value' } });
     assert.equal(query, 'n.name = \'value\'');
     query = where._conditionToQuery({ 'name': { $eq: 'value', $lt: 'ab' } });
@@ -53,7 +53,7 @@ test('Test condition to query method', (assert) => {
 });
 
 test('Test WHERE CLAUSE', (assert) => {
-    let where = new ORMNeoWhere('name', { $contains: 'r' })
+    let where = new OGMNeoWhere('name', { $contains: 'r' })
         .and('age', { $lte: 20 })
         .or('gender', { $eq: 'm' });
     assert.equal(where.clause, 'n.name CONTAINS \'r\' AND n.age <= 20 OR n.gender = \'m\'');

@@ -1,9 +1,9 @@
 module.exports = {
-    Connection: require('./lib/ormneo'),
-    ORMNeoNode: require('./lib/ormneo-node'),
-    ORMNeoQuery: require('./lib/ormneo-query'),
-    ORMNeoRelation: require('./lib/ormneo-relation'),
-    ORMNeoCypher: require('./lib/ormneo-cypher'),
-    ORMNeoIndex: require('./lib/ormneo-index'),
-    ORMNeoWhere: require('./lib/ormneo-where')
+    Connection: require('./lib/ogmneo'),
+    OGMNeoNode: require('./lib/ogmneo-node'),
+    OGMNeoQuery: require('./lib/ogmneo-query'),
+    OGMNeoRelation: require('./lib/ogmneo-relation'),
+    OGMNeoCypher: require('./lib/ogmneo-cypher'),
+    OGMNeoIndex: require('./lib/ogmneo-index'),
+    OGMNeoWhere: require('./lib/ogmneo-where')
 };

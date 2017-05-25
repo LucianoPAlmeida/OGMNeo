@@ -1,29 +1,57 @@
-'use strict';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: ogmneo-node.js</title>
 
-const ORMNeo = require('./ormneo');
-const ORMNeoQuery = require('./ormneo-query');
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: ogmneo-node.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+const OGMNeo = require('./ogmneo');
+const OGMNeoQuery = require('./ogmneo-query');
 const _ = require('lodash');
-const ORMNeoObjectParse = require('./ormneo-object-parse');
+const OGMNeoObjectParse = require('./ogmneo-object-parse');
 /**
-    * @class ORMNeoNode
+    * @class OGMNeoNode
  */
-class ORMNeoNode {
+class OGMNeoNode {
     /**
         * Creates a node on neo4j.
         *
         * @static
         * @param {object} node - The literal object with node propeperties.
         * @param {string} [label=null] - The label of the node. Default null is a node without label. 
-        * @returns {Promise<object|Error>} Created node literal object if fulfilled, or some neo4j error if rejected.
+        * @returns {Promise&lt;object|Error>} Created node literal object if fulfilled, or some neo4j error if rejected.
     */
     static create(node, label = null) {
         let value = _.omitBy(node, _.isUndefined);
-        ORMNeoObjectParse.parseProperties(value);
+        OGMNeoObjectParse.parseProperties(value);
         return new Promise((resolve, reject) => {
-            let objectString = ORMNeoObjectParse.objectString(value);
-            let labelCypher = (!_.isEmpty(label) && _.isString(label)) ? `:${label}` : '';
+            let objectString = OGMNeoObjectParse.objectString(value);
+            let labelCypher = (!_.isEmpty(label) &amp;&amp; _.isString(label)) ? `:${label}` : '';
             let cypher = `CREATE (n${labelCypher} ${objectString}) RETURN n`;
-            let session = ORMNeo.session();
+            let session = OGMNeo.session();
             let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher, value));
             readTxResultPromise.then((result) => {
                 let record = _.first(result.records);
@@ -40,16 +68,16 @@ class ORMNeoNode {
         *
         * @static
         * @param {object} node - The literal object with node propeperties and required node.id.
-        * @returns {Promise.<object|Error>} Updated node literal object if fulfilled, or error if node.id is invalid or some neo4j error if rejected.
+        * @returns {Promise.&lt;object|Error>} Updated node literal object if fulfilled, or error if node.id is invalid or some neo4j error if rejected.
     */
     static update(node) {
         let value = _.omitBy(node, _.isUndefined);
-        ORMNeoObjectParse.parseProperties(value);
+        OGMNeoObjectParse.parseProperties(value);
         return new Promise((resolve, reject) => {
-            if (value && value.id != undefined && _.isInteger(value.id)) {
-                let objectString = ORMNeoObjectParse.objectString(value);
+            if (value &amp;&amp; value.id != undefined &amp;&amp; _.isInteger(value.id)) {
+                let objectString = OGMNeoObjectParse.objectString(value);
                 let cypher = `MATCH (n) WHERE ID(n)=${node.id} SET n+=${objectString} RETURN n`;
-                let session = ORMNeo.session();
+                let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher, value));
                 readTxResultPromise.then((result) => {
                     let record = _.first(result.records);
@@ -68,20 +96,20 @@ class ORMNeoNode {
         * Update new properties on every node that matches the.
         *
         * @static
-        * @param {ORMNeoQuery} query - The query to filter the nodes.
+        * @param {OGMNeoQuery} query - The query to filter the nodes.
         * @param {object} newProperties - NEW properties.
-        * @returns {Promise.<array|Error>} Updated nodes if fulfilled or some neo4j error if rejected.
+        * @returns {Promise.&lt;array|Error>} Updated nodes if fulfilled or some neo4j error if rejected.
     */
     static updateMany(query, newProperties) {
         return new Promise((resolve, reject) => {
             if (_.isObject(newProperties)) {
                 let value = _.omitBy(newProperties, _.isUndefined);
                 if (!_.isEmpty(value)) {
-                    ORMNeoObjectParse.parseProperties(value);
-                    if (query instanceof ORMNeoQuery) {
-                        let objectString = ORMNeoObjectParse.objectString(value);
+                    OGMNeoObjectParse.parseProperties(value);
+                    if (query instanceof OGMNeoQuery) {
+                        let objectString = OGMNeoObjectParse.objectString(value);
                         let cypher = `${query.matchCypher()} SET n+=${objectString} RETURN n`;
-                        let session = ORMNeo.session();
+                        let session = OGMNeo.session();
                         let readTxResultPromise = session.readTransaction(transaction =>  transaction.run(cypher, value));
                         readTxResultPromise.then((result) => {
                             session.close();
@@ -91,7 +119,7 @@ class ORMNeoNode {
                             reject(error);
                         });
                     } else {
-                        reject(new Error('The query object must be an instance of ORMNeoQuery'));
+                        reject(new Error('The query object must be an instance of OGMNeoQuery'));
                     }
                 } else {
                     resolve([]);
@@ -108,13 +136,13 @@ class ORMNeoNode {
         *
         * @static
         * @param {object} node - The literal object with node propeperties and required node.id.
-        * @returns {Promise.<boolean|Error>} True if fulfilled and found and delete node, false if not found object to delete, or error if node.id is invalid or some neo4j error if rejected.
+        * @returns {Promise.&lt;boolean|Error>} True if fulfilled and found and delete node, false if not found object to delete, or error if node.id is invalid or some neo4j error if rejected.
     */
     static delete(node) {
         return new Promise((resolve, reject) => {
-            if (node && node.id != undefined && _.isInteger(node.id)) {
+            if (node &amp;&amp; node.id != undefined &amp;&amp; _.isInteger(node.id)) {
                 let cypher = `MATCH (n) WHERE ID(n)=${node.id} DELETE n RETURN n`;
-                let session = ORMNeo.session();
+                let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction( transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
                     session.close();
@@ -132,14 +160,14 @@ class ORMNeoNode {
         * Deletes every node that matches the.
         *
         * @static
-        * @param {ORMNeoQuery} query - The query to filter the nodes.
-        * @returns {Promise.<number|Error>} Number of nodes deleted if fulfilled or some neo4j error if rejected.
+        * @param {OGMNeoQuery} query - The query to filter the nodes.
+        * @returns {Promise.&lt;number|Error>} Number of nodes deleted if fulfilled or some neo4j error if rejected.
     */
     static deleteMany(query) {
         return new Promise((resolve, reject) => {
-            if (query instanceof ORMNeoQuery) {
+            if (query instanceof OGMNeoQuery) {
                 let cypher = `${query.matchCypher()} DELETE n RETURN n`;
-                let session = ORMNeo.session();
+                let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
                     session.close();
@@ -148,7 +176,7 @@ class ORMNeoNode {
                     reject(error);
                 });
             } else {
-                reject(new Error('The query object must be an instance of ORMNeoQuery'));
+                reject(new Error('The query object must be an instance of OGMNeoQuery'));
             }
         });
     }
@@ -157,14 +185,14 @@ class ORMNeoNode {
         *
         * @static
         * @param {integer} id - The id of node that's wanted.
-        * @returns {Promise.<object|Error>} Object if found fulfilled or null if not found fulfilled, 
+        * @returns {Promise.&lt;object|Error>} Object if found fulfilled or null if not found fulfilled, 
         or error if id is invalid or some neo4j error if rejected.
     */
     static nodeWithId(id) {
         return new Promise((resolve, reject) => {
             if (_.isInteger(id)) {
                 let cypher = `MATCH (n) WHERE ID(n)=${id} RETURN n`;
-                let session = ORMNeo.session();
+                let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction =>  transaction.run(cypher));
                 readTxResultPromise.then((result) => {
                     let record = _.first(result.records);
@@ -184,24 +212,24 @@ class ORMNeoNode {
         *
         * @static
         * @param {string} label - The label of nodes that have to be counted.
-        * @returns {Promise.<integer|Error>} Count of nodes if fulfilled, some neo4j error if rejected.
+        * @returns {Promise.&lt;integer|Error>} Count of nodes if fulfilled, some neo4j error if rejected.
     */
     static countWithLabel(label) {
-        return this.count(new ORMNeoQuery(label));
+        return this.count(new OGMNeoQuery(label));
     }
 
     /**
         * Count of nodes with the query.
         *
         * @static
-        * @param {ORMNeoQuery} query - The query to filter nodes that have to be counted.
-        * @returns {Promise.<integer|Error>} Count of nodes if fulfilled, some neo4j error if rejected.
+        * @param {OGMNeoQuery} query - The query to filter nodes that have to be counted.
+        * @returns {Promise.&lt;integer|Error>} Count of nodes if fulfilled, some neo4j error if rejected.
     */
     static count(query) {
         return new Promise((resolve, reject) => {
-            if (query && query instanceof ORMNeoQuery) {
+            if (query &amp;&amp; query instanceof OGMNeoQuery) {
                 let cypher = query.countCypher();
-                let session = ORMNeo.session();
+                let session = OGMNeo.session();
                 session.run(cypher).subscribe({
                     onNext: (record) => {
                         resolve(record.get('count').low);
@@ -224,14 +252,14 @@ class ORMNeoNode {
         * Executing query returning nodes filtered by query parameter.
         *
         * @static
-        * @param {ORMNeoQuery} query - The query to filter nodes that have to be returned.
-        * @returns {Promise.<array|Error>} Nodes if fulfilled, some neo4j error if rejected.
+        * @param {OGMNeoQuery} query - The query to filter nodes that have to be returned.
+        * @returns {Promise.&lt;array|Error>} Nodes if fulfilled, some neo4j error if rejected.
     */
     static execute(query) {
         return new Promise((resolve, reject) => {
-            if (query && query instanceof ORMNeoQuery) {
+            if (query &amp;&amp; query instanceof OGMNeoQuery) {
                 let cypher = query.queryCypher();
-                let session = ORMNeo.session();
+                let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction((transaction) => {
                     return transaction.run(cypher);
                 });
@@ -262,4 +290,26 @@ class ORMNeoNode {
     }
 }
 
-module.exports = ORMNeoNode;
+module.exports = OGMNeoNode;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed May 24 2017 21:39:04 GMT-0300 (-03)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
