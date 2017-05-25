@@ -1,5 +1,5 @@
 module.exports = {
-    Connection: require('ogmneo'),
+    Connection: require('./lib/ogmneo'),
     OGMNeoNode: require('./lib/ogmneo-node'),
     OGMNeoQuery: require('./lib/ogmneo-query'),
     OGMNeoRelation: require('./lib/ogmneo-relation'),

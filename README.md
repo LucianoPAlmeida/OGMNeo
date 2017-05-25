@@ -11,7 +11,7 @@ Abstract some trivial operations on neo4j driver for nodejs and make the use sim
 ### Connecting to neo4j database
 
 ```js
-const ogmneo = require('OGMNeo');
+const ogmneo = require('ogmneo');
 ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 
 ```
@@ -20,7 +20,7 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ### Create node example
 
 ```js
-  const OGMNeoNode = require('OGMNeo').OGMNeoNode;
+  const OGMNeoNode = require('ogmneo').OGMNeoNode;
   
   OGMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
        //Created returned object => {id: 1, name: 'name', tes: 3}
@@ -31,7 +31,7 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 
 ### Find Nodes 
   ```js
-    const ogmneo = require('OGMNeo');
+    const ogmneo = require('ogmneo');
     const OGMNeoNode = ogmneo.OGMNeoNode;
     const OGMNeoQuery = ogmneo.OGMNeoQuery;
     const OGMNeoWhere = ogmneo.OGMNeoWhere;
@@ -47,7 +47,7 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
   ```
 ### Create relations
 ```js
-  const OGMNeoRelation = require('OGMNeo').OGMNeoRelation;
+  const OGMNeoRelation = require('ogmneo').OGMNeoRelation;
   OGMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'}).then((rels) => {
         // Created relation node {id: 2, type: 'relatedto', property: 'a'}
   }).catch((error) => {
@@ -58,7 +58,7 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ## Find Relations 
 
 ```js
-  const ogmneo = require('OGMNeo');
+  const ogmneo = require('ogmneo');
   const OGMNeoRelation = ogmneo.OGMNeoRelation;
   const OGMNeoWhere = ogmneo.OGMNeoWhere;
 
@@ -73,7 +73,7 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object. Or you can use OGMNeoCypher.
 
 ```js
-  const ogmneo = require('OGMNeo');
+  const ogmneo = require('ogmneo');
   const OGMNeoCypher = ogmneo.OGMNeoCypher;
 
   OGMNeoCypher.execute(cypher).then((result) => {
@@ -86,7 +86,7 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
 You can create and drop indexes in properties.
 
 ```js
-  const ogmneo = require('OGMNeo');
+  const ogmneo = require('ogmneo');
   const OGMNeoIndex = ogmneo.OGMNeoIndex;
   //Creating
   OGMNeoIndex.create('label', ['property']).then((result) => {
