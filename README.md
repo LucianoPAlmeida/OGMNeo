@@ -3,6 +3,7 @@
 Abstract some trivial operations on neo4j driver for nodejs and make the use simpler. That's why we created OGMNeo.
 
 ## Instalation
+You can find ogmneo in npm [here](https://www.npmjs.com/package/ogmneo) and install using the follow command
 ```sh
  npm install ogmneo
 ```
