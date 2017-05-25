@@ -1,27 +1,27 @@
 'use strict';
 
 const test = require('blue-tape');
-const ORMNeoCypher = require('../lib/ormneo-cypher');
-const ORMNeo = require('../lib/ormneo');
+const OGMNeoCypher = require('../lib/ogmneo-cypher');
+const OGMNeo = require('../lib/ogmneo');
 
-ORMNeo.connect(process.env.NEO4J_USER, process.env.NEO4J_PASS, process.env.NEO4J_HOST);
+OGMNeo.connect(process.env.NEO4J_USER, process.env.NEO4J_PASS, process.env.NEO4J_HOST);
 
 test('Test EXECUTE Transactional cypher', (assert) => {    
-   ORMNeoCypher.execute('MATCH (n) RETURN n', true).then((result) => {
+   OGMNeoCypher.execute('MATCH (n) RETURN n', true).then((result) => {
         assert.notEqual(result,null);
         assert.end();
    });
 });
 
 test('Test EXECUTE NOT Transactional cypher', (assert) => {    
-   ORMNeoCypher.execute('MATCH (n) RETURN COUNT(n)', false).then((result) => {
+   OGMNeoCypher.execute('MATCH (n) RETURN COUNT(n)', false).then((result) => {
         assert.notEqual(result,null);
         assert.end();
    });
 });
 
 test('Test INVALID cypher', (assert) => {    
-   ORMNeoCypher.execute(4324).catch((error) => {
+   OGMNeoCypher.execute(4324).catch((error) => {
         assert.notEqual(error,null);
         assert.equal(error.message, 'Cypher query must to be a string statement');
         assert.end();

@@ -1,28 +1,28 @@
-# ORMNeo
+# OGMNeo
 
-Abstract some trivial operations on neo4j driver for nodejs and make the use simpler. That's why we created ORMNeo.
+Abstract some trivial operations on neo4j driver for nodejs and make the use simpler. That's why we created OGMNeo.
 
 ## Instalation
 ```sh
- npm install ormneo
+ npm install OGMNeo
 ```
 ## Usage 
 
 ### Connecting to neo4j database
 
 ```js
-const ormneo = require('ormneo');
-ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
+const ogmneo = require('OGMNeo');
+ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 
 ```
-   ORMNeo connects using the neo4j bolt protocol.
+   OGMNeo connects using the neo4j bolt protocol.
 
 ### Create node example
 
 ```js
-  const ORMNeoNode = require('ormneo').ORMNeoNode;
+  const OGMNeoNode = require('OGMNeo').OGMNeoNode;
   
-  ORMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
+  OGMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
        //Created returned object => {id: 1, name: 'name', tes: 3}
   }).catch((error) => {
        //Handle error
@@ -31,15 +31,15 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 
 ### Find Nodes 
   ```js
-    const ormneo = require('ormneo');
-    const ORMNeoNode = ormneo.ORMNeoNode;
-    const ORMNeoQuery = ormneo.ORMNeoQuery;
-    const ORMNeoWhere = ormneo.ORMNeoWhere;
+    const ogmneo = require('OGMNeo');
+    const OGMNeoNode = ogmneo.OGMNeoNode;
+    const OGMNeoQuery = ogmneo.OGMNeoQuery;
+    const OGMNeoWhere = ogmneo.OGMNeoWhere;
     
-    let where = new ORMNeoWhere('tes', {$eq: 3});
-    let query = ORMNeoQuery.query('test', where);
+    let where = new OGMNeoWhere('tes', {$eq: 3});
+    let query = OGMNeoQuery.query('test', where);
     
-    ORMNeoNode.execute(query).then((nodes) => {
+    OGMNeoNode.execute(query).then((nodes) => {
         //Found nodes.
     }).catch((error) => {
         //Handle error.
@@ -47,8 +47,8 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
   ```
 ### Create relations
 ```js
-  const ORMNeoRelation = require('ormneo').ORMNeoRelation;
-  ORMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'}).then((rels) => {
+  const OGMNeoRelation = require('OGMNeo').OGMNeoRelation;
+  OGMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'}).then((rels) => {
         // Created relation node {id: 2, type: 'relatedto', property: 'a'}
   }).catch((error) => {
         //Handle error
@@ -58,11 +58,11 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ## Find Relations 
 
 ```js
-  conts ormneo = require('ormneo');
-  const ORMNeoRelation = ormneo.ORMNeoRelation;
-  const ORMNeoWhere = ormneo.ORMNeoWhere;
+  const ogmneo = require('OGMNeo');
+  const OGMNeoRelation = ogmneo.OGMNeoRelation;
+  const OGMNeoWhere = ogmneo.OGMNeoWhere;
 
-  ORMNeoRelation.find(node1.id, node2.id, 'relatedto', new ORMNeoWhere('property', {$eq: 'c'})).then((nodes) => {
+  OGMNeoRelation.find(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', {$eq: 'c'})).then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
         //Handle error.
@@ -70,13 +70,13 @@ ormneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ```
 
 ## Executing Cypher
-You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object. Or you can use ORMNeoCypher.
+You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object. Or you can use OGMNeoCypher.
 
 ```js
-  const ormneo = require('ormneo');
-  const ORMNeoCypher = ormneo.ORMNeoCypher;
+  const ogmneo = require('OGMNeo');
+  const OGMNeoCypher = ogmneo.OGMNeoCypher;
 
-  ORMNeoCypher.execute(cypher).then((result) => {
+  OGMNeoCypher.execute(cypher).then((result) => {
      console.log(result);
   }).catch((error) => {
      reject(error);
@@ -86,14 +86,14 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
 You can create and drop indexes in properties.
 
 ```js
-  const ormneo = require('ormneo');
-  const ORMNeoIndex = ormneo.ORMNeoIndex;
+  const ogmneo = require('OGMNeo');
+  const OGMNeoIndex = ogmneo.OGMNeoIndex;
   //Creating
-  ORMNeoIndex.create('label', ['property']).then((result) => {
+  OGMNeoIndex.create('label', ['property']).then((result) => {
      //Handle creation
   });
   //Droping
-  ORMNeoIndex.drop('label', ['property']).then((result) => {
+  OGMNeoIndex.drop('label', ['property']).then((result) => {
      //Handle drop
   });
 ``` 
@@ -105,8 +105,8 @@ You can create and drop indexes in properties.
 ## Tests
 
   Most of this library functions are covered by unit tests. With 89% of coverage.
-  See the code coverage on [codecov.io](https://codecov.io/gh/LucianoPAlmeida/ORMNeo).
+  See the code coverage on [codecov.io](https://codecov.io/gh/LucianoPAlmeida/OGMNeo).
 
 ## Licence
 
-ORMNeo is released under the [MIT License](https://opensource.org/licenses/MIT).
+OGMNeo is released under the [MIT License](https://opensource.org/licenses/MIT).

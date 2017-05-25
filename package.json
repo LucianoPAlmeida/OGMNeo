@@ -1,24 +1,24 @@
 {
-  "name": "ormneo",
+  "name": "ogmneo",
   "version": "0.2.0",
-  "description": "ORM abstraction layer for neo4j",
+  "description": "OGM(object-graph mapping) abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
     "build": "jsdoc ./lib/** -d ./docs",
     "test": "tape ./__test__/**",
     "lint": "eslint lib"
   },
-  "homepage": "https://github.com/LucianoPAlmeida/ORMNeo",
+  "homepage": "https://github.com/LucianoPAlmeida/OGMNeo",
   "bugs": {
-    "url": "https://github.com/LucianoPAlmeida/ORMNeo/issues"
+    "url": "https://github.com/LucianoPAlmeida/OGMNeo/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LucianoPAlmeida/ORMNeo.git"
+    "url": "https://github.com/LucianoPAlmeida/OGMNeo.git"
   },
   "keywords": [
     "neo4j",
-    "ORM",
+    "OGM",
     "cypher",
     "javascript",
     "es6",
