@@ -4,7 +4,7 @@ Abstract some trivial operations on neo4j driver for nodejs and make the use sim
 
 ## Instalation
 ```sh
- npm install OGMNeo
+ npm install ogmneo
 ```
 ## Usage 
 
