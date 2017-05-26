@@ -96,6 +96,13 @@ test('Test FAIL find by id node', (assert) => {
     });
 });
 
+test('Test Failed execute query', (assert) => {
+    OGMNeoNode.execute('').catch((error) => {
+        assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
+        assert.end();
+    });
+})
+
 test('Test execute query with results', (assert) => {
     let query = OGMQueryBuilder.query('test', new OGMNeoWhere('name', {$eq: 'name1'}));
     OGMNeoNode.execute(query).then((nodes) => {
@@ -146,8 +153,15 @@ test('Test delete MANY NODE', (assert) => {
     });
 });
 
+test('Test Failed Count', (assert) => {
+    OGMNeoNode.count('').catch((error) => {
+        assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
+        assert.end();
+    });
+})
+
 test('Test count', (assert) => {
-    OGMNeoNode.count(new OGMQueryBuilder('test')).then((count) => {
+    OGMNeoNode.countWithLabel('test').then((count) => {
         assert.plan(1);
         assert.equal(count, 0);
     });
