@@ -49,7 +49,12 @@ test('Test condition to query method', (assert) => {
     assert.equal(query, '');
     query = where._conditionToQuery({ 'date': { $lt: new Date('2017-05-20T05:28:02.719Z')}});
     assert.equal(query, 'n.date < 1495258082719');
+    query = where._conditionToQuery({'name' : {$in: ['value', 9, null]}})
+    assert.equal(query, 'n.name IN [ \'value\' , 9 , null ]');
+
     assert.end();
+
+
 });
 
 test('Test WHERE CLAUSE', (assert) => {
