@@ -123,6 +123,81 @@ test('Test execute query with NO results', (assert) => {
     });
 });
 
+//Tests for add and remove labels
+test('Test FAIL add label label not string', (assert) => {
+    OGMNeoNode.addLabelForNode('', 32).catch((error) => {
+        assert.equal(error.message, 'label must be a non empty string');
+        assert.end();
+    });
+});
+
+test('Test FAIL add label id integer', (assert) => {
+    OGMNeoNode.addLabelForNode('label', '').catch((error) => {
+        assert.equal(error.message, 'The nodeId must be an integer value');
+        assert.end();
+    });
+});
+
+test('Test FAIL add label ids not array', (assert) => {
+    OGMNeoNode.addLabelForNodes('label', '').catch((error) => {
+        assert.equal(error.message, 'nodesIds must be an array');
+        assert.end();
+    });
+});
+
+test('Test add label empty nodesIds', (assert) => {
+    OGMNeoNode.addLabelForNodes('label', []).then((nodes) => {
+        assert.equal(nodes.length, 0);
+        assert.end();
+    });
+});
+
+test('Test success adding label', (assert) => {
+    OGMNeoNode.addLabelForNode('label', nodeId).then((node) => {
+        assert.notEqual(node, null);
+        assert.equal(node.id, nodeId);
+        assert.end();
+    });
+});
+
+//================
+test('Test FAIL remove label not string', (assert) => {
+    OGMNeoNode.removeLabelForNode('', 32).catch((error) => {
+        assert.equal(error.message, 'label must be a non empty string');
+        assert.end();
+    });
+});
+
+test('Test FAIL remove label id integer', (assert) => {
+    OGMNeoNode.removeLabelForNode('label', '').catch((error) => {
+        assert.equal(error.message, 'The nodeId must be an integer value');
+        assert.end();
+    });
+});
+
+test('Test FAIL remove label ids not array', (assert) => {
+    OGMNeoNode.removeLabelForNodes('label', '').catch((error) => {
+        assert.equal(error.message, 'nodesIds must be an array');
+        assert.end();
+    });
+});
+
+test('Test remove label empty nodesIds', (assert) => {
+    OGMNeoNode.removeLabelForNodes('label', []).then((nodes) => {
+        assert.equal(nodes.length, 0);
+        assert.end();
+    });
+});
+
+test('Test success removing label', (assert) => {
+    OGMNeoNode.removeLabelForNode('label', nodeId).then((node) => {
+        assert.notEqual(node, null);
+        assert.equal(node.id, nodeId);
+        assert.end();
+    });
+});
+
+//Test delete node
 test('Test FAIL delete NODE', (assert) => {
     OGMNeoNode.delete({ id: 'da' }).catch((error) => {
         assert.notEqual(error, true);
