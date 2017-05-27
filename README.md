@@ -23,7 +23,8 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ```js
   const OGMNeoNode = require('ogmneo').OGMNeoNode;
   
-  OGMNeoNode.create({ name: 'name', tes: 3 }, 'test').then((node) => {
+  OGMNeoNode.create({ name: 'name', tes: 3 }, 'test')
+  .then((node) => {
        //Created returned object => {id: 1, name: 'name', tes: 3}
   }).catch((error) => {
        //Handle error
@@ -40,7 +41,8 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
     let where = new OGMNeoWhere('tes', {$eq: 3});
     let query = OGMNeoQuery.query('test', where);
     
-    OGMNeoNode.execute(query).then((nodes) => {
+    OGMNeoNode.execute(query)
+    .then((nodes) => {
         //Found nodes.
     }).catch((error) => {
         //Handle error.
@@ -51,7 +53,8 @@ You can create relations between nodes.
 
 ```js
   const OGMNeoRelation = require('ogmneo').OGMNeoRelation;
-  OGMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'}).then((rels) => {
+  OGMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'})
+  .then((rels) => {
         // Created relation node {id: 2, type: 'relatedto', property: 'a'}
   }).catch((error) => {
         //Handle error
