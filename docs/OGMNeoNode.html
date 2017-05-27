@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line7">line 7</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -130,6 +130,358 @@
 
     
         <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".addLabelToNode"><span class="type-signature">(static) </span>addLabelToNode<span class="signature">(label, nodeId)</span><span class="type-signature"> &rarr; {Promise.&lt;(object|Error)>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adding label to a node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be added to the node.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the node to add the label.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line265">line 265</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Node(if node exists) or null(if not exists) if fulfilled, some error if rejected.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".addLabelToNodes"><span class="type-signature">(static) </span>addLabelToNodes<span class="signature">(label, nodesIds)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Adding label to nodes.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be added to the node.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodesIds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ids of the nodes to add the label.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line309">line 309</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Nodes(if nodes exists) or null(if not exists) if fulfilled, some error if rejected.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
 
         
             
@@ -236,7 +588,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line200">line 200</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line203">line 203</a>
     </li></ul></dd>
     
 
@@ -389,7 +741,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line189">line 189</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line192">line 192</a>
     </li></ul></dd>
     
 
@@ -597,7 +949,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line19">line 19</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line22">line 22</a>
     </li></ul></dd>
     
 
@@ -750,7 +1102,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line113">line 113</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line116">line 116</a>
     </li></ul></dd>
     
 
@@ -903,7 +1255,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line138">line 138</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line141">line 141</a>
     </li></ul></dd>
     
 
@@ -1056,7 +1408,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line230">line 230</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line233">line 233</a>
     </li></ul></dd>
     
 
@@ -1209,7 +1561,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line163">line 163</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line166">line 166</a>
     </li></ul></dd>
     
 
@@ -1249,6 +1601,358 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".removeLabelFromNode"><span class="type-signature">(static) </span>removeLabelFromNode<span class="signature">(label, nodeId)</span><span class="type-signature"> &rarr; {Promise.&lt;(object|Error)>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Remove label from a node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be removed from the node.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the node to remove the label from.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line287">line 287</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Node(if node exists) or null(if not exists) if fulfilled, some error if rejected.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".removeLabelFromNodes"><span class="type-signature">(static) </span>removeLabelFromNodes<span class="signature">(label, nodeId)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Remove label from nodes.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be removed from the nodes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ids of the nodes to remove the label from.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line340">line 340</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Nodes(if nodes exists) or null(if not exists) if fulfilled, some error if rejected.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(array|Error)></span>
 
 
     </dd>
@@ -1363,7 +2067,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line45">line 45</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line48">line 48</a>
     </li></ul></dd>
     
 
@@ -1539,7 +2243,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line75">line 75</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line78">line 78</a>
     </li></ul></dd>
     
 
@@ -1609,7 +2313,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed May 24 2017 23:01:51 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri May 26 2017 22:04:32 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>
