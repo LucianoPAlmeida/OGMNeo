@@ -66,7 +66,8 @@ You can find the relation nodes.
   const OGMNeoRelation = ogmneo.OGMNeoRelation;
   const OGMNeoWhere = ogmneo.OGMNeoWhere;
 
-  OGMNeoRelation.find(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', {$eq: 'c'})).then((nodes) => {
+  OGMNeoRelation.find(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', {$eq: 'c'}))
+  .then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
         //Handle error.
@@ -80,7 +81,8 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
   const ogmneo = require('ogmneo');
   const OGMNeoCypher = ogmneo.OGMNeoCypher;
 
-  OGMNeoCypher.execute(cypher).then((result) => {
+  OGMNeoCypher.execute(cypher)
+  .then((result) => {
      console.log(result);
   }).catch((error) => {
      reject(error);
@@ -93,11 +95,13 @@ You can create and drop indexes in properties.
   const ogmneo = require('ogmneo');
   const OGMNeoIndex = ogmneo.OGMNeoIndex;
   //Creating
-  OGMNeoIndex.create('label', ['property']).then((result) => {
+  OGMNeoIndex.create('label', ['property'])
+  .then((result) => {
      //Handle creation
   });
   //Droping
-  OGMNeoIndex.drop('label', ['property']).then((result) => {
+  OGMNeoIndex.drop('label', ['property'])
+  .then((result) => {
      //Handle drop
   });
 ``` 
