@@ -47,6 +47,8 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
     });
   ```
 ### Create relations
+You can create relations between nodes.
+
 ```js
   const OGMNeoRelation = require('ogmneo').OGMNeoRelation;
   OGMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'}).then((rels) => {
@@ -57,6 +59,7 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ```
 
 ## Find Relations 
+You can find the relation nodes.
 
 ```js
   const ogmneo = require('ogmneo');
@@ -105,7 +108,7 @@ You can create and drop indexes in properties.
 
 ## Tests
 
-  Most of this library functions are covered by unit tests. With 89% of coverage.
+  Most of this library functions are covered by unit tests. With 90% of coverage.
   See the code coverage on [codecov.io](https://codecov.io/gh/LucianoPAlmeida/OGMNeo).
 
 ## Licence
