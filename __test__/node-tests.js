@@ -58,7 +58,7 @@ test('Test FAIL for query param updateMany node', (assert) => {
 });
 
 test('Test empty new properties updateMany node', (assert) => {
-    let query = OGMQueryBuilder.query('test', new OGMNeoWhere('name', {$eq: 'name1'}));
+    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
     OGMNeoNode.updateMany(query, {}).then((updateNodes) => {
         assert.equal(updateNodes.length, 0);
         assert.end();
@@ -66,7 +66,7 @@ test('Test empty new properties updateMany node', (assert) => {
 });
 
 test('Test updateMany node', (assert) => {
-    let query = OGMQueryBuilder.query('test', new OGMNeoWhere('name', {$eq: 'name1'}));
+    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
     OGMNeoNode.updateMany(query, {newProperty: 'new!!!'})
     .then((updatedNodes) => {
         assert.equal(updatedNodes.length, 2);
@@ -104,7 +104,7 @@ test('Test Failed execute query', (assert) => {
 })
 
 test('Test execute query with results', (assert) => {
-    let query = OGMQueryBuilder.query('test', new OGMNeoWhere('name', {$eq: 'name1'}));
+    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
     OGMNeoNode.execute(query).then((nodes) => {
         assert.ok(_.size(nodes) >= 1);
         nodes.forEach((node)=> {
@@ -116,7 +116,7 @@ test('Test execute query with results', (assert) => {
 });
 
 test('Test execute query with NO results', (assert) => {
- let query = OGMQueryBuilder.query('test', new OGMNeoWhere('tes', {$eq: 1}));
+    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('tes', {$eq: 1}));
     OGMNeoNode.execute(query).then((nodes) => {
         assert.ok(_.isEmpty(nodes));
         assert.end();
@@ -221,7 +221,7 @@ test('Test delete FAIL MANY NODE', (assert) => {
 });
 
 test('Test delete MANY NODE', (assert) => {
-    let query = OGMQueryBuilder.query('test', new OGMNeoWhere('name', {$eq: 'name1'}));
+    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
     OGMNeoNode.deleteMany(query).then((numberOfDeleted) => {
         assert.equal(numberOfDeleted, 1);
         assert.end();

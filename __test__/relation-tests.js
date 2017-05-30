@@ -91,7 +91,7 @@ test('Test FAIL UPDATE MANY', (assert) => {
 test('Test empty newProperties UPDATE MANY', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let where = OGMNeoWhere.where('property', { $eq: 'c' });
+    let where = OGMNeoWhere.create('property', { $eq: 'c' });
     OGMNeoRelation.updateMany({}, node1.id, node2.id, 'relatedto', null)
     .then((updatedRelations) => {
         assert.equal(updatedRelations.length, 0);
@@ -102,7 +102,7 @@ test('Test empty newProperties UPDATE MANY', (assert) => {
 test('Test UPDATE MANY', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let where = OGMNeoWhere.where('property', { $eq: 'c' });
+    let where = OGMNeoWhere.create('property', { $eq: 'c' });
     OGMNeoRelation.updateMany({newProperty: 'new!!!'}, node1.id, node2.id, 'relatedto', where)
     .then((updatedRelations) => {
         assert.equal(updatedRelations.length, 1);
