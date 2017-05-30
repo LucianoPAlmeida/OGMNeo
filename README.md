@@ -2,6 +2,12 @@
 
 Abstract some trivial operations on neo4j driver for nodejs and make the use simpler. That's why we created OGMNeo.
 
+[![npm version](https://badge.fury.io/js/ogmneo.svg)](https://badge.fury.io/js/ogmneo)
+[![npm](https://img.shields.io/npm/dt/ogmneo.svg)](https://www.npmjs.com/package/ogmneo)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+[![Travis](https://img.shields.io/travis/LucianoPAlmeida/OGMNeo.svg)](https://travis-ci.org/LucianoPAlmeida/OGMNeo)
+[![Codecov](https://img.shields.io/codecov/c/github/LucianoPAlmeida/OGMNeo.svg)](https://codecov.io/gh/LucianoPAlmeida/OGMNeo)
+
 ## Instalation
 You can find ogmneo in npm [here](https://www.npmjs.com/package/ogmneo) and install using the follow command
 ```sh
