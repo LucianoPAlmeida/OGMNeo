@@ -3,10 +3,6 @@ language: java # Work around to make neo4j works.
 jdk:
   - oraclejdk8
 
-
-sudo: true
-
-
 env:
   - NEO4J_VERSION="3.1.0"
 
