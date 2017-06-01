@@ -10,16 +10,30 @@ test('Test create Index', (assert) => {
    });
 });
 
+test('Test create Index with string param', (assert) => {
+    OGMNeoIndex.create('object', 'string').then((result) => {
+        assert.notEqual(result, null);
+        assert.end();
+    })
+});
+
+test('Test FAIL create Index with string param', (assert) => {
+    OGMNeoIndex.create('object', '').catch((error) => {
+        assert.equals(error.message, 'You must provide and label and an array with at least one field name or a string name');
+        assert.end();
+    });
+});
+
 test('Test create Index fail', (assert) => {    
     OGMNeoIndex.create(null, ['name','tes']).catch((error) => {
-         assert.equals(error.message, 'You must provide and label and an array with at least one field name');
+        assert.equals(error.message, 'You must provide and string as label param');
          assert.end();
     });
 });
 
 test('Test create index fail by parameters', (assert) => {
     OGMNeoIndex.create('object', []).catch((error) => {
-         assert.equals(error.message, 'You must provide an array with at least one field name string');
+        assert.equals(error.message, 'You must provide and label and an array with at least one field name or a string name');
          assert.end();
     });
 });
@@ -30,3 +44,4 @@ test('Test drop Index', (assert) => {
         assert.end();
     })
 });
+

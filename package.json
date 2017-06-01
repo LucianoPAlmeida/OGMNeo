@@ -19,6 +19,9 @@
   "keywords": [
     "neo4j",
     "OGM",
+    "ORM",
+    "ORM-neo4j",
+    "neo4j-abstraction",
     "cypher",
     "javascript",
     "es6",
