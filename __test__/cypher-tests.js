@@ -5,6 +5,11 @@ const OGMNeoCypher = require('../lib/ogmneo-cypher');
 const OGMNeo = require('../lib/ogmneo');
 
 OGMNeo.connect(process.env.NEO4J_USER, process.env.NEO4J_PASS, process.env.NEO4J_HOST);
+test('Test Connection', (assert) => {
+    assert.notEqual(OGMNeo.driver, null);
+    assert.equal(OGMNeo.isConnected, true);
+    assert.end();
+});
 
 test('Test EXECUTE Transactional cypher', (assert) => {    
    OGMNeoCypher.execute('MATCH (n) RETURN n', true).then((result) => {
