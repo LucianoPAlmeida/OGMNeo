@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('blue-tape');
+const test = require('tape');
 const OGMNeoWhere = require('../lib/ogmneo-where');
 
 test('Test CONSTRUCT an where object', (assert) => {

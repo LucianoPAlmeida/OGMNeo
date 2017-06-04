@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('blue-tape');
+const test = require('tape');
 const OGMNeoCypher = require('../lib/ogmneo-cypher');
 const OGMNeo = require('../lib/ogmneo');
 

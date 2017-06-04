@@ -37,9 +37,9 @@
     "neo4j-driver": "^1.2.0"
   },
   "devDependencies": {
-    "blue-tape": "^1.0.0",
     "eslint": "^3.19.0",
     "istanbul": "^0.4.5",
-    "jsdoc": "^3.4.3"
+    "jsdoc": "^3.4.3",
+    "tape": "^4.6.3"
   }
 }

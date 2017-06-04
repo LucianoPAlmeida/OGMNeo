@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('blue-tape');
+const test = require('tape');
 const OGMNeoIndex = require('../lib/ogmneo-index');
 
 test('Test create Index', (assert) => {    
