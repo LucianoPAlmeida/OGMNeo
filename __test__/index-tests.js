@@ -4,7 +4,7 @@ const test = require('blue-tape');
 const OGMNeoIndex = require('../lib/ogmneo-index');
 
 test('Test create Index', (assert) => {    
-   OGMNeoIndex.create('object', ['name']).then((result) => {
+   OGMNeoIndex.create('object', ['name','test']).then((result) => {
         assert.notEqual(result, null);
         assert.end();
    });

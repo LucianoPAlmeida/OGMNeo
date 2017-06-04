@@ -35,6 +35,7 @@
             }
         ],
         "array-callback-return" : "error",
-        "consistent-return" : "error"
+        "consistent-return" : "error",
+        "block-scoped-var" : "error"
     }
 }
