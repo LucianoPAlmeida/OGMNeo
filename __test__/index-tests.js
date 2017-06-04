@@ -39,7 +39,7 @@ test('Test create index fail by parameters', (assert) => {
 });
 
 test('Test drop Index', (assert) => {    
-    OGMNeoIndex.drop('object', ['name']).then((result) => {
+    OGMNeoIndex.drop('object', ['name','test']).then((result) => {
         assert.notEqual(result, null);
         assert.end();
     })
