@@ -136,8 +136,31 @@ test('Test FIND relations', (assert) => {
 });
 
 test('Test FAIL FIND', (assert) => {
-    OGMNeoRelation.find({}, '', 'relatedto').catch((error)=> {
+    OGMNeoRelation.findPopulated({}, '', 'relatedto').catch((error)=> {
         assert.equal(error.message, 'Both node ids have to be integers numbers');
+        assert.end();
+    });
+});
+
+
+test('Test FAIL FIND POPULATED', (assert) => {
+    OGMNeoRelation.find({}, '', 'relatedto').catch((error) => {
+        assert.equal(error.message, 'Both node ids have to be integers numbers');
+        assert.end();
+    });
+});
+
+test('Test FIND POPULATED relations', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    OGMNeoRelation.findPopulated(node1.id, node2.id, 'relatedto').then((foundNodes) => {
+        assert.equal(foundNodes.length, 2);
+        foundNodes.forEach((node) => {
+            assert.notEqual(node.start, null);
+            assert.deepEqual(node.start, { id: node1.id, name: 'Test1', value: 2 });
+            assert.notEqual(node.end, null);
+            assert.deepEqual(node.end, { id: node2.id, name: 'Test2', value: 4 });
+        });
         assert.end();
     });
 });
