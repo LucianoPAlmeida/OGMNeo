@@ -115,6 +115,18 @@ test('Test execute query with results', (assert) => {
     });
 });
 
+test('Test execute query with results and ORDER BY', (assert) => {
+    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', { $eq: 'name1' })).ascOrderBy('name');
+    OGMNeoNode.execute(query).then((nodes) => {
+        assert.ok(_.size(nodes) >= 1);
+        nodes.forEach((node) => {
+            assert.notEqual(node.id, null);
+            assert.equal(node.name, 'name1');
+        });
+        assert.end();
+    });
+});
+
 test('Test execute query with NO results', (assert) => {
     let query = OGMQueryBuilder.create('test', new OGMNeoWhere('tes', {$eq: 1}));
     OGMNeoNode.execute(query).then((nodes) => {

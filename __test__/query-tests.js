@@ -36,5 +36,31 @@ test('Test query builder', (assert) => {
     queryBuilder.limit(25);
     cypher = queryBuilder.queryCypher();
     assert.equal(cypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN n LIMIT 25');
+    queryBuilder.ascOrderBy(['name', 'age']);
+    cypher = queryBuilder.queryCypher();
+    assert.equal(cypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN n ORDER BY n.name, n.age ASC LIMIT 25');
+    queryBuilder.descOrderBy('name');
+    cypher = queryBuilder.queryCypher();
+    assert.equal(cypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN n ORDER BY n.name DESC LIMIT 25');
     assert.end();
 }); 
+
+test('Test ORDER BY Clause', (assert) => {
+    //ASC
+    let query = new QueryBuilder('Object').ascOrderBy(['name', 'test']);
+    assert.equal(query.orderByClause(), 'ORDER BY n.name, n.test ASC');
+    query = new QueryBuilder('Object').ascOrderBy('name');
+    assert.equal(query.orderByClause(), 'ORDER BY n.name ASC');
+    //DESC
+    query = new QueryBuilder('Object').descOrderBy(['name', 'test']);
+    assert.equal(query.orderByClause(), 'ORDER BY n.name, n.test DESC');
+    query = new QueryBuilder('Object').descOrderBy('name');
+    assert.equal(query.orderByClause(), 'ORDER BY n.name DESC');
+    assert.end();
+});
+
+test('Test Fail ORDER BY Clause', (assert) => {
+    let query = new QueryBuilder('Object').ascOrderBy({});
+    assert.equal(query.orderByClause(), '');
+    assert.end();
+});
