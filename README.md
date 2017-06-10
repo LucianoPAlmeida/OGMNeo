@@ -74,8 +74,19 @@ You can find the relation nodes.
   const ogmneo = require('ogmneo');
   const OGMNeoRelation = ogmneo.OGMNeoRelation;
   const OGMNeoWhere = ogmneo.OGMNeoWhere;
+  const OGMNeoQuery = ogmneo.OGMNeoQuery;
 
   OGMNeoRelation.find(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', {$eq: 'c'}))
+  .then((nodes) => {
+        //Found relation nodes.
+  }).catch((error) => {
+        //Handle error.
+  });
+  
+  //Or
+  
+  let query = OGMNeoQuery.create(null, new OGMNeoWhere('property', { $eq: 'c' }), 20).ascOrderBy('property');
+  OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query)
   .then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
