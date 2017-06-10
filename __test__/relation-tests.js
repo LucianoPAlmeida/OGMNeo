@@ -184,9 +184,6 @@ test('Test FIND relations ORDER BY', (assert) => {
         assert.equal(foundRelations.length, 2);
         let relation1 = foundRelations[0];
         let relation2 = foundRelations[1];
-        console.log(foundRelations);
-        console.log(relation1.newProperty);
-        console.log(relation2.newProperty);
         assert.equal(relation1.property > relation2.property, true);
         assert.end();
     });
