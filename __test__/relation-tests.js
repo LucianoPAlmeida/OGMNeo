@@ -176,7 +176,7 @@ test('Test FIND POPULATED relations', (assert) => {
     });
 });
 
-test('Test FIND relations ORDER BY', (assert) => {
+test('Test FIND relations ORDER BY DESC', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
     let query = OGMNeoQuery.create(null, null, 3).descOrderBy('property');
@@ -187,8 +187,19 @@ test('Test FIND relations ORDER BY', (assert) => {
         assert.equal(relation1.property > relation2.property, true);
         assert.end();
     });
+});
 
-    
+test('Test FIND relations ORDER BY ASC', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let query = OGMNeoQuery.create(null, null, 3).ascOrderBy('property');
+    OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+        assert.equal(foundRelations.length, 2);
+        let relation1 = foundRelations[0];
+        let relation2 = foundRelations[1];
+        assert.equal(relation1.property < relation2.property, true);
+        assert.end();
+    });
 });
 
 test('Test FIND relations WITH OGMNeoQuery as a filter parameter', (assert) => {
