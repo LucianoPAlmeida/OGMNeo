@@ -6,7 +6,7 @@ const OGMNeoNode = require('../lib/ogmneo-node');
 const OGMNeoRelation = require('../lib/ogmneo-relation');
 const OGMQueryBuilder = require('../lib/ogmneo-query');
 const OGMNeoWhere = require('../lib/ogmneo-where');
-
+const OGMNeoQuery = require('../lib/ogmneo-query');
 const _ = require('lodash');
 
 OGMNeo.connect('neo4j', 'databasepass', 'localhost');
@@ -60,13 +60,24 @@ test('Test FAIL CREATE IDS relation', (assert) => {
     });
 });
 
-test('Test UPDATE relation', (assert) => {
+test('Test UPDATE first relation', (assert) => {
     let relation = _.first(relations);
     assert.notEqual(relation, null);
     OGMNeoRelation.update(relation.id, { newProperty: 'b', property: 'c' })
         .then((updatedRel) => {
             assert.equal(updatedRel.newProperty, 'b');
             assert.equal(updatedRel.property, 'c');
+            assert.end();
+        });
+});
+
+test('Test UPDATE second relation', (assert) => {
+    let relation = relations[1];
+    assert.notEqual(relation, null);
+    OGMNeoRelation.update(relation.id, { newProperty: 'b', property: 'a' })
+        .then((updatedRel) => {
+            assert.equal(updatedRel.newProperty, 'b');
+            assert.equal(updatedRel.property, 'a');
             assert.end();
         });
 });
@@ -161,6 +172,54 @@ test('Test FIND POPULATED relations', (assert) => {
             assert.notEqual(node.end, null);
             assert.deepEqual(node.end, { id: node2.id, name: 'Test2', value: 4 });
         });
+        assert.end();
+    });
+});
+
+test('Test FIND relations ORDER BY', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let query = OGMNeoQuery.create(null, null, 3).descOrderBy('property');
+    OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+        assert.equal(foundRelations.length, 2);
+        let relation1 = foundRelations[0];
+        let relation2 = foundRelations[1];
+        console.log(foundRelations);
+        console.log(relation1.newProperty);
+        console.log(relation2.newProperty);
+        assert.equal(relation1.property > relation2.property, true);
+        assert.end();
+    });
+
+    
+});
+
+test('Test FIND relations WITH OGMNeoQuery as a filter parameter', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let query = OGMNeoQuery.create(null, new OGMNeoWhere('property', { $eq: 'c' }), 20).ascOrderBy('property');
+    OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+        assert.equal(foundRelations.length, 1);
+        let relation = _.first(foundRelations);
+        assert.equal(relation.property, 'c');
+        assert.equal(relation.newProperty, 'new!!!');
+        assert.end();
+    });
+});
+
+test('Test FIND POPULATED relations WITH OGMNeoQuery as a filter parameter', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let query = OGMNeoQuery.create(null, new OGMNeoWhere('property', { $eq: 'c' }), 20).descOrderBy('property');
+    OGMNeoRelation.findPopulated(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+        assert.equal(foundRelations.length, 1);
+        let relation = _.first(foundRelations);
+        assert.notEqual(relation.start, null);
+        assert.deepEqual(relation.start, { id: node1.id, name: 'Test1', value: 2 });
+        assert.notEqual(relation.end, null);
+        assert.deepEqual(relation.end, { id: node2.id, name: 'Test2', value: 4 });
+        assert.equal(relation.property, 'c');
+        assert.equal(relation.newProperty, 'new!!!');
         assert.end();
     });
 });
