@@ -51,7 +51,12 @@ test('Test condition to query method', (assert) => {
     assert.equal(query, 'n.date < 1495258082719');
     query = where._conditionToQuery({'name' : {$in: ['value', 9, null]}})
     assert.equal(query, 'n.name IN [ \'value\' , 9 , null ]');
-
+    query = where._conditionToQuery({ 'name': { $exists: true } })
+    assert.equal(query, 'EXISTS(n.name)');
+    query = where._conditionToQuery({ 'name': { $exists: false } })
+    assert.equal(query, 'NOT EXISTS(n.name)');
+    query = where._conditionToQuery({ 'name': { $exists: '' } })
+    assert.equal(query, '');
     assert.end();
 
 
@@ -60,7 +65,8 @@ test('Test condition to query method', (assert) => {
 test('Test WHERE CLAUSE', (assert) => {
     let where = new OGMNeoWhere('name', { $contains: 'r' })
         .and('age', { $lte: 20 })
+        .and('property', {$exists: true})
         .or('gender', { $eq: 'm' });
-    assert.equal(where.clause, 'n.name CONTAINS \'r\' AND n.age <= 20 OR n.gender = \'m\'');
+    assert.equal(where.clause, 'n.name CONTAINS \'r\' AND n.age <= 20 AND EXISTS(n.property) OR n.gender = \'m\'');
     assert.end();
 });
