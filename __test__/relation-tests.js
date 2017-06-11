@@ -304,5 +304,5 @@ test('Test DELETE MANY relations', (assert) => {
 });
 
 test.onFinish(() => {
-    OGMNeo.disconnet();
+    OGMNeo.disconnect();
 });
