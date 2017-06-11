@@ -47,7 +47,7 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
     let where = new OGMNeoWhere('tes', {$eq: 3});
     let query = OGMNeoQuery.query('test', where);
     
-    OGMNeoNode.execute(query)
+    OGMNeoNode.find(query)
     .then((nodes) => {
         //Found nodes.
     }).catch((error) => {
