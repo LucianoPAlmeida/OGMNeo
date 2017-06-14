@@ -96,8 +96,28 @@ test('Test FAIL find by id node', (assert) => {
     });
 });
 
+test('Test get MANY by ids', (assert) => {
+    OGMNeoNode.manyWithIds([nodeId]).then((nodes) => {
+        assert.equal(_.isArray(nodes), true);
+        let node = _.first(nodes);
+        assert.notEqual(node, null);
+        assert.notEqual(node.id, null);
+        assert.equal(node.name, 'name1');
+        assert.deepEqual(node.tes, 52);
+        assert.end();
+    });
+});
+
+test('Test FAIL find MANY by ids', (assert) => {
+    OGMNeoNode.manyWithIds('').catch((error) => {
+        assert.notEqual(error, null);
+        assert.equal(error.message, 'The parameter must be an array of ids');
+        assert.end();
+    });
+});
+
 test('Test Failed execute query', (assert) => {
-    OGMNeoNode.execute('').catch((error) => {
+    OGMNeoNode.find('').catch((error) => {
         assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
         assert.end();
     });
@@ -105,7 +125,7 @@ test('Test Failed execute query', (assert) => {
 
 test('Test execute query with results', (assert) => {
     let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
-    OGMNeoNode.execute(query).then((nodes) => {
+    OGMNeoNode.find(query).then((nodes) => {
         assert.ok(_.size(nodes) >= 1);
         nodes.forEach((node)=> {
             assert.notEqual(node.id, null);
@@ -117,7 +137,7 @@ test('Test execute query with results', (assert) => {
 
 test('Test execute query with results and ORDER BY', (assert) => {
     let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', { $eq: 'name1' })).ascOrderBy('name');
-    OGMNeoNode.execute(query).then((nodes) => {
+    OGMNeoNode.find(query).then((nodes) => {
         assert.ok(_.size(nodes) >= 1);
         nodes.forEach((node) => {
             assert.notEqual(node.id, null);
@@ -129,7 +149,7 @@ test('Test execute query with results and ORDER BY', (assert) => {
 
 test('Test execute query with NO results', (assert) => {
     let query = OGMQueryBuilder.create('test', new OGMNeoWhere('tes', {$eq: 1}));
-    OGMNeoNode.execute(query).then((nodes) => {
+    OGMNeoNode.find(query).then((nodes) => {
         assert.ok(_.isEmpty(nodes));
         assert.end();
     });
