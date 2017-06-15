@@ -11,7 +11,7 @@ const _ = require('lodash');
 var nodeId = 0;
 
 test('Test create node', (assert) => {    
-    OGMNeoNode.create({ name: 'name1', tes: 3}, 'test').then((node) => {
+    OGMNeoNode.create({ name: 'name1', tes: 3, array: ['das']}, 'test').then((node) => {
         assert.notEqual(node, null);
         assert.notEqual(node.id, null);
         assert.deepEqual(node.name, 'name1');
@@ -22,7 +22,7 @@ test('Test create node', (assert) => {
 });
 
 test('Test create node with DATE param', (assert) => {    
-    OGMNeoNode.create({ name: 'name1', date: new Date()}, 'test')
+    OGMNeoNode.create({ name: 'name1', date: new Date(), array: ['das']}, 'test')
     .then((node) => {
         assert.notEqual(node, null);
         assert.notEqual(node.id, null);
@@ -66,7 +66,7 @@ test('Test empty new properties updateMany node', (assert) => {
 });
 
 test('Test updateMany node', (assert) => {
-    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' }));
     OGMNeoNode.updateMany(query, {newProperty: 'new!!!'})
     .then((updatedNodes) => {
         assert.equal(updatedNodes.length, 2);
@@ -124,7 +124,7 @@ test('Test Failed execute query', (assert) => {
 })
 
 test('Test execute query with results', (assert) => {
-    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' }));
     OGMNeoNode.find(query).then((nodes) => {
         assert.ok(_.size(nodes) >= 1);
         nodes.forEach((node)=> {
@@ -135,8 +135,24 @@ test('Test execute query with results', (assert) => {
     });
 });
 
+test('Test execute query with results and return clause', (assert) => {
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' })).return(['newProperty','array']);
+    OGMNeoNode.find(query).then((nodes) => {
+        assert.ok(_.size(nodes) >= 1);
+        nodes.forEach((node) => {
+            assert.equal(node.id, undefined);
+            assert.equal(node.name, undefined);
+            assert.equal(node.newProperty, 'new!!!');
+            assert.equal(node.tes, undefined);
+        });
+        assert.end();
+    });
+});
+
 test('Test execute query with results and ORDER BY', (assert) => {
-    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', { $eq: 'name1' })).ascOrderBy('name');
+    let query = OGMQueryBuilder.create('test')
+    .where(new OGMNeoWhere('name', { $eq: 'name1' }))
+    .ascOrderBy('name');
     OGMNeoNode.find(query).then((nodes) => {
         assert.ok(_.size(nodes) >= 1);
         nodes.forEach((node) => {
@@ -148,7 +164,7 @@ test('Test execute query with results and ORDER BY', (assert) => {
 });
 
 test('Test execute query with NO results', (assert) => {
-    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('tes', {$eq: 1}));
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('tes', { $eq: 1 }));
     OGMNeoNode.find(query).then((nodes) => {
         assert.ok(_.isEmpty(nodes));
         assert.end();
@@ -253,7 +269,7 @@ test('Test delete FAIL MANY NODE', (assert) => {
 });
 
 test('Test delete MANY NODE', (assert) => {
-    let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' }));
     OGMNeoNode.deleteMany(query).then((numberOfDeleted) => {
         assert.equal(numberOfDeleted, 1);
         assert.end();
