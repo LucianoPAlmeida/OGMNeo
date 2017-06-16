@@ -136,7 +136,7 @@
 
     
 
-    <h4 class="name" id=".count"><span class="type-signature">(static) </span>count<span class="signature">(nodeId, otherNodeId<span class="signature-attributes">opt</span>, name<span class="signature-attributes">opt</span>, propertiesFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(integer|Error)>}</span></h4>
+    <h4 class="name" id=".count"><span class="type-signature">(static) </span>count<span class="signature">(query)</span><span class="type-signature"> &rarr; {Promise.&lt;(integer|Error)>}</span></h4>
 
     
 
@@ -167,11 +167,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -183,152 +179,23 @@
 
         <tr>
             
-                <td class="name"><code>nodeId</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">First in relation node id.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>otherNodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Second in relation node id..</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Case sensitive relation type name.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>propertiesFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Where object filter to be applied on count.</td>
+            <td class="description last">Query filter.</td>
         </tr>
 
     
@@ -369,7 +236,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line205">line 205</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line191">line 191</a>
     </li></ul></dd>
     
 
@@ -422,7 +289,7 @@
 
     
 
-    <h4 class="name" id=".deleteMany"><span class="type-signature">(static) </span>deleteMany<span class="signature">(nodeId, otherNodeId<span class="signature-attributes">opt</span>, name<span class="signature-attributes">opt</span>, propertiesFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
+    <h4 class="name" id=".deleteMany"><span class="type-signature">(static) </span>deleteMany<span class="signature">(query)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
 
     
 
@@ -453,11 +320,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -469,152 +332,23 @@
 
         <tr>
             
-                <td class="name"><code>nodeId</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">First in relation node id.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>otherNodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Second in relation node id..</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Case sensitive relation type name.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>propertiesFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Where object filter to be applied on delete.</td>
+            <td class="description last">Query filter.</td>
         </tr>
 
     
@@ -655,7 +389,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line289">line 289</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line268">line 268</a>
     </li></ul></dd>
     
 
@@ -808,7 +542,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line256">line 256</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line238">line 238</a>
     </li></ul></dd>
     
 
@@ -861,7 +595,7 @@
 
     
 
-    <h4 class="name" id=".exists"><span class="type-signature">(static) </span>exists<span class="signature">(nodeId, otherNodeId<span class="signature-attributes">opt</span>, name<span class="signature-attributes">opt</span>, propertiesFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(boolean|Error)>}</span></h4>
+    <h4 class="name" id=".exists"><span class="type-signature">(static) </span>exists<span class="signature">(query)</span><span class="type-signature"> &rarr; {Promise.&lt;(boolean|Error)>}</span></h4>
 
     
 
@@ -892,11 +626,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -908,152 +638,23 @@
 
         <tr>
             
-                <td class="name"><code>nodeId</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">First in relation node id.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>otherNodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Second in relation node id..</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Case sensitive relation type name.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>propertiesFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Where object filter to be applied on exists.</td>
+            <td class="description last">Query filter.</td>
         </tr>
 
     
@@ -1094,7 +695,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line238">line 238</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line220">line 220</a>
     </li></ul></dd>
     
 
@@ -1147,7 +748,7 @@
 
     
 
-    <h4 class="name" id=".find"><span class="type-signature">(static) </span>find<span class="signature">(nodeId, otherNodeId<span class="signature-attributes">opt</span>, name<span class="signature-attributes">opt</span>, propertiesFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
+    <h4 class="name" id=".find"><span class="type-signature">(static) </span>find<span class="signature">(query)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
 
     
 
@@ -1178,11 +779,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1194,155 +791,23 @@
 
         <tr>
             
-                <td class="name"><code>nodeId</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">First in relation node id.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>otherNodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Second in relation node id..</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Case sensitive relation type name.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>propertiesFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-|
-
-<span class="param-type"><a href="OGMNeoQuery.html">OGMNeoQuery</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">OGMNeoWhere or OGMNeoQuery object filter to be applied on find.</td>
+            <td class="description last">Query filter.</td>
         </tr>
 
     
@@ -1383,7 +848,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line139">line 139</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line133">line 133</a>
     </li></ul></dd>
     
 
@@ -1436,7 +901,7 @@
 
     
 
-    <h4 class="name" id=".findPopulated"><span class="type-signature">(static) </span>findPopulated<span class="signature">(nodeId, otherNodeId<span class="signature-attributes">opt</span>, name<span class="signature-attributes">opt</span>, propertiesFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
+    <h4 class="name" id=".findPopulated"><span class="type-signature">(static) </span>findPopulated<span class="signature">(query)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
 
     
 
@@ -1467,11 +932,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1483,155 +944,23 @@
 
         <tr>
             
-                <td class="name"><code>nodeId</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">First in relation node id.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>otherNodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Second in relation node id..</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Case sensitive relation type name.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>propertiesFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-|
-
-<span class="param-type"><a href="OGMNeoQuery.html">OGMNeoQuery</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">OGMNeoWhere or OGMNeoQuery object filter to be applied on find.</td>
+            <td class="description last">Query filter.</td>
         </tr>
 
     
@@ -1672,7 +1001,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line172">line 172</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line162">line 162</a>
     </li></ul></dd>
     
 
@@ -2218,7 +1547,7 @@
 
     
 
-    <h4 class="name" id=".updateMany"><span class="type-signature">(static) </span>updateMany<span class="signature">(newProperties, nodeId, otherNodeId<span class="signature-attributes">opt</span>, name<span class="signature-attributes">opt</span>, propertiesFilter<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
+    <h4 class="name" id=".updateMany"><span class="type-signature">(static) </span>updateMany<span class="signature">(newProperties, query)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
 
     
 
@@ -2249,11 +1578,7 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -2278,19 +1603,7 @@
             </td>
 
             
-                <td class="attributes">
-                
 
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
             
 
             <td class="description last">New properties ot be set or updated.</td>
@@ -2300,152 +1613,23 @@
 
         <tr>
             
-                <td class="name"><code>nodeId</code></td>
+                <td class="name"><code>query</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">First in relation node id.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>otherNodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Second in relation node id..</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Case sensitive relation type name.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>propertiesFilter</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">Where object filter to be applied on delete.</td>
+            <td class="description last">Query filter.</td>
         </tr>
 
     
@@ -2486,7 +1670,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line99">line 99</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -2550,13 +1734,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Jun 11 2017 19:49:41 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Jun 16 2017 01:18:45 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>
