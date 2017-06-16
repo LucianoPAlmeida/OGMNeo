@@ -126,7 +126,7 @@ test('Test UPDATE MANY', (assert) => {
             assert.end();
         });
 });
-//===============================================================================
+
 test('Test FIND relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
@@ -208,6 +208,7 @@ test('Test FIND relations ORDER BY ASC', (assert) => {
     });
 });
 
+//===============================================================================
 test('Test FIND relations WITH Filter Return Relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
@@ -215,13 +216,14 @@ test('Test FIND relations WITH Filter Return Relation', (assert) => {
         .startNode(node1.id)
         .endNode(node2.id)
         .relationWhere(new OGMNeoWhere('property', { $eq: 'c' }))
+        .returnRelationNode(['property'])
         .descOrderBy('property')
         .limit(20);
-    OGMNeoRelation.find(query).then((foundRelations) => {
+    OGMNeoRelation.findPopulated(query).then((foundRelations) => {
         assert.equal(foundRelations.length, 1);
         let relation = _.first(foundRelations);
         assert.equal(relation.property, 'c');
-        assert.equal(relation.newProperty, 'new!!!');
+        assert.equal(relation.newProperty, undefined);
         assert.end();
     });
 });
@@ -233,13 +235,14 @@ test('Test FIND POPULATED relations WITH Filter Return Start Node', (assert) => 
         .startNode(node1.id)
         .endNode(node2.id)
         .relationWhere(new OGMNeoWhere('property', { $eq: 'c' }))
+        .returnStartNode(['name'])
         .descOrderBy('property')
         .limit(20);
     OGMNeoRelation.findPopulated(query).then((foundRelations) => {
         assert.equal(foundRelations.length, 1);
         let relation = _.first(foundRelations);
         assert.notEqual(relation.start, null);
-        assert.deepEqual(relation.start, { id: node1.id, name: 'Test1', value: 2 });
+        assert.deepEqual(relation.start, { name: 'Test1'});
         assert.notEqual(relation.end, null);
         assert.deepEqual(relation.end, { id: node2.id, name: 'Test2', value: 4 });
         assert.equal(relation.property, 'c');
@@ -255,6 +258,7 @@ test('Test FIND POPULATED relations WITH Filter Return End Node', (assert) => {
         .startNode(node1.id)
         .endNode(node2.id)
         .relationWhere(new OGMNeoWhere('property', { $eq: 'c' }))
+        .returnEndNode(['name'])
         .descOrderBy('property')
         .limit(20);
     OGMNeoRelation.findPopulated(query).then((foundRelations) => {
@@ -263,7 +267,7 @@ test('Test FIND POPULATED relations WITH Filter Return End Node', (assert) => {
         assert.notEqual(relation.start, null);
         assert.deepEqual(relation.start, { id: node1.id, name: 'Test1', value: 2 });
         assert.notEqual(relation.end, null);
-        assert.deepEqual(relation.end, { id: node2.id, name: 'Test2', value: 4 });
+        assert.deepEqual(relation.end, { name: 'Test2' });
         assert.equal(relation.property, 'c');
         assert.equal(relation.newProperty, 'new!!!');
         assert.end();
