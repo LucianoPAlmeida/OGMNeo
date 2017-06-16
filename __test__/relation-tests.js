@@ -297,8 +297,8 @@ test('TEST DELETE relation', (assert) => {
 });
 
 test('Test FAIL DELETE MANY', (assert) => {
-    OGMNeoRelation.deleteMany('', {}, 'relatedto').catch((error) => {
-        assert.equal(error.message, 'Both node ids have to be integers numbers');
+    OGMNeoRelation.deleteMany('').catch((error) => {
+        assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
         assert.end();
     });
 });
@@ -306,7 +306,8 @@ test('Test FAIL DELETE MANY', (assert) => {
 test('Test DELETE MANY relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    OGMNeoRelation.deleteMany(node1.id, node2.id, 'relatedto').then((deletedRels) => {
+    let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
+    OGMNeoRelation.deleteMany(query).then((deletedRels) => {
         assert.equal(deletedRels.length, 1);
         assert.end();
     })
