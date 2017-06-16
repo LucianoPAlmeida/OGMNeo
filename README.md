@@ -44,9 +44,9 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
     const OGMNeoQuery = ogmneo.OGMNeoQuery;
     const OGMNeoWhere = ogmneo.OGMNeoWhere;
     
-    let where = new OGMNeoWhere('tes', {$eq: 3});
-    let query = OGMNeoQuery.query('test', where);
-    
+    let query = OGMQueryBuilder.create('test')
+                               .where(new OGMNeoWhere('name', { $eq: 'name1' }));
+
     OGMNeoNode.find(query)
     .then((nodes) => {
         //Found nodes.
@@ -75,23 +75,29 @@ You can find the relation nodes.
   const OGMNeoRelation = ogmneo.OGMNeoRelation;
   const OGMNeoWhere = ogmneo.OGMNeoWhere;
   const OGMNeoQuery = ogmneo.OGMNeoQuery;
-
-  OGMNeoRelation.find(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', {$eq: 'c'}))
+  
+  let query = OGMNeoRelationQuery.create('relatedto')
+                                 .startNode(node1.id)
+                                 .endNode(node2.id)
+                                 .relationWhere(OGMNeoWhere.create('property', { $eq: 'c' }))
+                                 .ascOrderBy('property')
+                                 .limit(3);
+  OGMNeoRelation.find(query)
   .then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
         //Handle error.
   });
   
-  //Or
+  //OR
   
-  let query = OGMNeoQuery.create(null, new OGMNeoWhere('property', { $eq: 'c' }), 20).ascOrderBy('property');
-  OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query)
+  OGMNeoRelation.findPopulated(query)
   .then((nodes) => {
-        //Found relation nodes.
+        //Found relation nodes with start and end nodes populated.
   }).catch((error) => {
         //Handle error.
   });
+  
 ```
 
 ## Executing Cypher
