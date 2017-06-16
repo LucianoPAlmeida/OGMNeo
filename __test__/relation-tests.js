@@ -237,9 +237,12 @@ test('Test FIND POPULATED relations WITH OGMNeoQuery as a filter parameter', (as
 test('Test COUNT relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let count1 = OGMNeoRelation.count(node1.id, node2.id, 'relatedto');
-    let count2 = OGMNeoRelation.count(node1.id, node2.id, 'other');
-    let count3 = OGMNeoRelation.count(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', { $eq: 'c' }));
+    let query1 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
+    let count1 = OGMNeoRelation.count(query1);
+    let query2 = OGMNeoRelationQuery.create('other').startNode(node1.id).endNode(node2.id);
+    let count2 = OGMNeoRelation.count(query2);
+    let query3 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).relationWhere(new OGMNeoWhere('property', { $eq: 'c' }));
+    let count3 = OGMNeoRelation.count(query3);
 
     Promise.all([count1, count2, count3]).then((counts) => {
         assert.equal(counts[0], 2);
@@ -251,8 +254,8 @@ test('Test COUNT relations', (assert) => {
 });
 
 test('Test FAIL COUNT', (assert) => {
-    OGMNeoRelation.count({}, '', 'relatedto').catch((error) => {
-        assert.equal(error.message, 'Both node ids have to be integers numbers');
+    OGMNeoRelation.count({}).catch((error) => {
+        assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
         assert.end();
     });
 });
@@ -260,9 +263,13 @@ test('Test FAIL COUNT', (assert) => {
 test('Test EXISTS relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let exists1 = OGMNeoRelation.exists(node1.id, node2.id, 'relatedto');
-    let exists2 = OGMNeoRelation.exists(node1.id, node2.id, 'other');
-    let exists3 = OGMNeoRelation.exists(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', { $eq: 'c' }));
+
+    let query1 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
+    let exists1 = OGMNeoRelation.exists(query1);
+    let query2 = OGMNeoRelationQuery.create('other').startNode(node1.id).endNode(node2.id);
+    let exists2 = OGMNeoRelation.exists(query2);
+    let query3 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).relationWhere(new OGMNeoWhere('property', { $eq: 'c' }));
+    let exists3 = OGMNeoRelation.exists(query3);
 
     Promise.all([exists1, exists2, exists3]).then((exists) => {
         assert.equal(exists[0], true);
