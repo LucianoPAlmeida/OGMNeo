@@ -126,13 +126,16 @@ test('Test UPDATE MANY', (assert) => {
             assert.end();
         });
 });
-
+//===============================================================================
 test('Test FIND relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let find1 = OGMNeoRelation.find(node1.id, node2.id, 'relatedto');
-    let find2 = OGMNeoRelation.find(node1.id, node2.id, 'other');
-    let find3 = OGMNeoRelation.find(node1.id, node2.id, 'relatedto', new OGMNeoWhere('property', { $eq: 'c' }));
+    let query1 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
+    let find1 = OGMNeoRelation.find(query1);
+    let query2 = OGMNeoRelationQuery.create('other').startNode(node1.id).endNode(node2.id);
+    let find2 = OGMNeoRelation.find(query2);
+    let query3 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).relationWhere(new OGMNeoWhere('property', { $eq: 'c' }));
+    let find3 = OGMNeoRelation.find(query3);
 
     Promise.all([find1, find2, find3]).then((finds) => {
         assert.equal(finds[0].length, 2);
@@ -149,16 +152,16 @@ test('Test FIND relations', (assert) => {
 });
 
 test('Test FAIL FIND', (assert) => {
-    OGMNeoRelation.findPopulated({}, '', 'relatedto').catch((error)=> {
-        assert.equal(error.message, 'Both node ids have to be integers numbers');
+    OGMNeoRelation.findPopulated('').catch((error) => {
+        assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
         assert.end();
     });
 });
 
 
 test('Test FAIL FIND POPULATED', (assert) => {
-    OGMNeoRelation.find({}, '', 'relatedto').catch((error) => {
-        assert.equal(error.message, 'Both node ids have to be integers numbers');
+    OGMNeoRelation.find('').catch((error) => {
+        assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
         assert.end();
     });
 });
@@ -166,7 +169,8 @@ test('Test FAIL FIND POPULATED', (assert) => {
 test('Test FIND POPULATED relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    OGMNeoRelation.findPopulated(node1.id, node2.id, 'relatedto').then((foundNodes) => {
+    let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
+    OGMNeoRelation.findPopulated(query).then((foundNodes) => {
         assert.equal(foundNodes.length, 2);
         foundNodes.forEach((node) => {
             assert.notEqual(node.start, null);
@@ -181,8 +185,8 @@ test('Test FIND POPULATED relations', (assert) => {
 test('Test FIND relations ORDER BY DESC', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let query = OGMNeoQuery.create(null).limit(3).descOrderBy('property');
-    OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+    let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).descOrderBy('property').limit(3);
+    OGMNeoRelation.find(query).then((foundRelations) => {
         assert.equal(foundRelations.length, 2);
         let relation1 = foundRelations[0];
         let relation2 = foundRelations[1];
@@ -194,8 +198,8 @@ test('Test FIND relations ORDER BY DESC', (assert) => {
 test('Test FIND relations ORDER BY ASC', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let query = OGMNeoQuery.create(null).limit(3).ascOrderBy('property');
-    OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+    let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).ascOrderBy('property').limit(3);
+    OGMNeoRelation.find(query).then((foundRelations) => {
         assert.equal(foundRelations.length, 2);
         let relation1 = foundRelations[0];
         let relation2 = foundRelations[1];
@@ -204,11 +208,16 @@ test('Test FIND relations ORDER BY ASC', (assert) => {
     });
 });
 
-test('Test FIND relations WITH OGMNeoQuery as a filter parameter', (assert) => {
+test('Test FIND relations WITH Filter Return Relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let query = OGMNeoQuery.create(null).where(new OGMNeoWhere('property', { $eq: 'c' })).limit(20).ascOrderBy('property');
-    OGMNeoRelation.find(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+    let query = OGMNeoRelationQuery.create('relatedto')
+        .startNode(node1.id)
+        .endNode(node2.id)
+        .relationWhere(new OGMNeoWhere('property', { $eq: 'c' }))
+        .descOrderBy('property')
+        .limit(20);
+    OGMNeoRelation.find(query).then((foundRelations) => {
         assert.equal(foundRelations.length, 1);
         let relation = _.first(foundRelations);
         assert.equal(relation.property, 'c');
@@ -217,11 +226,16 @@ test('Test FIND relations WITH OGMNeoQuery as a filter parameter', (assert) => {
     });
 });
 
-test('Test FIND POPULATED relations WITH OGMNeoQuery as a filter parameter', (assert) => {
+test('Test FIND POPULATED relations WITH Filter Return Start Node', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let query = OGMNeoQuery.create(null).where(new OGMNeoWhere('property', { $eq: 'c' })).limit(20).descOrderBy('property');
-    OGMNeoRelation.findPopulated(node1.id, node2.id, 'relatedto', query).then((foundRelations) => {
+    let query = OGMNeoRelationQuery.create('relatedto')
+        .startNode(node1.id)
+        .endNode(node2.id)
+        .relationWhere(new OGMNeoWhere('property', { $eq: 'c' }))
+        .descOrderBy('property')
+        .limit(20);
+    OGMNeoRelation.findPopulated(query).then((foundRelations) => {
         assert.equal(foundRelations.length, 1);
         let relation = _.first(foundRelations);
         assert.notEqual(relation.start, null);
@@ -234,6 +248,28 @@ test('Test FIND POPULATED relations WITH OGMNeoQuery as a filter parameter', (as
     });
 });
 
+test('Test FIND POPULATED relations WITH Filter Return End Node', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let query = OGMNeoRelationQuery.create('relatedto')
+        .startNode(node1.id)
+        .endNode(node2.id)
+        .relationWhere(new OGMNeoWhere('property', { $eq: 'c' }))
+        .descOrderBy('property')
+        .limit(20);
+    OGMNeoRelation.findPopulated(query).then((foundRelations) => {
+        assert.equal(foundRelations.length, 1);
+        let relation = _.first(foundRelations);
+        assert.notEqual(relation.start, null);
+        assert.deepEqual(relation.start, { id: node1.id, name: 'Test1', value: 2 });
+        assert.notEqual(relation.end, null);
+        assert.deepEqual(relation.end, { id: node2.id, name: 'Test2', value: 4 });
+        assert.equal(relation.property, 'c');
+        assert.equal(relation.newProperty, 'new!!!');
+        assert.end();
+    });
+});
+//===============================================================================
 test('Test COUNT relations', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
@@ -310,7 +346,7 @@ test('Test DELETE MANY relations', (assert) => {
     OGMNeoRelation.deleteMany(query).then((deletedRels) => {
         assert.equal(deletedRels.length, 1);
         assert.end();
-    })
+    });
 });
 
 test.onFinish(() => {
