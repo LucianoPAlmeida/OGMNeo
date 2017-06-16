@@ -75,6 +75,7 @@ You can find the relation nodes.
   const OGMNeoRelation = ogmneo.OGMNeoRelation;
   const OGMNeoWhere = ogmneo.OGMNeoWhere;
   const OGMNeoQuery = ogmneo.OGMNeoQuery;
+  const OGMNeoRelationQuery = ogmneo.OGMNeoRelationQuery;
   
   let query = OGMNeoRelationQuery.create('relatedto')
                                  .startNode(node1.id)
