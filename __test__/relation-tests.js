@@ -7,9 +7,10 @@ const OGMNeoRelation = require('../lib/ogmneo-relation');
 const OGMQueryBuilder = require('../lib/ogmneo-query');
 const OGMNeoWhere = require('../lib/ogmneo-where');
 const OGMNeoQuery = require('../lib/ogmneo-query');
+const OGMNeoRelationQuery = require('../lib/ogmneo-relation-query');
+
 const _ = require('lodash');
 
-OGMNeo.connect('neo4j', 'databasepass', 'localhost');
 var nodes;
 var relations;
 
@@ -93,8 +94,9 @@ test('Test FAIL UPDATE relation', (assert) => {
 test('Test FAIL UPDATE MANY', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    OGMNeoRelation.updateMany({ newProperty: 'new!!!' }, node1.id, node2.id, 'relatedto', '').catch((error) => {
-        assert.equal(error.message, 'The propertiesFilter object must be an instance of OGMNeoWhere');
+
+    OGMNeoRelation.updateMany({ newProperty: 'new!!!' }, null).catch((error) => {
+        assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
         assert.end();
     });
 });
@@ -102,8 +104,8 @@ test('Test FAIL UPDATE MANY', (assert) => {
 test('Test empty newProperties UPDATE MANY', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let where = OGMNeoWhere.create('property', { $eq: 'c' });
-    OGMNeoRelation.updateMany({}, node1.id, node2.id, 'relatedto', null)
+    let query = OGMNeoRelationQuery.create('relatedto').relationWhere(OGMNeoWhere.create('property', { $eq: 'c' }));
+    OGMNeoRelation.updateMany({}, query)
         .then((updatedRelations) => {
             assert.equal(updatedRelations.length, 0);
             assert.end();
@@ -113,8 +115,8 @@ test('Test empty newProperties UPDATE MANY', (assert) => {
 test('Test UPDATE MANY', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let where = OGMNeoWhere.create('property', { $eq: 'c' });
-    OGMNeoRelation.updateMany({ newProperty: 'new!!!' }, node1.id, node2.id, 'relatedto', where)
+    let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).relationWhere(OGMNeoWhere.create('property', { $eq: 'c' }));
+    OGMNeoRelation.updateMany({ newProperty: 'new!!!' }, query)
         .then((updatedRelations) => {
             assert.equal(updatedRelations.length, 1);
             updatedRelations.forEach((relation) => {
