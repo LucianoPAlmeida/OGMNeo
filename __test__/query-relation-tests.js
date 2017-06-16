@@ -54,6 +54,10 @@ test('TEST RELATION QUERY CYPHER QUERY', (assert) => {
     query = OGMNeoRelationQuery.create('relation').startNode(23).returnStartNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test']);
     assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r ORDER BY r.name, r.test ASC');
     assert.equal(query.queryPopulatedCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r, n1.date, n2.name, n2.test ORDER BY r.name, r.test ASC');
+
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY r.name, r.test ASC');
+    assert.equal(query.queryPopulatedCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date, n1, n2.name, n2.test ORDER BY r.name, r.test ASC');
     assert.end();
 });
 
