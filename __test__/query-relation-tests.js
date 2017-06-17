@@ -58,7 +58,34 @@ test('TEST RELATION QUERY CYPHER QUERY', (assert) => {
     query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test']);
     assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY r.name, r.test ASC');
     assert.equal(query.queryPopulatedCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date, n1, n2.name, n2.test ORDER BY r.name, r.test ASC');
+
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY r.name, r.test ASC');
+    assert.equal(query.queryNodesCypher('both', true), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN DISTINCT n1, n2.name, n2.test ORDER BY r.name, r.test ASC');
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY r.name, r.test ASC');
+    assert.equal(query.queryNodesCypher('start', true), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN DISTINCT n1 ORDER BY r.name, r.test ASC');
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY r.name, r.test ASC');
+    assert.equal(query.queryNodesCypher('end', true), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN DISTINCT n2.name, n2.test ORDER BY r.name, r.test ASC');
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY r.name, r.test ASC');
+    assert.equal(query.queryNodesCypher('end'), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN n2.name, n2.test ORDER BY r.name, r.test ASC');
+
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(['name', 'test'], ['name']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY r.name, r.test, n1.name ASC');
+    assert.equal(query.queryNodesCypher('end'), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN n2.name, n2.test ORDER BY r.name, r.test, n1.name ASC');
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(null, ['name']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY n1.name ASC');
+    assert.equal(query.queryNodesCypher('end'), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN n2.name, n2.test ORDER BY n1.name ASC');
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(null, null, ['name', 'test']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY n2.name, n2.test ASC');
+    assert.equal(query.queryNodesCypher('end'), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN n2.name, n2.test ORDER BY n2.name, n2.test ASC');
+    query = OGMNeoRelationQuery.create('relation').startNode(23).returnRelationNode('date').returnEndNode(['name', 'test']).ascOrderBy(null, ['dasd'], ['name', 'test']);
+    assert.equal(query.queryCypher(), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN r.date ORDER BY n1.dasd, n2.name, n2.test ASC');
+    assert.equal(query.queryNodesCypher('end'), 'MATCH p=(n1)-[r:relation]->(n2) WHERE ID(n1) = 23 RETURN n2.name, n2.test ORDER BY n1.dasd, n2.name, n2.test ASC');
     assert.end();
+
 });
 
 
