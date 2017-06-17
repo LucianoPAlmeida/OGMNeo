@@ -4,7 +4,7 @@
   "description": "OGM(object-graph mapping) abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
-    "build": "jsdoc ./lib/** -d ./docs",
+    "docs": "jsdoc ./lib/** -d ./docs",
     "test": "tape ./__test__/**",
     "lint": "eslint lib"
   },
