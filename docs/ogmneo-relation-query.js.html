@@ -78,10 +78,10 @@ class OGMNeoRelationQuery {
         * @returns {OGMNeoRelationQuery} This instance of query.
     */
     startNode(nodeId, label) {
-        if(_.isInteger(nodeId)) {
+        if (_.isInteger(nodeId)) {
             this._startNodeId = nodeId;
         }
-        if(_.isString(label)) {
+        if (_.isString(label)) {
             this._startNodeLabel = label;
         }
         return this;
@@ -117,7 +117,7 @@ class OGMNeoRelationQuery {
                 this._startNodeWhere.variable = 'n1';
             }
         }
-        return this;    
+        return this;
     }
     /**
         * Add endNode where constraint to this query object.
@@ -128,11 +128,11 @@ class OGMNeoRelationQuery {
     endNodeWhere(where) {
         if (where == null || where instanceof OGMNeoWhere) {
             this._endNodeWhere = where;
-            if(where) {
+            if (where) {
                 this._endNodeWhere.variable = 'n2';
             }
         }
-        return this; 
+        return this;
     }
     /**
         * Add relation where constraint to this query object.
@@ -147,7 +147,7 @@ class OGMNeoRelationQuery {
                 this._relationWhere.variable = 'r';
             }
         }
-        return this; 
+        return this;
     }
 
     /**
@@ -183,9 +183,11 @@ class OGMNeoRelationQuery {
         * @param {string|array} properties - The properties in order to order by for.
         * @returns {OGMNeoRelationQuery} This instance of query.
     */
-    ascOrderBy(properties) {
+    ascOrderBy(properties, startNodeProperties = null, endNodeProperties = null) {
         this._orderBy = {
             properties: properties,
+            startNodeProperties: startNodeProperties,
+            endNodeProperties: endNodeProperties,
             order: 'ASC'
         };
         return this;
@@ -244,7 +246,7 @@ class OGMNeoRelationQuery {
     */
     whereCypher() {
         let where = '';
-        if(this._startNodeId) {
+        if (this._startNodeId) {
             where = this._concatWhereClause(where, `ID(n1) = ${this._startNodeId}`);
         }
         if (this._endNodeId) {
@@ -281,7 +283,7 @@ class OGMNeoRelationQuery {
     }
 
     returnClause(populated = false) {
-        let returnClause = (this._returnRelation) ? this._returnRelation: 'r';
+        let returnClause = (this._returnRelation) ? this._returnRelation : 'r';
         if (populated) {
             returnClause += ', ' + ((this._returnStart) ? this._returnStart : 'n1');
             returnClause += ', ' + ((this._returnEnd) ? this._returnEnd : 'n2');
@@ -289,12 +291,38 @@ class OGMNeoRelationQuery {
         return `RETURN ${returnClause}`;
     }
 
-    orderByClause(variable = 'r') {
-        if (this._orderBy &amp;&amp; OGMObjectParse.isValidPropertiesArray(this._orderBy.properties)) {
-            let properties = OGMObjectParse.parsePropertiesArray(this._orderBy.properties, variable);
-            return `ORDER BY ${properties} ${this._orderBy.order}`;
+    nodesReturnClause(nodes, distinct) {
+        let returnClause = '';
+        let distinctClause = (distinct) ? 'DISTINCT ' : '';
+        if (!nodes || nodes === 'start' || nodes === 'both') {
+            returnClause += ((this._returnStart) ? this._returnStart : 'n1');
+        }
+        if (!nodes || nodes === 'end' || nodes === 'both') {
+            if (returnClause !== '') {
+                returnClause += ', ';
+            }
+            returnClause += ((this._returnEnd) ? this._returnEnd : 'n2');
+        }
+        return `RETURN ${distinctClause}${returnClause}`;
+    }
+
+    orderByClause() {
+        let orderBy = '';
+        if (this._orderBy) {
+            orderBy = this._addOrderByClause(orderBy, this._orderBy.properties, 'r');
+            orderBy = this._addOrderByClause(orderBy, this._orderBy.startNodeProperties, 'n1');
+            orderBy = this._addOrderByClause(orderBy, this._orderBy.endNodeProperties, 'n2');
+            return (orderBy !== '') ? `ORDER BY ${orderBy} ${this._orderBy.order}` : '';
         }
         return '';
+    }
+
+    _addOrderByClause(clause, properties, variable) {
+        if (OGMObjectParse.isValidPropertiesArray(properties)) {
+            let propertiesClause = OGMObjectParse.parsePropertiesArray(properties, variable);
+            return clause + ((clause !== '') ? ', ' : '') + `${propertiesClause}`;
+        }
+        return clause;
     }
 
     limitClause() {
@@ -307,6 +335,19 @@ class OGMNeoRelationQuery {
 
     queryPopulatedCypher() {
         return this._queryCypherBuilder(true);
+    }
+
+    queryNodesCypher(nodes = 'both', distinct = false) {
+        let query = `${this.matchCypher()} ${this.nodesReturnClause(nodes, distinct)}`;
+        let orderBy = this.orderByClause();
+        let limit = this.limitClause();
+        if (orderBy !== '') {
+            query += ` ${orderBy}`;
+        }
+        if (limit !== '') {
+            query += ` ${limit}`;
+        }
+        return query;
     }
 
     countCypher() {
@@ -343,7 +384,7 @@ module.exports = OGMNeoRelationQuery;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Fri Jun 16 2017 01:38:43 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sat Jun 17 2017 10:54:50 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>
