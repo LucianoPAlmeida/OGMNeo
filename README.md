@@ -27,9 +27,9 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ### Create node example
 
 ```js
-  const OGMNeoNode = require('ogmneo').OGMNeoNode;
+  const ogmneo = require('ogmneo');
   
-  OGMNeoNode.create({ name: 'name', tes: 3 }, 'test')
+  ogmneo.Node.create({ name: 'name', tes: 3 }, 'test')
   .then((node) => {
        //Created returned object => {id: 1, name: 'name', tes: 3}
   }).catch((error) => {
@@ -40,14 +40,11 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 ### Find Nodes 
   ```js
     const ogmneo = require('ogmneo');
-    const OGMNeoNode = ogmneo.OGMNeoNode;
-    const OGMNeoQuery = ogmneo.OGMNeoQuery;
-    const OGMNeoWhere = ogmneo.OGMNeoWhere;
     
-    let query = OGMQueryBuilder.create('test')
-                               .where(new OGMNeoWhere('name', { $eq: 'name1' }));
+    let query = ogmneo.Query.create('test')
+                               .where(new ogmneo.Where('name', { $eq: 'name1' }));
 
-    OGMNeoNode.find(query)
+    ogmneo.Node.find(query)
     .then((nodes) => {
         //Found nodes.
     }).catch((error) => {
@@ -58,8 +55,8 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 You can create relations between nodes.
 
 ```js
-  const OGMNeoRelation = require('ogmneo').OGMNeoRelation;
-  OGMNeoRelation.relate(node1.id, 'relatedto', node2.id, {property: 'a'})
+  const ogmneo = require('ogmneo');
+  ogmneo.Relation.relate(node1.id, 'relatedto', node2.id, {property: 'a'})
   .then((rels) => {
         // Created relation node {id: 2, type: 'relatedto', property: 'a'}
   }).catch((error) => {
@@ -72,18 +69,14 @@ You can find the relation nodes.
 
 ```js
   const ogmneo = require('ogmneo');
-  const OGMNeoRelation = ogmneo.OGMNeoRelation;
-  const OGMNeoWhere = ogmneo.OGMNeoWhere;
-  const OGMNeoQuery = ogmneo.OGMNeoQuery;
-  const OGMNeoRelationQuery = ogmneo.OGMNeoRelationQuery;
   
-  let query = OGMNeoRelationQuery.create('relatedto')
+  let query = ogmneo.RelationQuery.create('relatedto')
                                  .startNode(node1.id)
                                  .endNode(node2.id)
-                                 .relationWhere(OGMNeoWhere.create('property', { $eq: 'c' }))
+                                 .relationWhere(ogmneo.Where.create('property', { $eq: 'c' }))
                                  .ascOrderBy('property')
                                  .limit(3);
-  OGMNeoRelation.find(query)
+  ogmneo.Relation.find(query)
   .then((nodes) => {
         //Found relation nodes.
   }).catch((error) => {
@@ -92,7 +85,7 @@ You can find the relation nodes.
   
   //OR
   
-  OGMNeoRelation.findPopulated(query)
+  ogmneo.Relation.findPopulated(query)
   .then((nodes) => {
         //Found relation nodes with start and end nodes populated.
   }).catch((error) => {
@@ -106,9 +99,8 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
 
 ```js
   const ogmneo = require('ogmneo');
-  const OGMNeoCypher = ogmneo.OGMNeoCypher;
 
-  OGMNeoCypher.execute(cypher)
+  ogmneo.Cypher.execute(cypher)
   .then((result) => {
      console.log(result);
   }).catch((error) => {
@@ -120,14 +112,13 @@ You can create and drop indexes in properties.
 
 ```js
   const ogmneo = require('ogmneo');
-  const OGMNeoIndex = ogmneo.OGMNeoIndex;
   //Creating
-  OGMNeoIndex.create('label', ['property'])
+  ogmneo.Index.create('label', ['property'])
   .then((result) => {
      //Handle creation
   });
   //Droping
-  OGMNeoIndex.drop('label', ['property'])
+  ogmneo.Index.drop('label', ['property'])
   .then((result) => {
      //Handle drop
   });
