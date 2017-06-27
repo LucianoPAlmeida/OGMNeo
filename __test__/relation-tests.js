@@ -35,8 +35,8 @@ test('Test CREATE relation', (assert) => {
         let relation2 = rels[1];
         assert.notEqual(relation1.id, null);
         assert.notEqual(relation2.id, null);
-        assert.deepEqual(relation1.type, 'relatedto');
-        assert.deepEqual(relation2.type, 'relatedto');
+        assert.deepEqual(relation1.__type, 'relatedto');
+        assert.deepEqual(relation2.__type, 'relatedto');
         assert.equal(relation1.property, 'a');
         assert.equal(relation2.property, undefined);
         relations = rels;
@@ -140,12 +140,12 @@ test('Test FIND relations', (assert) => {
     Promise.all([find1, find2, find3]).then((finds) => {
         assert.equal(finds[0].length, 2);
         finds[0].forEach((rel) => {
-            assert.equal(rel.type, 'relatedto');
+            assert.equal(rel.__type, 'relatedto');
         });
         assert.equal(_.isEmpty(finds[1]), true);
         assert.equal(finds[2].length, 1);
         let rel = _.first(finds[2]);
-        assert.equal(rel.type, 'relatedto');
+        assert.equal(rel.__type, 'relatedto');
         assert.equal(rel.property, 'c');
         assert.end();
     });
