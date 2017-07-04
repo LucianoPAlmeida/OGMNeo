@@ -100,12 +100,21 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
 ```js
   const ogmneo = require('ogmneo');
 
-  ogmneo.Cypher.execute(cypher)
+  ogmneo.Cypher.transactionalRead(cypherStatement)
   .then((result) => {
      console.log(result);
   }).catch((error) => {
      reject(error);
   });
+  
+  //OR
+   ogmneo.Cypher.transactionalWrite(cypherStatement)
+  .then((result) => {
+     console.log(result);
+  }).catch((error) => {
+     reject(error);
+  });
+  
 ``` 
 ## Creating and droping indexes
 You can create and drop indexes in properties.
