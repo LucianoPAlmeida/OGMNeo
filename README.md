@@ -8,7 +8,7 @@ Abstract some trivial operations on neo4j driver for nodejs and make the use sim
 [![Travis](https://img.shields.io/travis/LucianoPAlmeida/OGMNeo.svg)](https://travis-ci.org/LucianoPAlmeida/OGMNeo)
 [![Codecov](https://img.shields.io/codecov/c/github/LucianoPAlmeida/OGMNeo.svg)](https://codecov.io/gh/LucianoPAlmeida/OGMNeo)
 
-## Instalation
+## Installation
 You can find ogmneo in npm [here](https://www.npmjs.com/package/ogmneo) and install using the follow command
 ```sh
  npm install ogmneo
@@ -116,7 +116,7 @@ You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4
   });
   
 ``` 
-## Creating and droping indexes
+## Creating and dropping indexes
 You can create and drop indexes in properties.
 
 ```js
