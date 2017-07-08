@@ -126,7 +126,7 @@ You can create and drop indexes in properties.
   .then((result) => {
      //Handle creation
   });
-  //Droping
+  //Dropping
   ogmneo.Index.drop('label', ['property'])
   .then((result) => {
      //Handle drop
