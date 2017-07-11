@@ -149,6 +149,34 @@ test('Test execute query with results and return clause', (assert) => {
     });
 });
 
+test('Test Failed findOne query', (assert) => {
+    OGMNeoNode.findOne('').catch((error) => {
+        assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
+        assert.end();
+    });
+})
+
+test('Test findOne query with results', (assert) => {
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' })).ascOrderBy('name');
+    OGMNeoNode.findOne(query).then((node) => {
+        assert.notEqual(node.id, null);
+        assert.equal(node.name,'name1');
+    
+        assert.end();
+    });
+});
+
+test('Test findOne query with results and return clause', (assert) => {
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' })).return(['newProperty','array']);
+    OGMNeoNode.findOne(query).then((node) => {
+        assert.equal(node.id, undefined);
+        assert.equal(node.name, undefined);
+        assert.equal(node.newProperty, 'new!!!');
+        assert.equal(node.tes, undefined);
+        assert.end();
+    });
+});
+
 test('Test execute query with results and ORDER BY', (assert) => {
     let query = OGMQueryBuilder.create('test')
     .where(new OGMNeoWhere('name', { $eq: 'name1' }))
