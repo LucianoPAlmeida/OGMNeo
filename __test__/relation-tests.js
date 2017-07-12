@@ -151,6 +151,34 @@ test('Test FIND relations', (assert) => {
     });
 });
 
+test('Test FIND ONE relation', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let query1 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
+    let find1 = OGMNeoRelation.findOne(query1);
+    let query2 = OGMNeoRelationQuery.create('other').startNode(node1.id).endNode(node2.id);
+    let find2 = OGMNeoRelation.findOne(query2);
+    let query3 = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).relationWhere(new OGMNeoWhere('property', { $eq: 'c' }));
+    let find3 = OGMNeoRelation.findOne(query3);
+
+    Promise.all([find1, find2, find3]).then((finds) => {
+        assert.equal(finds[0].__type, 'relatedto');
+        assert.equal(finds[1], undefined);
+        let rel = finds[2];
+        assert.equal(rel.__type, 'relatedto');
+        assert.equal(rel.property, 'c');
+        assert.end();
+    });
+});
+
+test('Test FAIL FIND ONE', (assert) => {
+    OGMNeoRelation.findOne('').catch((error) => {
+        assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
+        assert.end();
+    });
+});
+
+
 test('Test FAIL FIND', (assert) => {
     OGMNeoRelation.findPopulated('').catch((error) => {
         assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
@@ -178,6 +206,27 @@ test('Test FIND POPULATED relations', (assert) => {
             assert.notEqual(node.end, null);
             assert.deepEqual(node.end, { id: node2.id, name: 'Test2', value: 4 });
         });
+        assert.end();
+    });
+});
+
+test('Test FAIL FIND ONE POPULATED', (assert) => {
+    OGMNeoRelation.findOnePopulated('').catch((error) => {
+        assert.equal(error.message, 'The query object can\'t be null and must be an instance of OGMNeoRelationQuery');
+        assert.end();
+    });
+});
+
+test('Test FIND ONE POPULATED relation', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
+    OGMNeoRelation.findOnePopulated(query).then((relation) => {
+        assert.equal(relation.__type, 'relatedto');
+        assert.notEqual(relation.start, null);
+        assert.deepEqual(relation.start, { id: node1.id, name: 'Test1', value: 2 });
+        assert.notEqual(relation.end, null);
+        assert.deepEqual(relation.end, { id: node2.id, name: 'Test2', value: 4 });
         assert.end();
     });
 });
