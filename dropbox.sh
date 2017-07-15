@@ -10,7 +10,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     ~/dropbox_uploader.sh upload ./docs/fonts/ "fonts"
     ~/dropbox_uploader.sh upload ./docs/scripts/ "scripts"
     ~/dropbox_uploader.sh upload ./docs/styles/ "styles"
-    ~/dropbox_uploader.sh upload ./docs
+    ~/dropbox_uploader.sh upload ./docs/
 
 
 fi
