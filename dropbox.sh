@@ -7,7 +7,7 @@ curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dr
 chmod +x ~/dropbox_uploader.sh
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    ~/dropbox_uploader.sh upload ./docs/* "Apps/ogmneo-docs"
+    ~/dropbox_uploader.sh upload ./docs/* 
 fi
 
 if [ "$TRAVIS_BRANCH" = "master" ] || [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
