@@ -7,9 +7,6 @@ curl "https://raw.githubusercontent.com/andreafabrizi/Dropbox-Uploader/master/dr
 chmod +x ~/dropbox_uploader.sh
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    ~/dropbox_uploader.sh upload ./docs/fonts/ ""
-    ~/dropbox_uploader.sh upload ./docs/scripts/ "" 
-    ~/dropbox_uploader.sh upload ./docs/styles/ ""
     ~/dropbox_uploader.sh upload ./docs/ ""
 
 
