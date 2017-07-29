@@ -149,6 +149,20 @@ test('Test execute query with results and return clause', (assert) => {
     });
 });
 
+test('Test execute query with results and return clause containing id', (assert) => {
+    let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' })).return(['newProperty','array', 'id']);
+    OGMNeoNode.find(query).then((nodes) => {
+        assert.ok(_.size(nodes) >= 1);
+        nodes.forEach((node) => {
+            assert.notEqual(node.id, undefined);
+            assert.equal(node.name, undefined);
+            assert.equal(node.newProperty, 'new!!!');
+            assert.equal(node.tes, undefined);
+        });
+        assert.end();
+    });
+});
+
 test('Test Failed findOne query', (assert) => {
     OGMNeoNode.findOne('').catch((error) => {
         assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
