@@ -5,6 +5,8 @@ const OGMNeoCypher = require('../lib/ogmneo-cypher');
 const OGMNeo = require('../lib/ogmneo');
 
 OGMNeo.connect(process.env.NEO4J_USER, process.env.NEO4J_PASS, process.env.NEO4J_HOST);
+OGMNeo.logCypherEnabled = true;
+
 test('Test Connection', (assert) => {
     assert.notEqual(OGMNeo.driver, null);
     assert.equal(OGMNeo.isConnected, true);
