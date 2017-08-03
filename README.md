@@ -23,7 +23,16 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
 
 ```
    OGMNeo connects using the neo4j bolt protocol.
+   
+### Log generated cypher on console
+You can see the generated cypher on your console by setting Connection.logCypherEnabled property true.
 
+```js
+const ogmneo = require('ogmneo');
+ogmneo.Connection.logCypherEnabled = true;
+
+```
+   
 ### Create node example
 
 ```js
