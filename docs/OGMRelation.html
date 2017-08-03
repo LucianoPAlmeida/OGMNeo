@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line9">line 9</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line10">line 10</a>
     </li></ul></dd>
     
 
@@ -236,7 +236,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line222">line 222</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line273">line 273</a>
     </li></ul></dd>
     
 
@@ -389,7 +389,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line299">line 299</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line352">line 352</a>
     </li></ul></dd>
     
 
@@ -542,7 +542,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line269">line 269</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line321">line 321</a>
     </li></ul></dd>
     
 
@@ -695,7 +695,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line251">line 251</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line303">line 303</a>
     </li></ul></dd>
     
 
@@ -848,7 +848,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line133">line 133</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line137">line 137</a>
     </li></ul></dd>
     
 
@@ -1095,7 +1095,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line193">line 193</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line243">line 243</a>
     </li></ul></dd>
     
 
@@ -1134,6 +1134,312 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findOne"><span class="type-signature">(static) </span>findOne<span class="signature">(query)</span><span class="type-signature"> &rarr; {Promise.&lt;(object|Error)>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Find one relation node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line167">line 167</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Found relation if fulfilled, or some neo4j error if rejected.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findOnePopulated"><span class="type-signature">(static) </span>findOnePopulated<span class="signature">(query)</span><span class="type-signature"> &rarr; {Promise.&lt;(object|Error)>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Find one Populated relation node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line219">line 219</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Populated found relation if fulfilled, or some neo4j error if rejected.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;(object|Error)></span>
 
 
     </dd>
@@ -1248,7 +1554,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line162">line 162</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line189">line 189</a>
     </li></ul></dd>
     
 
@@ -1565,7 +1871,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line24">line 24</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -1741,7 +2047,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line61">line 61</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line63">line 63</a>
     </li></ul></dd>
     
 
@@ -1917,7 +2223,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line96">line 96</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line99">line 99</a>
     </li></ul></dd>
     
 
@@ -1987,7 +2293,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jul 10 2017 23:51:49 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Aug 02 2017 22:22:13 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>

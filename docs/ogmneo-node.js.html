@@ -33,6 +33,7 @@ const _ = require('lodash');
 const OGMNeo = require('./ogmneo');
 const OGMNeoQuery = require('./ogmneo-query');
 const OGMNeoObjectParse = require('./ogmneo-parse');
+const Printer = require('./ogmneo-printer');
 
 /**
     * @class OGMNeoNode
@@ -53,9 +54,10 @@ class OGMNeoNode {
             let objectString = OGMNeoObjectParse.objectString(value);
             let labelCypher = (!_.isEmpty(label) &amp;&amp; _.isString(label)) ? `:${label}` : '';
             let cypher = `CREATE (n${labelCypher} ${objectString}) RETURN n`;
+            Printer.printCypherIfEnabled(cypher);
             let session = OGMNeo.session();
-            let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher, value));
-            readTxResultPromise.then((result) => {
+            let writeTxResultPromise = session.writeTransaction(transaction => transaction.run(cypher, value));
+            writeTxResultPromise.then((result) => {
                 let record = _.first(result.records);
                 session.close();
                 resolve(OGMNeoObjectParse.parseRecordNode(record, 'n'));
@@ -79,9 +81,10 @@ class OGMNeoNode {
             if (value &amp;&amp; value.id != undefined &amp;&amp; _.isInteger(value.id)) {
                 let objectString = OGMNeoObjectParse.objectString(value);
                 let cypher = `MATCH (n) WHERE ID(n)=${node.id} SET n+=${objectString} RETURN n`;
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
-                let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher, value));
-                readTxResultPromise.then((result) => {
+                let writeTxResultPromise = session.writeTransaction(transaction => transaction.run(cypher, value));
+                writeTxResultPromise.then((result) => {
                     let record = _.first(result.records);
                     session.close();
                     resolve(OGMNeoObjectParse.parseRecordNode(record, 'n'));
@@ -111,6 +114,7 @@ class OGMNeoNode {
                     if (query instanceof OGMNeoQuery) {
                         let objectString = OGMNeoObjectParse.objectString(value);
                         let cypher = `${query.matchCypher()} SET n+=${objectString} RETURN n`;
+                        Printer.printCypherIfEnabled(cypher);
                         let session = OGMNeo.session();
                         let writeTxResultPromise = session.writeTransaction(transaction => transaction.run(cypher, value));
                         writeTxResultPromise.then((result) => {
@@ -144,6 +148,7 @@ class OGMNeoNode {
         return new Promise((resolve, reject) => {
             if (node &amp;&amp; node.id != undefined &amp;&amp; _.isInteger(node.id)) {
                 let cypher = `MATCH (n) WHERE ID(n)=${node.id} DELETE n RETURN n`;
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
@@ -169,9 +174,10 @@ class OGMNeoNode {
         return new Promise((resolve, reject) => {
             if (query instanceof OGMNeoQuery) {
                 let cypher = `${query.matchCypher()} DELETE n RETURN n`;
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
-                let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
-                readTxResultPromise.then((result) => {
+                let writeTxResultPromise = session.writeTransaction(transaction => transaction.run(cypher));
+                writeTxResultPromise.then((result) => {
                     session.close();
                     resolve(result.records.length);
                 }).catch((error) => {
@@ -194,9 +200,10 @@ class OGMNeoNode {
         return new Promise((resolve, reject) => {
             if (_.isInteger(id)) {
                 let cypher = `MATCH (n) WHERE ID(n)=${id} RETURN n`;
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
-                let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
-                readTxResultPromise.then((result) => {
+                let writeTxResultPromise = session.writeTransaction(transaction => transaction.run(cypher));
+                writeTxResultPromise.then((result) => {
                     let record = _.first(result.records);
                     session.close();
                     resolve(OGMNeoObjectParse.parseRecordNode(record, 'n'));
@@ -228,6 +235,7 @@ class OGMNeoNode {
                         return result + ((result === '') ? '' : ',') + ` ${current}`;
                     }, '');
                     let cypher = `MATCH (n) WHERE ID(n) IN [${idsQuery}] RETURN n`;
+                    Printer.printCypherIfEnabled(cypher);
                     let session = OGMNeo.session();
                     let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                     readTxResultPromise.then((result) => {
@@ -265,6 +273,7 @@ class OGMNeoNode {
         return new Promise((resolve, reject) => {
             if (query &amp;&amp; query instanceof OGMNeoQuery) {
                 let cypher = query.countCypher();
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 session.run(cypher).subscribe({
                     onNext: (record) => {
@@ -295,6 +304,7 @@ class OGMNeoNode {
         return new Promise((resolve, reject) => {
             if (query &amp;&amp; query instanceof OGMNeoQuery) {
                 let cypher = query.queryCypher();
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction((transaction) => {
                     return transaction.run(cypher);
@@ -336,19 +346,6 @@ class OGMNeoNode {
             }
         });
     }
-
-    /**
-        * Executing query returning nodes filtered by query parameter.
-        * @deprecated since version 0.3.8
-        * @static
-        * @param {OGMNeoQuery} query - The query to filter nodes that have to be returned.
-        * @returns {Promise.&lt;array|Error>} Nodes if fulfilled, some neo4j error if rejected.
-    */
-    static execute(query) {
-        console.info('this function is renamed since v0.3.8, try using OGMNeoNode.find(query)');
-        return this.find(query);
-    }
-
     /**
         * Adding label to a node.
         *
@@ -407,6 +404,7 @@ class OGMNeoNode {
                 this._validateAndBuildParams(nodesIds).then((params) => {
                     if (params) {
                         let cypher = `MATCH (n) WHERE ID(n) IN ${params} SET n:${label} RETURN n`;
+                        Printer.printCypherIfEnabled(cypher);
                         let session = OGMNeo.session();                        
                         let writeTxResultPromise = session.writeTransaction(transaction => transaction.run(cypher));
                         writeTxResultPromise.then((result) => {
@@ -441,6 +439,7 @@ class OGMNeoNode {
                 this._validateAndBuildParams(nodesIds).then((params) => {
                     if (params) {
                         let cypher = `MATCH (n:${label}) WHERE ID(n) IN ${params} REMOVE n:${label} RETURN n`;
+                        Printer.printCypherIfEnabled(cypher);
                         let session = OGMNeo.session();                        
                         let writeTxResultPromise = session.writeTransaction(transaction => transaction.run(cypher));
                         writeTxResultPromise.then((result) => {
@@ -496,7 +495,7 @@ module.exports = OGMNeoNode;</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jul 10 2017 23:51:49 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Aug 02 2017 22:22:13 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>

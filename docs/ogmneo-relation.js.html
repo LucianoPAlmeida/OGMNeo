@@ -31,6 +31,7 @@
 const OGMNeo = require('./ogmneo');
 const OGMNeoObjectParse = require('./ogmneo-parse');
 const OGMNeoRelationQuery = require('./ogmneo-relation-query');
+const Printer = require('./ogmneo-printer');
 
 const _ = require('lodash');
 
@@ -60,6 +61,7 @@ class OGMRelation {
                                  `MATCH (n2) WHERE ID(n2)=${otherNodeId} ` +
                                  `CREATE ${uniqueQuery} (n1)-[r:${type} ${OGMNeoObjectParse.objectString(value)}]->(n2) ` +  
                                  'RETURN r';
+                    Printer.printCypherIfEnabled(cypher);
                     let session = OGMNeo.session();
                     let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher, value));
                     readTxResultPromise.then((result) => {
@@ -94,6 +96,7 @@ class OGMRelation {
                 let propertiesString = OGMNeoObjectParse.objectString(value);
                 let cypher = 'MATCH p=(n1)-[r]->(n2) ' +
                     `WHERE ID(r)=${relationId} SET r+=${propertiesString} RETURN r`;
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher, newProperties));
                 readTxResultPromise.then((result) => {
@@ -131,6 +134,7 @@ class OGMRelation {
                         let cypherMatch = query.matchCypher();
                         let propertiesString = OGMNeoObjectParse.objectString(value);
                         let cypher = `${cypherMatch} SET r+=${propertiesString} RETURN r`;
+                        Printer.printCypherIfEnabled(cypher);
                         let session = OGMNeo.session();
                         let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher, value));
                         readTxResultPromise.then((result) => {
@@ -162,6 +166,7 @@ class OGMRelation {
         return new Promise((resolve, reject) => {
             if (query != null &amp;&amp; query instanceof OGMNeoRelationQuery) {
                 let cypher = query.queryCypher();
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
@@ -171,6 +176,28 @@ class OGMRelation {
                     } else {
                         resolve(result.records.map(record => OGMNeoObjectParse.parseRelation(record)));
                     }
+                }).catch((error) => {
+                    reject(error);
+                });
+            } else {
+                reject(new Error('The query object can\'t be null and must be an instance of OGMNeoRelationQuery'));
+            }
+        });
+    }
+
+    /**
+        * Find one relation node.
+        *
+        * @static
+        * @param {OGMNeoRelationQuery} query - Query filter.
+        * @returns {Promise.&lt;object|Error>}  Found relation if fulfilled, or some neo4j error if rejected.
+    */
+    static findOne(query) {
+        return new Promise((resolve, reject) => {
+            if (query != null &amp;&amp; query instanceof OGMNeoRelationQuery) {
+                query.limit(1);
+                this.find(query).then((relations)=> {
+                    resolve(_.first(relations));
                 }).catch((error) => {
                     reject(error);
                 });
@@ -191,6 +218,7 @@ class OGMRelation {
         return new Promise((resolve, reject) => {
             if (query != null &amp;&amp; query instanceof OGMNeoRelationQuery) {
                 let cypher = query.queryPopulatedCypher();
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
@@ -200,6 +228,28 @@ class OGMRelation {
                     } else {
                         resolve(result.records.map(record => OGMNeoObjectParse.recordToRelationPopulated(record)));
                     }
+                }).catch((error) => {
+                    reject(error);
+                });
+            } else {
+                reject(new Error('The query object can\'t be null and must be an instance of OGMNeoRelationQuery'));
+            }
+        });
+    }
+
+    /**
+        * Find one Populated relation node.
+        *
+        * @static
+        * @param {OGMNeoRelationQuery} query - Query filter.
+        * @returns {Promise.&lt;object|Error>}  Populated found relation if fulfilled, or some neo4j error if rejected.
+    */
+    static findOnePopulated(query) {
+        return new Promise((resolve, reject) => {
+            if (query != null &amp;&amp; query instanceof OGMNeoRelationQuery) {
+                query.limit(1);
+                this.findPopulated(query).then((relations)=> {
+                    resolve(_.first(relations));
                 }).catch((error) => {
                     reject(error);
                 });
@@ -222,6 +272,7 @@ class OGMRelation {
         return new Promise((resolve, reject) => {
             if (query != null &amp;&amp; query instanceof OGMNeoRelationQuery) {
                 let cypher = query.queryNodesCypher(nodes, distinct);
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
@@ -251,6 +302,7 @@ class OGMRelation {
         return new Promise((resolve, reject) => {
             if (query != null &amp;&amp; query instanceof OGMNeoRelationQuery) {
                 let cypher = query.countCypher();
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 session.run(cypher).subscribe({
                     onNext: (record) => {
@@ -298,6 +350,7 @@ class OGMRelation {
         return new Promise((resolve, reject) => {
             if (_.isInteger(relationId)) {
                 let cypher = `MATCH p=(n1)-[r]->(n2) WHERE ID(r)=${relationId} DELETE r RETURN r`;
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
@@ -329,6 +382,7 @@ class OGMRelation {
             if (query != null &amp;&amp; query instanceof OGMNeoRelationQuery) {
                 let cypherMatch = query.matchCypher();
                 let cypher = `${cypherMatch} DELETE r RETURN r`;
+                Printer.printCypherIfEnabled(cypher);
                 let session = OGMNeo.session();
                 let readTxResultPromise = session.readTransaction(transaction => transaction.run(cypher));
                 readTxResultPromise.then((result) => {
@@ -362,7 +416,7 @@ module.exports = OGMRelation;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jul 10 2017 23:51:49 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Aug 02 2017 22:22:13 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>
