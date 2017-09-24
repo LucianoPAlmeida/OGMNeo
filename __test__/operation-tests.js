@@ -1,35 +1,35 @@
 'use strict';
 
 const test = require('tape');
-const OGMNeoOperation = require('../lib/ogmneo-operation');
+const { OGMNeoOperation, OGMNeoOperationBuilder } = require('../lib/ogmneo-operation');
 const _ = require('lodash');
 
 test('Test create operation', (assert) => {    
-    let opertation = OGMNeoOperation.create()
+    let operation = OGMNeoOperationBuilder.create()
                                     .cypher('CREATE (n:Label {property: {property}}) RETURN n')
                                     .object({property: 'value'})
                                     .type(OGMNeoOperation.READ)
-                                    .then((result)=> {
+                                    .then((result) => {
                                         return { id: 1, property: 'value' }
-                                    });
+                                    }).build();
     
-    assert.equal(opertation.cypher, 'CREATE (n:Label {property: {property}}) RETURN n');
-    assert.equal(opertation.type, OGMNeoOperation.READ);
-    assert.deepEqual(opertation.object, {property: 'value'} );
-    assert.assert(_.isFunction(object.then), 'Then is not a function');
+    assert.equal(operation.cypher, 'CREATE (n:Label {property: {property}}) RETURN n');
+    assert.equal(operation.type, OGMNeoOperation.READ);
+    assert.deepEqual(operation.object, {property: 'value'} );
+    assert.true(_.isFunction(operation.then), 'Then is not a function');
 
     assert.end();
 });
 
 test('Test operation convenience methods', (assert) => {    
-    let opertation = OGMNeoOperation.create()
+    let operation = OGMNeoOperationBuilder.create()
                                     .cypher('CREATE (n:Label {property: {property}}) RETURN n')
                                     .object({property: 'value'})
                                     .type(OGMNeoOperation.READ)
                                     .then((result)=> {
                                         return { id: 1, property: 'value' }
-                                    });
-    assert.assert(opertation.isRead, 'Then is not a read operation');
-    assert.false(opertation.isWrite, 'Then is not a write operation');    
+                                    }).build();
+    assert.true(operation.isReadType, 'Then is not a read operation');
+    assert.false(operation.isWriteType, 'Then is not a write operation');    
     assert.end();
 });
