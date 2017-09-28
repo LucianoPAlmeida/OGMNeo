@@ -6,6 +6,7 @@ const cypher = require('./lib/ogmneo-cypher');
 const index = require('./lib/ogmneo-index');
 const where = require('./lib/ogmneo-where');
 const relationQuery = require('./lib/ogmneo-relation-query');
+const { OGMNeoOperation, OGMNeoOperationBuilder } = require('./lib/ogmneo-operation');
 
 module.exports = {
     Connection: connection,
@@ -16,7 +17,8 @@ module.exports = {
     OGMNeoIndex: index,
     OGMNeoWhere: where,
     OGMNeoRelationQuery: relationQuery,
-
+    OGMNeoOperation: OGMNeoOperation,
+    OGMNeoOperationBuilder: OGMNeoOperationBuilder,
     //Simplified names
     Node: nodes,
     Query: query,
@@ -24,5 +26,7 @@ module.exports = {
     Cypher: cypher,
     Index: index,
     Where: where,
-    RelationQuery: relationQuery
+    RelationQuery: relationQuery,
+    Operation: OGMNeoOperation,
+    OperationBuilder: OGMNeoOperationBuilder
 };
