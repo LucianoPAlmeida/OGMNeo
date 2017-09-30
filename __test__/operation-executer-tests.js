@@ -35,6 +35,27 @@ test('Test invalid read type on operation', (assert) => {
     });
 });
 
+//Testing OGMNeoOperationExecuter.read
+test('Test write type on operation', (assert) => {  
+    let create = OGMNeoNode.createOperation({name: 'Ayrton Senna', carNumber: 12 }, 'Person');
+    let session = OGMNeo.session();  
+    OGMNeoOperationExecuter.write(session, (transaction) => {
+        return OGMNeoOperationExecuter.execute(create, transaction)
+                               .then((created) => {
+                                    assert.equal(created.name, 'Ayrton Senna');
+                                    assert.equal(created.carNumber, 12);
+                                    let id = created.id;
+                                    created.carNumber = 1;
+                                    let update = OGMNeoNode.updateOperation(created);
+                                    return OGMNeoOperationExecuter.execute(update, transaction);
+                               });
+    }).then((result) => {
+        session.close();
+        assert.equal(result.name, 'Ayrton Senna');
+        assert.equal(result.carNumber, 1);
+        assert.end();
+    });
+});
 
     // let createUser1 = OGMNeoNode.createOperation({name: 'Ayrton Senna'}, 'Person');
     // let createUser2 = OGMNeoNode.createOperation({name: 'Alain Prost'}, 'Person');

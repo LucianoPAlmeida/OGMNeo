@@ -57,11 +57,18 @@ test('Test FAIL for query param updateMany node', (assert) => {
     });
 });
 
+test('Test FAIL for query param updateMany not object newProperties', (assert) => {
+    OGMNeoNode.updateMany('', '').catch((error) => {
+        assert.equal(error.message, 'The new properties must be an object');
+        assert.end();
+    });
+});
+
 test('Test empty new properties updateMany node', (assert) => {
     let query = OGMQueryBuilder.create('test', new OGMNeoWhere('name', {$eq: 'name1'}));
-    OGMNeoNode.updateMany(query, {}).then((updateNodes) => {
-        assert.equal(updateNodes.length, 0);
-        assert.end();
+    OGMNeoNode.updateMany(query, {}).catch((error) => {
+        assert.equal(error.message, 'You must provide at least one property with NO undefined values to update');
+        assert.end();        
     });
 });
 
