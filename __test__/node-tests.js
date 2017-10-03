@@ -243,8 +243,8 @@ test('Test FAIL add label ids not array', (assert) => {
 });
 
 test('Test add label empty nodesIds', (assert) => {
-    OGMNeoNode.addLabelToNodes('label', []).then((nodes) => {
-        assert.equal(nodes.length, 0);
+    OGMNeoNode.addLabelToNodes('label', []).catch((error) => {
+        assert.equal(error.message, 'You must provide at least one valid id to this operation');
         assert.end();
     });
 });
@@ -280,8 +280,8 @@ test('Test FAIL remove label ids not array', (assert) => {
 });
 
 test('Test remove label empty nodesIds', (assert) => {
-    OGMNeoNode.removeLabelFromNodes('label', []).then((nodes) => {
-        assert.equal(nodes.length, 0);
+    OGMNeoNode.removeLabelFromNodes('label', []).catch((error) => {
+        assert.equal(error.message, 'You must provide at least one valid id to this operation');
         assert.end();
     });
 });
