@@ -17,7 +17,7 @@ test('Test Invalid Operation', (assert) => {
     }); 
 });
 
-//Testing OGMNeoOperationExecuter.read
+//Testing OGMNeoOperationExecuter.write
 test('Test write type on operation', (assert) => {  
     let create = OGMNeoNode.createOperation({name: 'Ayrton Senna', carNumber: 12 }, 'Person');
     OGMNeoOperationExecuter.write((transaction) => {
@@ -65,4 +65,21 @@ test('Test batch read type operations', (assert) => {
         assert.equal(found2.name, 'Alain Prost');
         assert.end();
     });
+});
+
+test('Test validate batch operations', (assert) => {  
+    let query1 = OGMNeoNode.findOneOperation(OGMNeoQuery.create('Person').where(OGMNeoWhere.create('name', { $eq: 'Ayrton Senna' })));
+
+    assert.throws(() => {
+        OGMNeoOperationExecuter._validateOperations('',OGMNeoOperation.READ);
+    }, /The parameter operations must be an array/);
+
+    assert.throws(() => {
+        OGMNeoOperationExecuter._validateOperations([''],OGMNeoOperation.READ);
+    }, /The parameter operations must be an array that contains only instances of ogmneo.Operation/);
+    
+    assert.throws(() => {
+        OGMNeoOperationExecuter._validateOperations([query1], OGMNeoOperation.WRITE);
+    }, /The parameter operations must be an array that contains only instances of ogmneo.Operation that have type : WRITE/);
+    assert.end();
 });
