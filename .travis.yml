@@ -18,6 +18,7 @@ before_install:
   - neo4j-community-$NEO4J_VERSION/bin/neo4j start
 
 install:
+  - npm install -g istanbul
   - npm install -g codecov
   - npm install
 
