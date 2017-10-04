@@ -106,8 +106,8 @@ test('Test empty newProperties UPDATE MANY', (assert) => {
     let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').relationWhere(OGMNeoWhere.create('property', { $eq: 'c' }));
     OGMNeoRelation.updateMany({}, query)
-        .then((updatedRelations) => {
-            assert.equal(updatedRelations.length, 0);
+        .catch((error) => {
+            assert.equal(error.message, 'newProperties must be an object with at least one valid property to update');
             assert.end();
         });
 });
