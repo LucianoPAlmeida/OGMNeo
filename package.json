@@ -1,6 +1,6 @@
 {
   "name": "ogmneo",
-  "version": "0.4.9",
+  "version": "1.0.0",
   "description": "OGM(object-graph mapping) abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
@@ -34,7 +34,7 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.4",
-    "neo4j-driver": "^1.2.0"
+    "neo4j-driver": "^1.4.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

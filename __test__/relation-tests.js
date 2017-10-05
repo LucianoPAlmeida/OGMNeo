@@ -106,8 +106,8 @@ test('Test empty newProperties UPDATE MANY', (assert) => {
     let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').relationWhere(OGMNeoWhere.create('property', { $eq: 'c' }));
     OGMNeoRelation.updateMany({}, query)
-        .then((updatedRelations) => {
-            assert.equal(updatedRelations.length, 0);
+        .catch((error) => {
+            assert.equal(error.message, 'newProperties must be an object with at least one valid property to update');
             assert.end();
         });
 });
@@ -163,7 +163,7 @@ test('Test FIND ONE relation', (assert) => {
 
     Promise.all([find1, find2, find3]).then((finds) => {
         assert.equal(finds[0].__type, 'relatedto');
-        assert.equal(finds[1], undefined);
+        assert.equal(finds[1], null);
         let rel = finds[2];
         assert.equal(rel.__type, 'relatedto');
         assert.equal(rel.property, 'c');
