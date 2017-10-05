@@ -184,9 +184,9 @@ All of those operations will be executed on the same transaction and you can rol
 You can also batch many operation READ or WRITE operations in a single transaction.
 
 ```js
-  const ogmneo = require('ogmneo');
+    const ogmneo = require('ogmneo');
   
-      let createUser1 = OGMNeoNode.createOperation({name: 'Ayrton Senna'}, 'Person');
+    let createUser1 = OGMNeoNode.createOperation({name: 'Ayrton Senna'}, 'Person');
     let createUser2 = OGMNeoNode.createOperation({name: 'Alain Prost'}, 'Person');
 
     OGMNeoOperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
@@ -196,7 +196,7 @@ You can also batch many operation READ or WRITE operations in a single transacti
         console.log(created2.name); // 'Alain Prost'
     });
 ```
-If one of those fail all operations on the transaction will be rolledback.
+If one of those fails, all other operations on the transaction will be rolledback automatically.
 
 ## Documentation
 
