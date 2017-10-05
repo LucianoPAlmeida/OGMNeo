@@ -163,7 +163,7 @@ test('Test FIND ONE relation', (assert) => {
 
     Promise.all([find1, find2, find3]).then((finds) => {
         assert.equal(finds[0].__type, 'relatedto');
-        assert.equal(finds[1], undefined);
+        assert.equal(finds[1], null);
         let rel = finds[2];
         assert.equal(rel.__type, 'relatedto');
         assert.equal(rel.property, 'c');
