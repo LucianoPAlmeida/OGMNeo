@@ -259,7 +259,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line329">line 329</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line445">line 445</a>
     </li></ul></dd>
     
 
@@ -298,6 +298,238 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".addLabelToNodeOperation"><span class="type-signature">(static) </span>addLabelToNodeOperation<span class="signature">(label, nodeId)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation to adding a label to a node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be added to the node.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the node to add the label.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line464">line 464</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the nodeId was not an integer value.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the label was anything diferent than an non-empty string.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that adds a label.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -384,7 +616,7 @@
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type">array</span>
 
 
             
@@ -435,7 +667,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line373">line 373</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line525">line 525</a>
     </li></ul></dd>
     
 
@@ -474,6 +706,238 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".addLabelToNodesOperation"><span class="type-signature">(static) </span>addLabelToNodesOperation<span class="signature">(label, nodesIds)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that adds a label to nodes.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be added to the node.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodesIds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ids of the nodes to add the label.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line544">line 544</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if you don't provide at least one valid id to this operation.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the label was anything diferent than an non-empty string.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that removes a label.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -588,7 +1052,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line244">line 244</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line328">line 328</a>
     </li></ul></dd>
     
 
@@ -627,6 +1091,188 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(integer|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".countOperation"><span class="type-signature">(static) </span>countOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates a READ operation count of nodes with the query.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoQuery.html">OGMNeoQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query to filter nodes that have to be counted.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line345">line 345</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query was not a instance of ogmneo.Query.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that query the count of the nodes with query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -741,7 +1387,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line233">line 233</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line317">line 317</a>
     </li></ul></dd>
     
 
@@ -1002,6 +1648,214 @@
 
     
 
+    <h4 class="name" id=".createOperation"><span class="type-signature">(static) </span>createOperation<span class="signature">(node, label<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that creates a node on neo4j.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">The literal object with node propeperties.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">The label of the node. Default null is a node without label.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line36">line 36</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Create node operation that can be executed later.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id=".delete"><span class="type-signature">(static) </span>delete<span class="signature">(node)</span><span class="type-signature"> &rarr; {Promise.&lt;(boolean|Error)>}</span></h4>
 
     
@@ -1102,7 +1956,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line119">line 119</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line153">line 153</a>
     </li></ul></dd>
     
 
@@ -1255,7 +2109,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line145">line 145</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line190">line 190</a>
     </li></ul></dd>
     
 
@@ -1294,6 +2148,370 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(number|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".deleteManyOperation"><span class="type-signature">(static) </span>deleteManyOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates an operation that deletes every node that matches the query.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoQuery.html">OGMNeoQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query to filter the nodes.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line207">line 207</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query was not a instance of ogmneo.Query.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that deletes a node.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".deleteOperation"><span class="type-signature">(static) </span>deleteOperation<span class="signature">(node)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Deletes a node on neo4j.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The literal object with node propeperties and required node.id.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line170">line 170</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the node.id was not integer or not exists.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that deletes a node.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -1408,7 +2626,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line275">line 275</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line367">line 367</a>
     </li></ul></dd>
     
 
@@ -1561,7 +2779,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line307">line 307</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line406">line 406</a>
     </li></ul></dd>
     
 
@@ -1600,6 +2818,370 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findOneOperation"><span class="type-signature">(static) </span>findOneOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Find one node filtered by query parameter.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoQuery.html">OGMNeoQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query to filter nodes that have to be returned.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line423">line 423</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query was not a instance of ogmneo.Query.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that returns the node with query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findOperation"><span class="type-signature">(static) </span>findOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation for find nodes filtered by the query parameter.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoQuery.html">OGMNeoQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query to filter nodes that have to be returned.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line385">line 385</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query was not a instance of ogmneo.Query.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that returns the nodes with query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -1714,7 +3296,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line199">line 199</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line269">line 269</a>
     </li></ul></dd>
     
 
@@ -1754,6 +3336,215 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".manyWithIdsOperation"><span class="type-signature">(static) </span>manyWithIdsOperation<span class="signature">(ids)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation to retrive nodes with ids.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>ids</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ids of nodes that are wanted.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line288">line 288</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if you don't provide any valid id to retrive.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the ids are not an array.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that query the nodes with the ids.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -1868,7 +3659,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line171">line 171</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line229">line 229</a>
     </li></ul></dd>
     
 
@@ -1908,6 +3699,188 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".nodeWithIdOperation"><span class="type-signature">(static) </span>nodeWithIdOperation<span class="signature">(id)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Create a READ operation that retrives a node with id.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of node that's wanted.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line246">line 246</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if id was not an integer value.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation retrives a node.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -2045,7 +4018,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line351">line 351</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line485">line 485</a>
     </li></ul></dd>
     
 
@@ -2098,7 +4071,239 @@
 
     
 
-    <h4 class="name" id=".removeLabelFromNodes"><span class="type-signature">(static) </span>removeLabelFromNodes<span class="signature">(label, nodeId)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
+    <h4 class="name" id=".removeLabelFromNodeOperation"><span class="type-signature">(static) </span>removeLabelFromNodeOperation<span class="signature">(label, nodeId)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation to remove a label from a node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be removed from the node.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The id of the node to remove the label from.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line504">line 504</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the nodeId was not an integer value.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the label was anything diferent than an non-empty string.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that removes a label.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".removeLabelFromNodes"><span class="type-signature">(static) </span>removeLabelFromNodes<span class="signature">(label, nodeIds)</span><span class="type-signature"> &rarr; {Promise.&lt;(array|Error)>}</span></h4>
 
     
 
@@ -2164,13 +4369,13 @@
 
         <tr>
             
-                <td class="name"><code>nodeId</code></td>
+                <td class="name"><code>nodeIds</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">integer</span>
+<span class="param-type">array</span>
 
 
             
@@ -2221,7 +4426,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line408">line 408</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line572">line 572</a>
     </li></ul></dd>
     
 
@@ -2260,6 +4465,238 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".removeLabelFromNodesOperation"><span class="type-signature">(static) </span>removeLabelFromNodesOperation<span class="signature">(label, nodeIds)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that removes a label from nodes.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The label to be removed from the nodes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeIds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ids of the nodes to remove the label from.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line591">line 591</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if you don't provide at least one valid id to this operation.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the label was anything diferent than an non-empty string.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that removes a label from many nodes.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -2374,7 +4811,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line49">line 49</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -2434,7 +4871,7 @@
 
 
 <div class="description">
-    Update new properties on every node that matches the.
+    Update new properties on every node that matches the query.
 </div>
 
 
@@ -2550,7 +4987,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line80">line 80</a>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line101">line 101</a>
     </li></ul></dd>
     
 
@@ -2599,6 +5036,447 @@
 
 
         
+            
+
+    
+
+    <h4 class="name" id=".updateManyOperation"><span class="type-signature">(static) </span>updateManyOperation<span class="signature">(query, newProperties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Returns an operation that updates new properties on every node that matches the query.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoQuery.html">OGMNeoQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query to filter the nodes.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newProperties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">NEW properties.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line121">line 121</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query is not an instance of ogmneo.Query.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if newProperties is not an object.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if newProperties don't have at least one property with NO undefined values to update.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that updates new properties on every node that matches the query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".updateOperation"><span class="type-signature">(static) </span>updateOperation<span class="signature">(node)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that updates a node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>node</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The literal object with node propeperties and required node.id.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-node.js.html">ogmneo-node.js</a>, <a href="ogmneo-node.js.html#line75">line 75</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the node.id was not integer or not exists.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Update node operation that can be executed later.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
     
 
     
@@ -2614,13 +5492,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoOperation.html">OGMNeoOperation</a></li><li><a href="OGMNeoOperationExecuter.html">OGMNeoOperationExecuter</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Aug 02 2017 22:22:13 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Oct 08 2017 12:50:40 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>

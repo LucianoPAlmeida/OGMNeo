@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line10">line 10</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -236,7 +236,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line273">line 273</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line382">line 382</a>
     </li></ul></dd>
     
 
@@ -275,6 +275,188 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(integer|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".countOperation"><span class="type-signature">(static) </span>countOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that counts relation nodes.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line399">line 399</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query object was null or not an instance of ogmneo.RelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that count nodes with query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -389,7 +571,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line352">line 352</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line478">line 478</a>
     </li></ul></dd>
     
 
@@ -428,6 +610,188 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".deleteManyOperation"><span class="type-signature">(static) </span>deleteManyOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that deletes all relation nodes that matches parameters query.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line495">line 495</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query object was null or not an instance of ogmneo.RelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that deletes nodes with query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -542,7 +906,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line321">line 321</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line439">line 439</a>
     </li></ul></dd>
     
 
@@ -581,6 +945,188 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(boolean|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".deleteRelationOperation"><span class="type-signature">(static) </span>deleteRelationOperation<span class="signature">(relationId)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that deletes a relation by id.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>relationId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">relation node id.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line457">line 457</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the relation id was not an integer value.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that deletes a node with id.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -695,7 +1241,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line303">line 303</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line421">line 421</a>
     </li></ul></dd>
     
 
@@ -848,7 +1394,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line137">line 137</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line185">line 185</a>
     </li></ul></dd>
     
 
@@ -1095,7 +1641,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line243">line 243</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line341">line 341</a>
     </li></ul></dd>
     
 
@@ -1134,6 +1680,282 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findNodesOperation"><span class="type-signature">(static) </span>findNodesOperation<span class="signature">(query, nodes<span class="signature-attributes">opt</span>, distinct<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation to find start and end nodes for the relation. Do not return relation properties to find relation properties use find or find populated.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nodes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    'both'
+                
+                </td>
+            
+
+            <td class="description last">The return nodes. 'both'/null = return start and end nodes, 'start' = return start nodes, 'end' = return end nodes</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>distinct</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Add distinct clause to cypher return.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line361">line 361</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query object was null or not an instance of ogmneo.RelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that find start and end nodes with query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -1248,7 +2070,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line167">line 167</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line224">line 224</a>
     </li></ul></dd>
     
 
@@ -1287,6 +2109,188 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findOneOperation"><span class="type-signature">(static) </span>findOneOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation to find one relation node that matches query.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line241">line 241</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query object was null or not an instance of OGMNeoRelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that find one relation node.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -1401,7 +2405,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line219">line 219</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line301">line 301</a>
     </li></ul></dd>
     
 
@@ -1440,6 +2444,370 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findOnePopulatedOperation"><span class="type-signature">(static) </span>findOnePopulatedOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation to find one populated relation node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line318">line 318</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query object was null or not an instance of ogmneo.RelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that find one populated relation node.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findOperation"><span class="type-signature">(static) </span>findOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    An operation that finds relation nodes that matches queries.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line202">line 202</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query object was null or not an instance of OGMNeoRelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that find the relation nodes.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -1554,7 +2922,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line189">line 189</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line262">line 262</a>
     </li></ul></dd>
     
 
@@ -1593,6 +2961,188 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(array|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".findPopulatedOperation"><span class="type-signature">(static) </span>findPopulatedOperation<span class="signature">(query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that find relation nodes with start and end nodes populated.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line280">line 280</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the query object was null or not an instance of ogmneo.RelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that find relations nodes.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -1871,7 +3421,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line25">line 25</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -1910,6 +3460,379 @@
     <dd>
         
 <span class="param-type">Promise.&lt;(object|Error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".relateOperation"><span class="type-signature">(static) </span>relateOperation<span class="signature">(nodeId, otherNodeId, type, properties<span class="signature-attributes">opt</span>, unique<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that creates a relation between two nodes if they both exists.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">First in relation node id.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>otherNodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Second in relation node id.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Case sensitive relation type name.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last">Relation properties.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unique</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">bool</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">If include unique clause on create statement.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line50">line 50</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the ids from node was not integers.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if a relatioship type was not an non-empty string.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that creates the relation between nodes.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
 
 
     </dd>
@@ -2047,7 +3970,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line63">line 63</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line85">line 85</a>
     </li></ul></dd>
     
 
@@ -2223,7 +4146,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line99">line 99</a>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line131">line 131</a>
     </li></ul></dd>
     
 
@@ -2272,6 +4195,470 @@
 
 
         
+            
+
+    
+
+    <h4 class="name" id=".updateManyOperation"><span class="type-signature">(static) </span>updateManyOperation<span class="signature">(newProperties, query)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that set or update newPropeties on all relation nodes that matches parameters query.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>newProperties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">New properties ot be set or updated.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Query filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line151">line 151</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if query was not an instance of ogmneo.RelationQuery.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if newProperties was not an object.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if newProperties was was empty.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that updates properties on the relation nodes.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".updateOperation"><span class="type-signature">(static) </span>updateOperation<span class="signature">(relationId, newProperties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoOperation.html">OGMNeoOperation</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Operation that update a relation propeties if it exists.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>relationId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Relation node id.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>newProperties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Relation NEW properties.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation.js.html">ogmneo-relation.js</a>, <a href="ogmneo-relation.js.html#line103">line 103</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if the id from relation node was not integer.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Operation that creates the relation between nodes.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoOperation.html">OGMNeoOperation</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
     
 
     
@@ -2287,13 +4674,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoOperation.html">OGMNeoOperation</a></li><li><a href="OGMNeoOperationExecuter.html">OGMNeoOperationExecuter</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Aug 02 2017 22:22:13 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Oct 08 2017 12:50:40 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>

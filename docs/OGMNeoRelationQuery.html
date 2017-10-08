@@ -40,6 +40,2330 @@
 
     
 
+    <h4 class="name" id="OGMNeoRelationQuery"><span class="type-signature"></span>new OGMNeoRelationQuery<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line7">line 7</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="type"><span class="type-signature"></span>type<span class="type-signature"> :string</span></h4>
+
+
+
+
+<div class="description">
+    Relation type name constraint.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".create"><span class="type-signature">(static) </span>create<span class="signature">(type<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Convenience method that creates a query object with a relation type.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">The relation name to filter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Created query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="ascOrderBy"><span class="type-signature"></span>ascOrderBy<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add ASCENDING order by clause to this query object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The properties in order to order by for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="descOrderBy"><span class="type-signature"></span>descOrderBy<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add DESCENDING order by clause to this query object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The properties in order to order by for.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line144">line 144</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="endNode"><span class="type-signature"></span>endNode<span class="signature">(nodeId, label)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add ID and Label constraints to the endNode.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Node id constraint.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Label constraint.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="endNodeWhere"><span class="type-signature"></span>endNodeWhere<span class="signature">(where)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add endNode where constraint to this query object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>where</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query constraints that will be applied to endNode properties.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line100">line 100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="limit"><span class="type-signature"></span>limit<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add limit constraint to this query object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The max number of values that should be returned.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line131">line 131</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="matchCypher"><span class="type-signature"></span>matchCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Builde cypher match cypher clause.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line211">line 211</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This return an match cypher based on this query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="relationWhere"><span class="type-signature"></span>relationWhere<span class="signature">(where)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add relation where constraint to this query object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>where</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query constraints that will be applied to relation properties.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line115">line 115</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="returnEndNode"><span class="type-signature"></span>returnEndNode<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Propreties that must returned for the end node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The properties that can be a string if was just one or an array of string for many.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line187">line 187</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="returnRelationNode"><span class="type-signature"></span>returnRelationNode<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Propreties that must returned for the relation node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The properties that can be a string if was just one or an array of string for many.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line199">line 199</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="returnStartNode"><span class="type-signature"></span>returnStartNode<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Propreties that must returned for the start node.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>properties</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The properties that can be a string if was just one or an array of string for many.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line174">line 174</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="startNode"><span class="type-signature"></span>startNode<span class="signature">(nodeId, label)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add ID and Label constraints to the startNode.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>nodeId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">integer</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Node id constraint.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Label constraint.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line52">line 52</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="startNodeWhere"><span class="type-signature"></span>startNodeWhere<span class="signature">(where)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Add startNode where constraint to this query object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>where</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The query constraints that will be applied to startNode properties.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line85">line 85</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This instance of query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="whereCypher"><span class="type-signature"></span>whereCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Builde cypher where cypher clause.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line219">line 219</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    This return an match cypher based on this query.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>OGMNeoRelationQuery</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
     <h4 class="name" id="OGMNeoRelationQuery"><span class="type-signature"></span>new OGMNeoRelationQuery<span class="signature">(type<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
@@ -2418,2340 +4742,16 @@
 
 
 
-
-
-
-<section>
-
-<header>
-    
-        <h2>OGMNeoRelationQuery</h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-
-    <h4 class="name" id="OGMNeoRelationQuery"><span class="type-signature"></span>new OGMNeoRelationQuery<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line7">line 7</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="type"><span class="type-signature"></span>type<span class="type-signature"> :string</span></h4>
-
-
-
-
-<div class="description">
-    Relation type name constraint.
-</div>
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">string</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line30">line 30</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id=".create"><span class="type-signature">(static) </span>create<span class="signature">(type<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Convenience method that creates a query object with a relation type.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">The relation name to filter.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line41">line 41</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Created query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="ascOrderBy"><span class="type-signature"></span>ascOrderBy<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add ASCENDING order by clause to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>properties</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The properties in order to order by for.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line158">line 158</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="descOrderBy"><span class="type-signature"></span>descOrderBy<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add DESCENDING order by clause to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>properties</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The properties in order to order by for.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line144">line 144</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="endNode"><span class="type-signature"></span>endNode<span class="signature">(nodeId, label)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add ID and Label constraints to the endNode.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>nodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Node id constraint.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>label</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Label constraint.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line69">line 69</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="endNodeWhere"><span class="type-signature"></span>endNodeWhere<span class="signature">(where)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add endNode where constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>where</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The query constraints that will be applied to endNode properties.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line100">line 100</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="limit"><span class="type-signature"></span>limit<span class="signature">(value)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add limit constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The max number of values that should be returned.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line131">line 131</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="matchCypher"><span class="type-signature"></span>matchCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Builde cypher match cypher clause.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line211">line 211</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This return an match cypher based on this query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="relationWhere"><span class="type-signature"></span>relationWhere<span class="signature">(where)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add relation where constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>where</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The query constraints that will be applied to relation properties.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line115">line 115</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="returnEndNode"><span class="type-signature"></span>returnEndNode<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Propreties that must returned for the end node.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>properties</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The properties that can be a string if was just one or an array of string for many.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line187">line 187</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="returnRelationNode"><span class="type-signature"></span>returnRelationNode<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Propreties that must returned for the relation node.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>properties</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The properties that can be a string if was just one or an array of string for many.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line199">line 199</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="returnStartNode"><span class="type-signature"></span>returnStartNode<span class="signature">(properties)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Propreties that must returned for the start node.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>properties</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">array</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The properties that can be a string if was just one or an array of string for many.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line174">line 174</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="startNode"><span class="type-signature"></span>startNode<span class="signature">(nodeId, label)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add ID and Label constraints to the startNode.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>nodeId</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">integer</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Node id constraint.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>label</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Label constraint.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line52">line 52</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="startNodeWhere"><span class="type-signature"></span>startNodeWhere<span class="signature">(where)</span><span class="type-signature"> &rarr; {<a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a>}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Add startNode where constraint to this query object.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>where</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="OGMNeoWhere.html">OGMNeoWhere</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The query constraints that will be applied to startNode properties.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line85">line 85</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This instance of query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type"><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="whereCypher"><span class="type-signature"></span>whereCypher<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Builde cypher where cypher clause.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="ogmneo-relation-query.js.html">ogmneo-relation-query.js</a>, <a href="ogmneo-relation-query.js.html#line219">line 219</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    This return an match cypher based on this query.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="OGMNeo.html">OGMNeo</a></li><li><a href="OGMNeoCypher.html">OGMNeoCypher</a></li><li><a href="OGMNeoIndex.html">OGMNeoIndex</a></li><li><a href="OGMNeoNode.html">OGMNeoNode</a></li><li><a href="OGMNeoOperation.html">OGMNeoOperation</a></li><li><a href="OGMNeoOperationExecuter.html">OGMNeoOperationExecuter</a></li><li><a href="OGMNeoQuery.html">OGMNeoQuery</a></li><li><a href="OGMNeoRelationQuery.html">OGMNeoRelationQuery</a></li><li><a href="OGMNeoWhere.html">OGMNeoWhere</a></li><li><a href="OGMRelation.html">OGMRelation</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Wed Aug 02 2017 22:22:13 GMT-0300 (-03)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun Oct 08 2017 12:50:40 GMT-0300 (-03)
 </footer>
 
 <script> prettyPrint(); </script>
