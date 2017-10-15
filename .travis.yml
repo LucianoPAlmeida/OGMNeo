@@ -20,6 +20,7 @@ before_install:
 install:
   - npm install -g istanbul
   - npm install -g codecov
+  - npm install -g tape
   - npm install
 
 before_script:
@@ -27,7 +28,7 @@ before_script:
 
 script:
   - npm test
-  - istanbul cover node_modules/.bin/tape ./__test__/*.js
+  - istanbul cover tape ./__test__/*.js
   - codecov
   - npm run docs
   - chmod +x dropbox.sh
