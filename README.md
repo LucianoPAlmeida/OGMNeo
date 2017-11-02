@@ -4,7 +4,7 @@ Abstract some trivial operations on neo4j driver for nodejs and make the use sim
 
 [![npm version](https://badge.fury.io/js/ogmneo.svg)](https://badge.fury.io/js/ogmneo)
 [![npm](https://img.shields.io/npm/dt/ogmneo.svg)](https://www.npmjs.com/package/ogmneo)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+[![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Travis](https://img.shields.io/travis/LucianoPAlmeida/OGMNeo.svg)](https://travis-ci.org/LucianoPAlmeida/OGMNeo)
 [![Codecov](https://img.shields.io/codecov/c/github/LucianoPAlmeida/OGMNeo.svg)](https://codecov.io/gh/LucianoPAlmeida/OGMNeo)
 
@@ -189,7 +189,7 @@ You can also batch many operation READ or WRITE operations in a single transacti
     let createUser1 = OGMNeoNode.createOperation({name: 'Ayrton Senna'}, 'Person');
     let createUser2 = OGMNeoNode.createOperation({name: 'Alain Prost'}, 'Person');
 
-    OGMNeoOperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
+    ogmneo.OperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
         let created1 = result[0];
         let created2 = result[1];
         console.log(created1.name); // 'Ayrton Senna'
