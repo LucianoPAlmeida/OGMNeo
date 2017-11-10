@@ -1,7 +1,6 @@
 # OGMNeo
 
 Abstract some trivial operations on neo4j driver for nodejs and make the use simpler. That's why we created OGMNeo.
-
 [![npm version](https://badge.fury.io/js/ogmneo.svg)](https://badge.fury.io/js/ogmneo)
 [![npm](https://img.shields.io/npm/dt/ogmneo.svg)](https://www.npmjs.com/package/ogmneo)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
