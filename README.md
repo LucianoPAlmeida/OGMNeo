@@ -1,14 +1,15 @@
 # OGMNeo
 
-Abstract some trivial operations on neo4j driver for nodejs and make the use simpler. That's why we created OGMNeo.
+Abstract some trivial operations on the Neo4j driver for Nodejs and make the use simpler. That's why we created OGMNeo.
 
 [![npm version](https://badge.fury.io/js/ogmneo.svg)](https://badge.fury.io/js/ogmneo)
 [![npm](https://img.shields.io/npm/dt/ogmneo.svg)](https://www.npmjs.com/package/ogmneo)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+[![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Travis](https://img.shields.io/travis/LucianoPAlmeida/OGMNeo.svg)](https://travis-ci.org/LucianoPAlmeida/OGMNeo)
 [![Codecov](https://img.shields.io/codecov/c/github/LucianoPAlmeida/OGMNeo.svg)](https://codecov.io/gh/LucianoPAlmeida/OGMNeo)
 
 ## Installation
+
 You can find ogmneo in npm [here](https://www.npmjs.com/package/ogmneo) and install using the follow command
 ```sh
  npm install ogmneo
@@ -25,7 +26,8 @@ ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
    OGMNeo connects using the neo4j bolt protocol.
    
 ### Log generated cypher on console
-You can see the generated cypher on your console by setting Connection.logCypherEnabled property true.
+
+You can see the generated Cypher on your console by setting Connection.logCypherEnabled property true.
 
 ```js
 const ogmneo = require('ogmneo');
@@ -104,7 +106,7 @@ You can find the relation nodes.
 ```
 
 ## Executing Cypher
-You can executing cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object. Or you can use OGMNeoCypher.
+You can execute Cypher using the direct [Neo4j Driver](https://github.com/neo4j/neo4j-javascript-driver) session object. Or you can use OGMNeoCypher.
 
 ```js
   const ogmneo = require('ogmneo');
@@ -144,7 +146,7 @@ You can create and drop indexes in properties.
 
 ## Operation API
 
-Almost every method on ogmneo.Node and ogmneo.Relation have now the Operation API, that instead of executing the function on database returning a promise, it creates an ogmneo.Operation object that can be executed after by the ogmneo.OperationExecuter. Exemple:
+Almost every method of ogmneo.Node and ogmneo.Relation have now the Operation API, that instead of executing the function on database returning a promise, it creates an ogmneo.Operation object that can be executed after by the ogmneo.OperationExecuter. Exemple:
 ```js
   const ogmneo = require('ogmneo');
   
@@ -158,8 +160,10 @@ Almost every method on ogmneo.Node and ogmneo.Relation have now the Operation AP
 ```
 
 ## Transactional API 
+
 With the Operation API we can now execute as many READ or WRITE operations on the same transaction.
-For exemple you want to create to nodes and then relate those two. But if the relation fails you want to rollback all the operations.
+For example, you want to create nodes and then relate those two. But if the relationship operation fails you want to rollback all the operations.
+
 ```js
   const ogmneo = require('ogmneo');
   
@@ -189,7 +193,7 @@ You can also batch many operation READ or WRITE operations in a single transacti
     let createUser1 = OGMNeoNode.createOperation({name: 'Ayrton Senna'}, 'Person');
     let createUser2 = OGMNeoNode.createOperation({name: 'Alain Prost'}, 'Person');
 
-    OGMNeoOperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
+    ogmneo.OperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
         let created1 = result[0];
         let created2 = result[1];
         console.log(created1.name); // 'Ayrton Senna'
@@ -208,7 +212,7 @@ If one of those fails, all other operations on the transaction will be rolledbac
   
 ## Tests
 
-  Most of this library functions are covered by unit tests. With 90% of coverage.
+  Most of this library functions are covered by unit tests.
   See the code coverage on [codecov.io](https://codecov.io/gh/LucianoPAlmeida/OGMNeo).
 
 ## Licence
