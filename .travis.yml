@@ -27,6 +27,7 @@ before_script:
   - curl -vX POST http://neo4j:neo4j@localhost:7474/user/neo4j/password -d"password=databasepass" 
 
 script:
+  - npm run lint
   - npm test
   - istanbul cover tape ./__test__/*.js
   - codecov
