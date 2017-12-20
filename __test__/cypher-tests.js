@@ -56,4 +56,3 @@ test('Test EXECUTE WRITE Transactional cypher', (assert) => {
          assert.end();
     });
  });
-

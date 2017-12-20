@@ -52,6 +52,14 @@ test('Test batch write type operations', (assert) => {
     });
 });
 
+test('Test batch write type operations empty', (assert) => {  
+
+    OGMNeoOperationExecuter.batchWriteOperations([]).then((results) => {
+        assert.equal(results.length, 0);
+        assert.end();
+    });
+});
+
 test('Test batch read type operations', (assert) => {  
     let query1 = OGMNeoNode.findOneOperation(OGMNeoQuery.create('Person').where(OGMNeoWhere.create('name', { $eq: 'Ayrton Senna' })));
     let query2 = OGMNeoNode.findOneOperation(OGMNeoQuery.create('Person').where(OGMNeoWhere.create('name', { $eq: 'Alain Prost' })));
@@ -63,6 +71,14 @@ test('Test batch read type operations', (assert) => {
         assert.equal(found1.name, 'Ayrton Senna');
         assert.notEqual(found2.id, undefined);
         assert.equal(found2.name, 'Alain Prost');
+        assert.end();
+    });
+});
+
+test('Test batch read type operations empty', (assert) => {  
+
+    OGMNeoOperationExecuter.batchReadOperations([]).then((results) => {
+        assert.equal(results.length, 0);
         assert.end();
     });
 });
