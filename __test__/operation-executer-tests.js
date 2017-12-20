@@ -10,6 +10,13 @@ const OGMNeoWhere = require('../lib/ogmneo-where');
 
 const _ = require('lodash');
 
+test('Test invalid operation type', (assert) => {
+    assert.throws(() => {
+        OGMNeoOperationBuilder.create().cypher('').type(2).build();
+    }, /The type cannot be null or undefined and must be a string with either value  'READ' or 'WRITE'/);
+    assert.end();
+});
+
 test('Test Invalid Operation', (assert) => {    
     OGMNeoOperationExecuter.execute({}).catch((error) => {
         assert.equal(error.message, 'The operation must be a instance of ogmneo.Operation');
