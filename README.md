@@ -21,6 +21,9 @@ You can find ogmneo in npm [here](https://www.npmjs.com/package/ogmneo) and inst
 ```js
 const ogmneo = require('ogmneo');
 ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost');
+// Or if you want to add some neo4j driver configuration options 
+ogmneo.Connection.connect('neo4j', 'databasepass', 'localhost', { maxTransactionRetryTime: 30000, encrypted: false });
+// See more about the config options you can add on: http://neo4j.com/docs/api/javascript-driver/current/function/index.html#static-function-driver
 
 ```
    OGMNeo connects using the neo4j bolt protocol.
