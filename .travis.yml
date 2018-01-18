@@ -35,8 +35,3 @@ script:
   - chmod +x dropbox.sh
   - ./dropbox.sh
 
-# this *does* CI pull requests to master and dev:
-branches:
-  only:
-    - master
-    - dev
