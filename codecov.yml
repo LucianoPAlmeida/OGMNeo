@@ -2,3 +2,6 @@ coverage:
   parsers:
     javascript:
       enable_partials: true
+
+  ignore:
+    - "__test__/**/*"
