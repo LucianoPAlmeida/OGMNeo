@@ -4,7 +4,9 @@ const test = require('tape');
 const OGMNeo = require('../lib/ogmneo');
 const OGMNeoNode = require('../lib/ogmneo-node');
 const OGMQueryBuilder = require('../lib/ogmneo-query');
+const OGMNeoRelation = require('../lib/ogmneo-relation');
 const OGMNeoWhere = require('../lib/ogmneo-where');
+const OGMNeoOperationExecuter = require('../lib/ogmneo-operation-executer');
 const _ = require('lodash');
 
 
@@ -308,6 +310,30 @@ test('Test delete NODE', (assert) => {
         assert.equal(deleted, true);
         assert.end();
     })
+});
+
+test('Test delete cascade NODE', (assert) => {
+    let createUser1 = OGMNeoNode.createOperation({name: 'Ayrton Senna'}, 'Person');
+    let createUser2 = OGMNeoNode.createOperation({name: 'Alain Prost'}, 'Person');
+
+    OGMNeoOperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
+        let created1 = result[0];
+        let created2 = result[1];
+        OGMNeoRelation.relate(created1.id,'RIVALS', created2.id).then((result) => {
+            OGMNeoNode.delete(created1).catch((error) => {
+                // Must be not able to normal deletion because the node have relations.
+                OGMNeoNode.deleteCascade(created1).then((deleted) => {
+                    assert.equal(deleted, true);
+                    OGMNeoNode.delete(created2).then((deleted)=> {
+                        assert.equal(deleted, true);
+                        assert.end();
+                    });
+                });
+            });
+        });
+    });
+
+
 });
 
 test('Test delete FAIL MANY NODE', (assert) => {
