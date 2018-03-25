@@ -34,7 +34,8 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.4",
-    "neo4j-driver": "^1.4.1"
+    "neo4j-driver": "^1.4.1",
+    "npm": "^5.8.0"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

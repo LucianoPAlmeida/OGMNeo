@@ -44,6 +44,30 @@ test('Test CREATE relation', (assert) => {
     });
 });
 
+
+
+test('Test MERGE relation', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    let rel1 = OGMNeoRelation.relateMerge(node1.id, 'relatedto', node2.id, { property: 'a' });
+    let rel2 = OGMNeoRelation.relateMerge(node1.id, 'relatedto', node2.id, {});
+    let rel3 = OGMNeoRelation.relateMerge(node1.id, 'relatedto', node2.id, { property: 'a' });
+    let rel4 = OGMNeoRelation.relateMerge(node1.id, 'relatedto', node2.id, {});
+    Promise.all([rel1, rel2]).then((rels) => {
+        assert.equal(rels.length, 2);
+        let relation1 = rels[0];
+        let relation2 = rels[1];
+        assert.notEqual(relation1.id, null);
+        assert.notEqual(relation2.id, null);
+        assert.deepEqual(relation1.__type, 'relatedto');
+        assert.deepEqual(relation2.__type, 'relatedto');
+        assert.equal(relation1.property, 'a');
+        assert.equal(relation2.property, undefined);
+        relations = rels;
+        assert.end();
+    });
+});
+
 test('Test FAIL CREATE TYPE relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
@@ -53,9 +77,26 @@ test('Test FAIL CREATE TYPE relation', (assert) => {
     });
 });
 
+test('Test FAIL MERGE TYPE relation', (assert) => {
+    let node1 = nodes[0];
+    let node2 = nodes[1];
+    OGMNeoRelation.relateMerge(node1.id, null, node2.id, { property: 'a' }).catch((error) => {
+        assert.equal(error.message, 'A relatioship type must be specified');
+        assert.end();
+    });
+});
+
 test('Test FAIL CREATE IDS relation', (assert) => {
     let node2 = nodes[1];
     OGMNeoRelation.relate('dasdsa', node2.id, 'type', { property: 'a' }).catch((error) => {
+        assert.equal(error.message, 'Ids from node must to be integers');
+        assert.end();
+    });
+});
+
+test('Test FAIL MERGE IDS relation', (assert) => {
+    let node2 = nodes[1];
+    OGMNeoRelation.relateMerge('dasdsa', node2.id, 'type', { property: 'a' }).catch((error) => {
         assert.equal(error.message, 'Ids from node must to be integers');
         assert.end();
     });
