@@ -62,11 +62,15 @@ test('Test MERGE relation', (assert) => {
     let rel1 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {
         property: 'merge'
     });
-    let rel2 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {});
+    let rel2 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {
+        property: 'merge'
+    });
     let rel3 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {
         property: 'merge'
     });
-    let rel4 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {});
+    let rel4 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {
+        property: 'merge'
+    });
     Promise.all([rel1, rel2, rel3, rel4]).then((rels) => {
         assert.equal(rels.length, 4);
         let relation1 = rels[0];
@@ -82,10 +86,9 @@ test('Test MERGE relation', (assert) => {
         assert.deepEqual(relation3.__type, 'relatedto_1');
         assert.deepEqual(relation4.__type, 'relatedto_1');
         assert.equal(relation1.property, 'merge');
-        assert.equal(relation2.property, undefined);
+        assert.equal(relation2.property, 'merge');
         assert.equal(relation3.property, 'merge');
-        assert.equal(relation4.property, undefined);
-        relations = rels;
+        assert.equal(relation4.property, 'merge');
         assert.end();
     });
 });
@@ -226,9 +229,8 @@ test('Test FIND relations', (assert) => {
         $eq: 'c'
     }));
     let find3 = OGMNeoRelation.find(query3);
-
     Promise.all([find1, find2, find3]).then((finds) => {
-        assert.equal(finds[0].length, 3);
+        assert.equal(finds[0].length, 2);
         finds[0].forEach((rel) => {
             assert.equal(rel.__type, 'relatedto');
         });
@@ -291,7 +293,7 @@ test('Test FIND POPULATED relations', (assert) => {
     let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
     OGMNeoRelation.findPopulated(query).then((foundNodes) => {
-        assert.equal(foundNodes.length, 3);
+        assert.equal(foundNodes.length, 2);
         foundNodes.forEach((node) => {
             assert.notEqual(node.start, null);
             assert.deepEqual(node.start, {
@@ -344,9 +346,9 @@ test('Test FIND relations ORDER BY DESC', (assert) => {
     let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).descOrderBy('property').limit(3);
     OGMNeoRelation.find(query).then((foundRelations) => {
-        assert.equal(foundRelations.length, 3);
-        let relation1 = foundRelations[1];
-        let relation2 = foundRelations[2];
+        assert.equal(foundRelations.length, 2);
+        let relation1 = foundRelations[0];
+        let relation2 = foundRelations[1];
         assert.equal(relation1.property > relation2.property, true);
         assert.end();
     });
@@ -357,7 +359,7 @@ test('Test FIND relations ORDER BY ASC', (assert) => {
     let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id).ascOrderBy('property').limit(3);
     OGMNeoRelation.find(query).then((foundRelations) => {
-        assert.equal(foundRelations.length, 3);
+        assert.equal(foundRelations.length, 2);
         let relation1 = foundRelations[0];
         let relation2 = foundRelations[1];
         assert.equal(relation1.property < relation2.property, true);
@@ -549,7 +551,7 @@ test('Test COUNT relations', (assert) => {
     let count3 = OGMNeoRelation.count(query3);
 
     Promise.all([count1, count2, count3]).then((counts) => {
-        assert.equal(counts[0], 3);
+        assert.equal(counts[0], 2);
         assert.equal(counts[1], 0);
         assert.equal(counts[2], 1);
         assert.end();
@@ -614,7 +616,7 @@ test('Test DELETE MANY relations', (assert) => {
     let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').startNode(node1.id).endNode(node2.id);
     OGMNeoRelation.deleteMany(query).then((deletedRels) => {
-        assert.equal(deletedRels.length, 2);
+        assert.equal(deletedRels.length, 1);
         assert.end();
     });
 });
