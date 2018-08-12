@@ -59,11 +59,11 @@ test('Test CREATE relation', (assert) => {
 test('Test MERGE relation', (assert) => {
     let node1 = nodes[0];
     let node2 = nodes[1];
-    let rel1 = OGMNeoRelation.relateMerge(node1.id, 'relatedto', node2.id, {
+    let rel1 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {
         property: 'merge'
     });
     let rel2 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {});
-    let rel3 = OGMNeoRelation.relateMerge(node1.id, 'relatedto', node2.id, {
+    let rel3 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {
         property: 'merge'
     });
     let rel4 = OGMNeoRelation.relateMerge(node1.id, 'relatedto_1', node2.id, {});
@@ -77,9 +77,9 @@ test('Test MERGE relation', (assert) => {
         assert.notEqual(relation2.id, null);
         assert.notEqual(relation3.id, null);
         assert.notEqual(relation4.id, null);
-        assert.deepEqual(relation1.__type, 'relatedto');
+        assert.deepEqual(relation1.__type, 'relatedto_1');
         assert.deepEqual(relation2.__type, 'relatedto_1');
-        assert.deepEqual(relation3.__type, 'relatedto');
+        assert.deepEqual(relation3.__type, 'relatedto_1');
         assert.deepEqual(relation4.__type, 'relatedto_1');
         assert.equal(relation1.property, 'merge');
         assert.equal(relation2.property, undefined);
