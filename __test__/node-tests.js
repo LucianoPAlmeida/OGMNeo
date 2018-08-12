@@ -23,12 +23,33 @@ test('Test create node', (assert) => {
     });
 });
 
+test('Test merge node', (assert) => {    
+    OGMNeoNode.merge({ name: 'merge', tes: 3, array: ['das']}, 'test').then((node) => {
+        assert.notEqual(node, null);
+        assert.notEqual(node.id, null);
+        assert.deepEqual(node.name, 'merge');
+        assert.deepEqual(node.tes, 3);
+        assert.end();
+    });
+});
+
 test('Test create node with DATE param', (assert) => {    
     OGMNeoNode.create({ name: 'name1', date: new Date(), array: ['das']}, 'test')
     .then((node) => {
         assert.notEqual(node, null);
         assert.notEqual(node.id, null);
         assert.deepEqual(node.name, 'name1');
+        assert.notEqual(node.date, null);
+        assert.end();
+    });
+});
+
+test('Test merge node with DATE param', (assert) => {    
+    OGMNeoNode.merge({ name: 'merge', date: new Date(), array: ['das']}, 'test')
+    .then((node) => {
+        assert.notEqual(node, null);
+        assert.notEqual(node.id, null);
+        assert.deepEqual(node.name, 'merge');
         assert.notEqual(node.date, null);
         assert.end();
     });
@@ -347,8 +368,13 @@ test('Test delete MANY NODE', (assert) => {
     let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' }));
     OGMNeoNode.deleteMany(query).then((numberOfDeleted) => {
         assert.equal(numberOfDeleted, 1);
-        assert.end();
+        let tests = OGMQueryBuilder.create('test');
+        OGMNeoNode.deleteMany(tests).then((numberOfDeleted) => {
+            assert.equal(numberOfDeleted, 2);
+            assert.end();
+        });
     });
+    
 });
 
 test('Test Failed Count', (assert) => {
