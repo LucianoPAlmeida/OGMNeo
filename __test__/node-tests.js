@@ -23,8 +23,30 @@ test('Test create node', (assert) => {
     });
 });
 
+test('Test merge node', (assert) => {    
+    OGMNeoNode.merge({ name: 'name1', tes: 3, array: ['das']}, 'test').then((node) => {
+        assert.notEqual(node, null);
+        assert.notEqual(node.id, null);
+        assert.deepEqual(node.name, 'name1');
+        assert.deepEqual(node.tes, 3);
+        nodeId = node.id;
+        assert.end();
+    });
+});
+
 test('Test create node with DATE param', (assert) => {    
     OGMNeoNode.create({ name: 'name1', date: new Date(), array: ['das']}, 'test')
+    .then((node) => {
+        assert.notEqual(node, null);
+        assert.notEqual(node.id, null);
+        assert.deepEqual(node.name, 'name1');
+        assert.notEqual(node.date, null);
+        assert.end();
+    });
+});
+
+test('Test merge node with DATE param', (assert) => {    
+    OGMNeoNode.merge({ name: 'name1', date: new Date(), array: ['das']}, 'test')
     .then((node) => {
         assert.notEqual(node, null);
         assert.notEqual(node.id, null);
