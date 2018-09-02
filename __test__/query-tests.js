@@ -6,12 +6,10 @@ const OGMNeoWhere = require('../lib/ogmneo-where');
 
 
 test('Test FAILED WHERE assign', (assert) => {
-    try {
-        let queryBuilder = new QueryBuilder('Object').where({});
-    } catch(error) {
-        assert.equal(error.message, 'where parameter must be an instance of OGMNeoWhere class or null');
-        assert.end();
-    }
+    assert.throws(() => {
+        new QueryBuilder('Object').where({});
+    }, /where parameter must be an instance of OGMNeoWhere class or null/);
+    assert.end();
 });
 
 test('Test count method', (assert) => {
