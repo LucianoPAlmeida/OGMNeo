@@ -1,7 +1,6 @@
 'use strict';
 
 const test = require('tape');
-const QueryBuilder = require('../lib/ogmneo-query');
 const OGMNeoWhere = require('../lib/ogmneo-where');
 const OGMNeoRelationQuery = require('../lib/ogmneo-relation-query');
 

@@ -1,7 +1,6 @@
 'use strict';
 
 const test = require('tape');
-const OGMNeo = require('../lib/ogmneo');
 const OGMNeoNode = require('../lib/ogmneo-node');
 const OGMQueryBuilder = require('../lib/ogmneo-query');
 const OGMNeoRelation = require('../lib/ogmneo-relation');

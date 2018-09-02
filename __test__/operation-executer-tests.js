@@ -4,7 +4,6 @@ const test = require('tape');
 const { OGMNeoOperation, OGMNeoOperationBuilder } = require('../lib/ogmneo-operation');
 const OGMNeoOperationExecuter = require('../lib/ogmneo-operation-executer');
 const OGMNeoNode = require('../lib/ogmneo-node');
-const OGMNeo = require('../lib/ogmneo');
 const OGMNeoQuery = require('../lib/ogmneo-query');
 const OGMNeoWhere = require('../lib/ogmneo-where');
 

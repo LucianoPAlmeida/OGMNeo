@@ -4,9 +4,7 @@ const test = require('tape');
 const OGMNeo = require('../lib/ogmneo');
 const OGMNeoNode = require('../lib/ogmneo-node');
 const OGMNeoRelation = require('../lib/ogmneo-relation');
-const OGMQueryBuilder = require('../lib/ogmneo-query');
 const OGMNeoWhere = require('../lib/ogmneo-where');
-const OGMNeoQuery = require('../lib/ogmneo-query');
 const OGMNeoRelationQuery = require('../lib/ogmneo-relation-query');
 
 const _ = require('lodash');
