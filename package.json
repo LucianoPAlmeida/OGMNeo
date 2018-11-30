@@ -1,6 +1,6 @@
 {
   "name": "ogmneo",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "OGM(object-graph mapping) abstraction layer for neo4j",
   "main": "index.js",
   "scripts": {
