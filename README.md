@@ -7,6 +7,7 @@ Abstract some trivial operations on the Neo4j driver for Nodejs and make the use
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Travis](https://img.shields.io/travis/LucianoPAlmeida/OGMNeo.svg)](https://travis-ci.org/LucianoPAlmeida/OGMNeo?branch=master)
 [![Codecov](https://img.shields.io/codecov/c/github/LucianoPAlmeida/OGMNeo.svg)](https://codecov.io/gh/LucianoPAlmeida/OGMNeo)
+[![Twitter](https://img.shields.io/badge/twitter-lucianoalmeida-blue.svg)](https://twitter.com/LucianoPassos11)
 
 ## Installation
 
