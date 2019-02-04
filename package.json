@@ -33,13 +33,13 @@
   "author": "Luciano Almeida <passos.luciano@outlook.com>",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.10",
-    "neo4j-driver": "^1.4.1"
+    "lodash": "^4.17.11",
+    "neo4j-driver": "^1.7.2"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
     "istanbul": "^0.4.5",
-    "jsdoc": "^3.4.3",
-    "tape": "^4.6.3"
+    "jsdoc": "^3.5.5",
+    "tape": "^4.9.2"
   }
 }
