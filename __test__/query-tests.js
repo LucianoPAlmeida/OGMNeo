@@ -15,7 +15,7 @@ test('Test FAILED WHERE assign', (assert) => {
 test('Test count method', (assert) => {
     let where = new OGMNeoWhere('name', { $eq: 'derp' })
         .or('age', { $lt: 25 })
-        .and('last', { $eq: 'value' })
+        .and('last', { $eq: 'value' });
     let queryBuilder = new QueryBuilder('Object').where(where);
     let whereCypher = queryBuilder.countCypher();
     assert.equal(whereCypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN COUNT(n) as count');
@@ -27,7 +27,7 @@ test('Test count method', (assert) => {
 test('Test query builder', (assert) => {
     let where = new OGMNeoWhere('name', { $eq: 'derp' })
         .or('age', { $lt: 25 })
-        .and('last', { $eq: 'value' })
+        .and('last', { $eq: 'value' });
     let queryBuilder = new QueryBuilder('Object').where(where);
     let cypher = queryBuilder.queryCypher();
     assert.equal(cypher, 'MATCH (n:Object) WHERE n.name = \'derp\' OR n.age < 25 AND n.last = \'value\' RETURN n');
