@@ -9,7 +9,7 @@ test('Test create operation', (assert) => {
                                     .cypher('CREATE (n:Label {property: {property}}) RETURN n')
                                     .object({property: 'value'})
                                     .type(OGMNeoOperation.READ)
-                                    .then((result) => {
+                                    .then(() => {
                                         return { id: 1, property: 'value' };
                                     }).build();
     
@@ -26,7 +26,7 @@ test('Test operation convenience methods', (assert) => {
                                     .cypher('CREATE (n:Label {property: {property}}) RETURN n')
                                     .object({property: 'value'})
                                     .type(OGMNeoOperation.READ)
-                                    .then((result)=> {
+                                    .then(()=> {
                                         return { id: 1, property: 'value' };
                                     }).build();
     assert.true(operation.isReadType, 'Then is not a read operation');

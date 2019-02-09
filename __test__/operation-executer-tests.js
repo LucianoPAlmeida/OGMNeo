@@ -7,8 +7,6 @@ const OGMNeoNode = require('../lib/ogmneo-node');
 const OGMNeoQuery = require('../lib/ogmneo-query');
 const OGMNeoWhere = require('../lib/ogmneo-where');
 
-const _ = require('lodash');
-
 test('Test invalid operation type', (assert) => {
     assert.throws(() => {
         OGMNeoOperationBuilder.create().cypher('').type(2).build();
@@ -31,7 +29,6 @@ test('Test write type on operation', (assert) => {
                                .then((created) => {
                                    assert.equal(created.name, 'Ayrton Senna');
                                    assert.equal(created.carNumber, 12);
-                                   let id = created.id;
                                    created.carNumber = 1;
                                    let update = OGMNeoNode.updateOperation(created);
                                    return OGMNeoOperationExecuter.execute(update, transaction);

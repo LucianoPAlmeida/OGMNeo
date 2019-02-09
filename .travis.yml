@@ -27,6 +27,7 @@ before_script:
 
 script:
   - npm run lint
+  - npm run lint-test
   - npm test
   - istanbul cover tape ./__test__/*.js
   - codecov

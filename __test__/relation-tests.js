@@ -173,8 +173,6 @@ test('Test FAIL UPDATE relation', (assert) => {
 });
 
 test('Test FAIL UPDATE MANY', (assert) => {
-    let node1 = nodes[0];
-    let node2 = nodes[1];
 
     OGMNeoRelation.updateMany({
         newProperty: 'new!!!'
@@ -185,8 +183,6 @@ test('Test FAIL UPDATE MANY', (assert) => {
 });
 
 test('Test empty newProperties UPDATE MANY', (assert) => {
-    let node1 = nodes[0];
-    let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').relationWhere(OGMNeoWhere.create('property', {
         $eq: 'c'
     }));

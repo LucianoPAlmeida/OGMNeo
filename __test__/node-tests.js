@@ -339,8 +339,8 @@ test('Test delete cascade NODE', (assert) => {
     OGMNeoOperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
         let created1 = result[0];
         let created2 = result[1];
-        OGMNeoRelation.relate(created1.id,'RIVALS', created2.id).then((result) => {
-            OGMNeoNode.delete(created1).catch((error) => {
+        OGMNeoRelation.relate(created1.id,'RIVALS', created2.id).then(() => {
+            OGMNeoNode.delete(created1).catch(() => {
                 // Must be not able to normal deletion because the node have relations.
                 OGMNeoNode.deleteCascade(created1).then((deleted) => {
                     assert.equal(deleted, true);
