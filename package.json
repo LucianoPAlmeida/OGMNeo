@@ -6,7 +6,8 @@
   "scripts": {
     "docs": "jsdoc ./lib/** -d ./docs",
     "test": "tape ./__test__/**",
-    "lint": "eslint lib"
+    "lint": "eslint lib",
+    "lint-test": "eslint __test__"
   },
   "homepage": "https://github.com/LucianoPAlmeida/OGMNeo",
   "bugs": {

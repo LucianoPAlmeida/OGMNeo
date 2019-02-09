@@ -150,7 +150,7 @@ test('Test Failed execute query', (assert) => {
         assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
         assert.end();
     });
-})
+});
 
 test('Test execute query with results', (assert) => {
     let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' }));
@@ -197,7 +197,7 @@ test('Test Failed findOne query', (assert) => {
         assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
         assert.end();
     });
-})
+});
 
 test('Test findOne query with results', (assert) => {
     let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' })).ascOrderBy('name');
@@ -322,14 +322,14 @@ test('Test FAIL delete NODE', (assert) => {
         assert.notEqual(error, true);
         assert.equal(error.message, 'Node must to have an non-nil property id to be deleted');
         assert.end();
-    })
+    });
 });
 
 test('Test delete NODE', (assert) => {
     OGMNeoNode.delete({ id: nodeId }).then((deleted) => {
         assert.equal(deleted, true);
         assert.end();
-    })
+    });
 });
 
 test('Test delete cascade NODE', (assert) => {
@@ -339,8 +339,8 @@ test('Test delete cascade NODE', (assert) => {
     OGMNeoOperationExecuter.batchWriteOperations([createUser1, createUser2]).then((result) => {
         let created1 = result[0];
         let created2 = result[1];
-        OGMNeoRelation.relate(created1.id,'RIVALS', created2.id).then((result) => {
-            OGMNeoNode.delete(created1).catch((error) => {
+        OGMNeoRelation.relate(created1.id,'RIVALS', created2.id).then(() => {
+            OGMNeoNode.delete(created1).catch(() => {
                 // Must be not able to normal deletion because the node have relations.
                 OGMNeoNode.deleteCascade(created1).then((deleted) => {
                     assert.equal(deleted, true);
@@ -381,7 +381,7 @@ test('Test Failed Count', (assert) => {
         assert.equal(error.message, 'A OGMNeoQuery object must to be provided');
         assert.end();
     });
-})
+});
 
 test('Test count', (assert) => {
     OGMNeoNode.countWithLabel('test').then((count) => {

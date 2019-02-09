@@ -9,8 +9,8 @@ test('Test create operation', (assert) => {
                                     .cypher('CREATE (n:Label {property: {property}}) RETURN n')
                                     .object({property: 'value'})
                                     .type(OGMNeoOperation.READ)
-                                    .then((result) => {
-                                        return { id: 1, property: 'value' }
+                                    .then(() => {
+                                        return { id: 1, property: 'value' };
                                     }).build();
     
     assert.equal(operation.cypher, 'CREATE (n:Label {property: {property}}) RETURN n');
@@ -26,8 +26,8 @@ test('Test operation convenience methods', (assert) => {
                                     .cypher('CREATE (n:Label {property: {property}}) RETURN n')
                                     .object({property: 'value'})
                                     .type(OGMNeoOperation.READ)
-                                    .then((result)=> {
-                                        return { id: 1, property: 'value' }
+                                    .then(()=> {
+                                        return { id: 1, property: 'value' };
                                     }).build();
     assert.true(operation.isReadType, 'Then is not a read operation');
     assert.false(operation.isWriteType, 'Then is not a write operation');    

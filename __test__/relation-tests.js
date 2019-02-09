@@ -137,9 +137,9 @@ test('Test UPDATE first relation', (assert) => {
     let relation = _.first(relations);
     assert.notEqual(relation, null);
     OGMNeoRelation.update(relation.id, {
-            newProperty: 'b',
-            property: 'c'
-        })
+        newProperty: 'b',
+        property: 'c'
+    })
         .then((updatedRel) => {
             assert.equal(updatedRel.newProperty, 'b');
             assert.equal(updatedRel.property, 'c');
@@ -151,9 +151,9 @@ test('Test UPDATE second relation', (assert) => {
     let relation = relations[1];
     assert.notEqual(relation, null);
     OGMNeoRelation.update(relation.id, {
-            newProperty: 'b',
-            property: 'a'
-        })
+        newProperty: 'b',
+        property: 'a'
+    })
         .then((updatedRel) => {
             assert.equal(updatedRel.newProperty, 'b');
             assert.equal(updatedRel.property, 'a');
@@ -163,9 +163,9 @@ test('Test UPDATE second relation', (assert) => {
 
 test('Test FAIL UPDATE relation', (assert) => {
     OGMNeoRelation.update('', {
-            newProperty: 'b',
-            property: 'c'
-        })
+        newProperty: 'b',
+        property: 'c'
+    })
         .catch((error) => {
             assert.equal(error.message, 'Relation id must to be integer');
             assert.end();
@@ -173,8 +173,6 @@ test('Test FAIL UPDATE relation', (assert) => {
 });
 
 test('Test FAIL UPDATE MANY', (assert) => {
-    let node1 = nodes[0];
-    let node2 = nodes[1];
 
     OGMNeoRelation.updateMany({
         newProperty: 'new!!!'
@@ -185,8 +183,6 @@ test('Test FAIL UPDATE MANY', (assert) => {
 });
 
 test('Test empty newProperties UPDATE MANY', (assert) => {
-    let node1 = nodes[0];
-    let node2 = nodes[1];
     let query = OGMNeoRelationQuery.create('relatedto').relationWhere(OGMNeoWhere.create('property', {
         $eq: 'c'
     }));
@@ -204,8 +200,8 @@ test('Test UPDATE MANY', (assert) => {
         $eq: 'c'
     }));
     OGMNeoRelation.updateMany({
-            newProperty: 'new!!!'
-        }, query)
+        newProperty: 'new!!!'
+    }, query)
         .then((updatedRelations) => {
             assert.equal(updatedRelations.length, 1);
             updatedRelations.forEach((relation) => {
@@ -599,7 +595,7 @@ test('TEST DELETE relation', (assert) => {
     OGMNeoRelation.deleteRelation(rel.id).then((deletedRel) => {
         assert.equal(rel.id, deletedRel.id);
         assert.end();
-    })
+    });
 });
 
 test('Test FAIL DELETE MANY', (assert) => {

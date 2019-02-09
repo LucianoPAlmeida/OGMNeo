@@ -7,12 +7,10 @@ const OGMNeoNode = require('../lib/ogmneo-node');
 const OGMNeoQuery = require('../lib/ogmneo-query');
 const OGMNeoWhere = require('../lib/ogmneo-where');
 
-const _ = require('lodash');
-
 test('Test invalid operation type', (assert) => {
     assert.throws(() => {
         OGMNeoOperationBuilder.create().cypher('').type(2).build();
-    }, /The type cannot be null or undefined and must be a string with either value  'READ' or 'WRITE'/);
+    }, /The type cannot be null or undefined and must be a string with either value {2}'READ' or 'WRITE'/);
     assert.end();
 });
 
@@ -29,12 +27,11 @@ test('Test write type on operation', (assert) => {
     OGMNeoOperationExecuter.write((transaction) => {
         return OGMNeoOperationExecuter.execute(create, transaction)
                                .then((created) => {
-                                    assert.equal(created.name, 'Ayrton Senna');
-                                    assert.equal(created.carNumber, 12);
-                                    let id = created.id;
-                                    created.carNumber = 1;
-                                    let update = OGMNeoNode.updateOperation(created);
-                                    return OGMNeoOperationExecuter.execute(update, transaction);
+                                   assert.equal(created.name, 'Ayrton Senna');
+                                   assert.equal(created.carNumber, 12);
+                                   created.carNumber = 1;
+                                   let update = OGMNeoNode.updateOperation(created);
+                                   return OGMNeoOperationExecuter.execute(update, transaction);
                                });
     }).then((result) => {
         assert.equal(result.name, 'Ayrton Senna');
