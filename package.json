@@ -35,12 +35,12 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.11",
-    "neo4j-driver": "^1.7.2"
+    "neo4j-driver": "^1.7.5"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
     "istanbul": "^0.4.5",
-    "jsdoc": "^3.5.5",
-    "tape": "^4.9.2"
+    "jsdoc": "^3.6.2",
+    "tape": "^4.10.2"
   }
 }
