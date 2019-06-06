@@ -9,8 +9,8 @@ env:
   - NEO4J_VERSION="3.5.2"
 
 before_install:
-  - nvm install 6.16.0
-  - nvm use 6.16.0
+  - nvm install 8.16.0
+  - nvm use 8.16.0
   # install Neo4j manually:
   - wget dist.neo4j.org/neo4j-community-$NEO4J_VERSION-unix.tar.gz
   - tar -xzf neo4j-community-$NEO4J_VERSION-unix.tar.gz
