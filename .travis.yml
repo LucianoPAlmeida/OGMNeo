@@ -1,7 +1,7 @@
 language: java # Work around to make neo4j works.
 
 jdk:
-  - oraclejdk9
+  - oraclejdk11
 
 sudo: required
 
