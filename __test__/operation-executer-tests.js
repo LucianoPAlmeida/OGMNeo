@@ -26,13 +26,13 @@ test('Test write type on operation', (assert) => {
     let create = OGMNeoNode.createOperation({name: 'Ayrton Senna', carNumber: 12 }, 'Person');
     OGMNeoOperationExecuter.write((transaction) => {
         return OGMNeoOperationExecuter.execute(create, transaction)
-                               .then((created) => {
-                                   assert.equal(created.name, 'Ayrton Senna');
-                                   assert.equal(created.carNumber, 12);
-                                   created.carNumber = 1;
-                                   let update = OGMNeoNode.updateOperation(created);
-                                   return OGMNeoOperationExecuter.execute(update, transaction);
-                               });
+            .then((created) => {
+                assert.equal(created.name, 'Ayrton Senna');
+                assert.equal(created.carNumber, 12);
+                created.carNumber = 1;
+                let update = OGMNeoNode.updateOperation(created);
+                return OGMNeoOperationExecuter.execute(update, transaction);
+            });
     }).then((result) => {
         assert.equal(result.name, 'Ayrton Senna');
         assert.equal(result.carNumber, 1);

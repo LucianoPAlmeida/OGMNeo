@@ -6,12 +6,12 @@ const _ = require('lodash');
 
 test('Test create operation', (assert) => {    
     let operation = OGMNeoOperationBuilder.create()
-                                    .cypher('CREATE (n:Label {property: {property}}) RETURN n')
-                                    .object({property: 'value'})
-                                    .type(OGMNeoOperation.READ)
-                                    .then(() => {
-                                        return { id: 1, property: 'value' };
-                                    }).build();
+        .cypher('CREATE (n:Label {property: {property}}) RETURN n')
+        .object({property: 'value'})
+        .type(OGMNeoOperation.READ)
+        .then(() => {
+            return { id: 1, property: 'value' };
+        }).build();
     
     assert.equal(operation.cypher, 'CREATE (n:Label {property: {property}}) RETURN n');
     assert.equal(operation.type, OGMNeoOperation.READ);
@@ -23,12 +23,12 @@ test('Test create operation', (assert) => {
 
 test('Test operation convenience methods', (assert) => {    
     let operation = OGMNeoOperationBuilder.create()
-                                    .cypher('CREATE (n:Label {property: {property}}) RETURN n')
-                                    .object({property: 'value'})
-                                    .type(OGMNeoOperation.READ)
-                                    .then(()=> {
-                                        return { id: 1, property: 'value' };
-                                    }).build();
+        .cypher('CREATE (n:Label {property: {property}}) RETURN n')
+        .object({property: 'value'})
+        .type(OGMNeoOperation.READ)
+        .then(()=> {
+            return { id: 1, property: 'value' };
+        }).build();
     assert.true(operation.isReadType, 'Then is not a read operation');
     assert.false(operation.isWriteType, 'Then is not a write operation');    
     assert.end();

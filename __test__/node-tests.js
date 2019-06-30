@@ -34,24 +34,24 @@ test('Test merge node', (assert) => {
 
 test('Test create node with DATE param', (assert) => {    
     OGMNeoNode.create({ name: 'name1', date: new Date(), array: ['das']}, 'test')
-    .then((node) => {
-        assert.notEqual(node, null);
-        assert.notEqual(node.id, null);
-        assert.deepEqual(node.name, 'name1');
-        assert.notEqual(node.date, null);
-        assert.end();
-    });
+        .then((node) => {
+            assert.notEqual(node, null);
+            assert.notEqual(node.id, null);
+            assert.deepEqual(node.name, 'name1');
+            assert.notEqual(node.date, null);
+            assert.end();
+        });
 });
 
 test('Test merge node with DATE param', (assert) => {    
     OGMNeoNode.merge({ name: 'merge', date: new Date(), array: ['das']}, 'test')
-    .then((node) => {
-        assert.notEqual(node, null);
-        assert.notEqual(node.id, null);
-        assert.deepEqual(node.name, 'merge');
-        assert.notEqual(node.date, null);
-        assert.end();
-    });
+        .then((node) => {
+            assert.notEqual(node, null);
+            assert.notEqual(node.id, null);
+            assert.deepEqual(node.name, 'merge');
+            assert.notEqual(node.date, null);
+            assert.end();
+        });
 });
 
 test('Test update node', (assert) => {
@@ -97,14 +97,14 @@ test('Test empty new properties updateMany node', (assert) => {
 test('Test updateMany node', (assert) => {
     let query = OGMQueryBuilder.create('test').where(new OGMNeoWhere('name', { $eq: 'name1' }));
     OGMNeoNode.updateMany(query, {newProperty: 'new!!!'})
-    .then((updatedNodes) => {
-        assert.equal(updatedNodes.length, 2);
-        updatedNodes.forEach((node) => {
-            assert.notEqual(node.id, null);
-            assert.equal(node.newProperty, 'new!!!');
+        .then((updatedNodes) => {
+            assert.equal(updatedNodes.length, 2);
+            updatedNodes.forEach((node) => {
+                assert.notEqual(node.id, null);
+                assert.equal(node.newProperty, 'new!!!');
+            });
+            assert.end();
         });
-        assert.end();
-    });
 });
 
 test('Test get by id', (assert) => {
@@ -222,8 +222,8 @@ test('Test findOne query with results and return clause', (assert) => {
 
 test('Test execute query with results and ORDER BY', (assert) => {
     let query = OGMQueryBuilder.create('test')
-    .where(new OGMNeoWhere('name', { $eq: 'name1' }))
-    .ascOrderBy('name');
+        .where(new OGMNeoWhere('name', { $eq: 'name1' }))
+        .ascOrderBy('name');
     OGMNeoNode.find(query).then((nodes) => {
         assert.ok(_.size(nodes) >= 1);
         nodes.forEach((node) => {
