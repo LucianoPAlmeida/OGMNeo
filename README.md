@@ -1,3 +1,9 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+# :warning: Deprecated :warning:
+
+This library is deprecated and will no longer be updated.
+
 # OGMNeo
 
 Abstract some trivial operations on the Neo4j driver for Nodejs and make the use simpler. That's why we created OGMNeo.
